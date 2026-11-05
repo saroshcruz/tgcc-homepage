@@ -1,0 +1,497 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="_ds/the-good-craft-co-design-system-6c692aae-ea5f-4e10-8127-8cdcf2234f3c/tokens/fonts.css">
+<link rel="stylesheet" href="_ds/the-good-craft-co-design-system-6c692aae-ea5f-4e10-8127-8cdcf2234f3c/tokens/colors.css">
+<link rel="stylesheet" href="_ds/the-good-craft-co-design-system-6c692aae-ea5f-4e10-8127-8cdcf2234f3c/tokens/typography.css">
+<link rel="stylesheet" href="_ds/the-good-craft-co-design-system-6c692aae-ea5f-4e10-8127-8cdcf2234f3c/tokens/spacing.css">
+<link rel="stylesheet" href="_ds/the-good-craft-co-design-system-6c692aae-ea5f-4e10-8127-8cdcf2234f3c/tokens/base.css">
+<link rel="stylesheet" href="_ds/the-good-craft-co-design-system-6c692aae-ea5f-4e10-8127-8cdcf2234f3c/styles.css">
+<script src="_ds/the-good-craft-co-design-system-6c692aae-ea5f-4e10-8127-8cdcf2234f3c/_ds_bundle.js"></script>
+<style>
+body{margin:0;background:#2E2F23;color:#4D4D3C;font-family:var(--font-sans);-webkit-tap-highlight-color:transparent}
+a{color:inherit;text-decoration:none}a:hover{color:inherit;opacity:.86}
+.tgcc-sc::-webkit-scrollbar{display:none}
+@keyframes tgccMarquee{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+@keyframes tgccProg{from{transform:scaleX(0)}to{transform:scaleX(1)}}
+@keyframes tgccSpin{from{transform:rotate(0)}to{transform:rotate(360deg)}}
+@keyframes tgccPulse{0%{transform:scale(1);opacity:.6}100%{transform:scale(2.6);opacity:0}}
+@keyframes tgccDot{0%,100%{transform:scale(1)}50%{transform:scale(1.18)}}
+@keyframes tgccFade{from{opacity:0}to{opacity:1}}
+</style>
+</helmet>
+
+<div style="position:relative;max-width:430px;margin:0 auto;background:#FBF3E1;overflow-x:clip">
+
+<header style="position:fixed;top:0;left:50%;transform:translateX(-50%);width:100%;max-width:430px;z-index:50;transition:background 300ms ease;background:{{ navBg }}">
+  <div style="display:flex;align-items:center;justify-content:space-between;padding:10px 20px;height:56px">
+    <a href="#top" style="display:flex">
+      <x-import component-from-global-scope="TheGoodCraftCoDesignSystem_6c692a.Logo" color="creme" size="{{ logoSize }}" hint-size="60px,60px"></x-import>
+    </a>
+    <button onClick="{{ toggleMenu }}" aria-label="Menu" style="position:relative;width:44px;height:44px;border:0;background:transparent;cursor:pointer;padding:0">
+      <span style="position:absolute;left:10px;right:10px;height:2px;background:#FBF3E1;transition:all 300ms ease;top:{{ bar1Top }};transform:rotate({{ bar1Rot }})"></span>
+      <span style="position:absolute;left:10px;right:10px;top:21px;height:2px;background:#FBF3E1;transition:opacity 200ms ease;opacity:{{ bar2Op }}"></span>
+      <span style="position:absolute;left:10px;right:10px;height:2px;background:#FBF3E1;transition:all 300ms ease;top:{{ bar3Top }};transform:rotate({{ bar3Rot }})"></span>
+    </button>
+  </div>
+  <sc-if value="{{ menuOpen }}" hint-placeholder-val="{{ false }}">
+    <div style="position:absolute;top:100%;left:0;right:0;height:calc(100vh - 56px);overflow-y:auto;background:#2E2F23;padding:8px 20px 32px;box-sizing:border-box;display:flex;flex-direction:column;animation:tgccFade 240ms ease">
+      <sc-for list="{{ nav }}" as="n" hint-placeholder-count="6">
+        <div style="border-bottom:1px solid rgba(251,243,225,.2)">
+          <button onClick="{{ n.tap }}" style="width:100%;display:flex;justify-content:space-between;align-items:center;padding:20px 0;background:transparent;border:0;cursor:pointer;font-family:inherit;font-size:15px;font-weight:500;letter-spacing:.12em;text-transform:uppercase;color:#FBF3E1;text-align:left">{{ n.label }}<span style="font-size:20px;color:#DBBC88;font-weight:300">{{ n.sign }}</span></button>
+          <sc-if value="{{ n.open }}" hint-placeholder-val="{{ false }}">
+            <div style="padding:0 0 16px;display:flex;flex-direction:column;gap:2px;animation:tgccFade 240ms ease">
+              <p style="margin:0 0 8px;font-family:var(--font-serif);font-size:20px;line-height:1.25;color:#FBF3E1">{{ n.blurb }}</p>
+              <sc-for list="{{ n.links }}" as="l" hint-placeholder-count="3"><a href="#" style="display:flex;justify-content:space-between;padding:12px 0;font-size:15px;color:#FBF3E1">{{ l }}<span style="font-size:12px;color:#DBBC88">→</span></a></sc-for>
+            </div>
+          </sc-if>
+        </div>
+      </sc-for>
+      <div style="margin-top:auto;padding-top:28px;display:flex;flex-direction:column;gap:10px">
+        <a href="#visit" onClick="{{ toggleMenu }}" style="padding:16px;text-align:center;border:1px solid #FBF3E1;color:#FBF3E1;font-size:13px;font-weight:600;letter-spacing:.12em;text-transform:uppercase">Plan Your Visit</a>
+        <a href="#" style="padding:16px;text-align:center;background:#DBBC88;color:#4D4D3C;font-size:13px;font-weight:600;letter-spacing:.12em;text-transform:uppercase">Book Tickets</a>
+      </div>
+    </div>
+  </sc-if>
+</header>
+
+<div style="position:fixed;bottom:0;left:50%;width:100%;max-width:430px;z-index:40;display:flex;gap:10px;padding:12px 16px calc(12px + env(safe-area-inset-bottom));box-sizing:border-box;background:rgba(46,47,35,.96);border-top:1px solid rgba(251,243,225,.16);transition:transform 400ms cubic-bezier(.2,.7,.2,1);transform:translateX(-50%) translateY({{ barY }})">
+  <a href="#visit" style="flex:1;display:flex;justify-content:center;align-items:center;height:48px;border:1px solid #FBF3E1;color:#FBF3E1;font-size:12px;font-weight:600;letter-spacing:.1em;text-transform:uppercase">Plan Your Visit</a>
+  <a href="#" style="flex:1;display:flex;justify-content:center;align-items:center;height:48px;background:#DBBC88;color:#4D4D3C;font-size:12px;font-weight:600;letter-spacing:.1em;text-transform:uppercase">Book Tickets</a>
+</div>
+
+<section id="top" data-screen-label="01 Hero" style="position:relative;height:100vh;height:100svh;min-height:600px;max-height:860px;overflow:hidden;background:#3C3D2D">
+  <img src="assets/hero-exterior.jpg" alt="The TGCC distillery in Ponda" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:62% 50%">
+  <div style="position:absolute;inset:0;pointer-events:none;background:linear-gradient(180deg,rgba(28,28,20,.62) 0%,rgba(28,28,20,.3) 22%,rgba(28,28,20,.5) 52%,rgba(28,28,20,.9) 100%)"></div>
+  <div style="position:absolute;left:20px;right:20px;bottom:112px;display:flex;flex-direction:column;gap:24px">
+    <div style="display:flex;flex-direction:column;gap:14px">
+      <img data-reveal="arrow" src="assets/arrow-tan.png" alt="" style="width:64px;height:auto;display:block;margin-bottom:2px">
+      <span data-reveal="left" data-reveal-delay="450" style="font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:#DBBC88">Ponda, Goa · A working distillery</span>
+      <h1 data-reveal="left" data-reveal-delay="580" style="margin:0;color:#FBF3E1;font-weight:200;font-size:42px;line-height:1.02;letter-spacing:-.005em">Step inside <span style="font-family:var(--font-serif);font-weight:400">the house</span> of good craft</h1>
+      <p data-reveal="left" data-reveal-delay="720" style="margin:0;color:#FBF3E1;font-size:15px;line-height:1.5;max-width:340px;text-wrap:pretty">Where we make Indian spirits by hand, in small batches, from ingredients grown on our own land.</p>
+    </div>
+    <div data-reveal="left" data-reveal-delay="860" style="display:flex;gap:10px;flex-wrap:wrap">
+      <x-import component-from-global-scope="TheGoodCraftCoDesignSystem_6c692a.Button" variant="inverse" size="md" hint-size="150px,42px">Book Tickets</x-import>
+      <a href="#experiences" style="display:inline-flex;align-items:center;padding:12px 18px;border:1px solid #FBF3E1;color:#FBF3E1;font-size:12px;font-weight:600;letter-spacing:.1em;text-transform:uppercase">Explore Experiences</a>
+    </div>
+  </div>
+  <div data-screen-label="02 Awards" style="position:absolute;left:0;right:0;bottom:0;height:84px;background:rgba(28,28,20,.82);border-top:1px solid rgba(251,243,225,.16);overflow:hidden;display:flex;align-items:center">
+    <div style="display:flex;width:max-content;animation:tgccMarquee 40s linear infinite">
+      <sc-for list="{{ awardsLoop }}" as="a" hint-placeholder-count="8">
+        <div style="display:flex;align-items:center;gap:14px;padding:0 32px;border-right:1px solid rgba(251,243,225,.16)">
+          <div style="width:44px;height:44px;border-radius:50%;border:1px dashed rgba(251,243,225,.5);display:grid;place-items:center;font-size:7px;letter-spacing:.12em;color:rgba(251,243,225,.7)">LOGO</div>
+          <div style="display:flex;flex-direction:column;gap:3px;white-space:nowrap">
+            <span style="font-family:var(--font-serif);font-size:18px;color:#FBF3E1">{{ a.t }}</span>
+            <span style="font-size:10px;letter-spacing:.12em;text-transform:uppercase;color:#DBBC88">{{ a.s }}</span>
+          </div>
+        </div>
+      </sc-for>
+    </div>
+  </div>
+</section>
+
+<section id="experiences" data-screen-label="03 Experiences intro" style="background:#DBBC88;padding:28px 20px;display:flex;flex-direction:column;align-items:flex-start;gap:18px">
+  <h2 data-reveal="left" style="margin:0;font-size:30px;line-height:1.08;font-weight:200;color:#4D4D3C">Tours run <span style="font-family:var(--font-serif);font-weight:400">every day.</span> <span style="font-weight:700">Come see how it's made.</span></h2>
+  <x-import component-from-global-scope="TheGoodCraftCoDesignSystem_6c692a.Button" variant="primary" size="md" hint-size="120px,42px">View all</x-import>
+</section>
+
+<section data-screen-label="03b Experiences slideshow" style="position:relative;overflow:hidden;background:#4D4D3C">
+  <sc-for list="{{ exps }}" as="e" hint-placeholder-count="1">
+    <img src="{{ e.img }}" alt="{{ e.title }}" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;transition:opacity 900ms ease, transform 6s ease;opacity:{{ e.op }};transform:scale({{ e.scale }})">
+  </sc-for>
+  <div style="position:absolute;inset:0;background:linear-gradient(180deg,rgba(28,28,20,.82) 0%,rgba(28,28,20,.5) 38%,rgba(28,28,20,.55) 60%,rgba(28,28,20,.9) 100%)"></div>
+  <div style="position:relative;padding:44px 0 0;color:#FBF3E1">
+    <div style="padding:0 20px;display:flex;flex-direction:column;gap:10px">
+      <span style="width:24px;height:2px;background:#DBBC88"></span>
+      <span style="font-size:12px;color:#FBF3E1">{{ cur.meta }}</span>
+      <h3 style="margin:0;font-family:var(--font-sans-xcondensed);font-weight:700;text-transform:uppercase;font-size:56px;line-height:.9;color:#FBF3E1">{{ cur.title }}</h3>
+      <p style="margin:0;max-width:320px;font-size:13px;line-height:1.45;color:#FBF3E1;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden">{{ cur.short }}</p>
+      <div style="display:flex;gap:8px;align-items:center;margin-top:4px">
+        <x-import component-from-global-scope="TheGoodCraftCoDesignSystem_6c692a.Button" variant="tan" size="sm" hint-size="130px,36px">Book Tickets</x-import>
+        <a href="#" style="display:inline-flex;align-items:center;height:36px;box-sizing:border-box;padding:0 16px;border:1px solid rgba(251,243,225,.7);border-radius:999px;color:#FBF3E1;font-size:11px;font-weight:600;letter-spacing:.1em;text-transform:uppercase">Details</a>
+      </div>
+    </div>
+    <div ref="{{ scrollRef }}" onTouchStart="{{ pause }}" onTouchEnd="{{ resume }}" class="tgcc-sc" style="margin-top:28px;display:flex;gap:14px;overflow-x:auto;scroll-snap-type:x mandatory;scroll-padding-left:20px;padding:0 20px;scrollbar-width:none;-webkit-overflow-scrolling:touch">
+      <sc-for list="{{ cards }}" as="c" hint-placeholder-count="4">
+        <button onClick="{{ c.go }}" style="flex:0 0 calc((100% - 14px)/1.5);scroll-snap-align:start;aspect-ratio:3/4;position:relative;padding:0;border:0;cursor:pointer;overflow:hidden;background:#4D4D3C;text-align:left;box-shadow:0 14px 30px rgba(0,0,0,.35);transition:opacity 400ms ease;opacity:{{ c.op }}">
+          <img src="{{ c.img }}" alt="" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover">
+          <span style="position:absolute;inset:0;background:linear-gradient(180deg,rgba(46,47,35,0) 45%,rgba(46,47,35,.92) 100%)"></span>
+          <span style="position:absolute;left:14px;right:14px;bottom:14px;display:flex;flex-direction:column;gap:6px;color:#FBF3E1">
+            <span style="width:16px;height:1px;background:#FBF3E1"></span>
+            <span style="font-size:10px;color:#FBF3E1">{{ c.meta }}</span>
+            <span style="font-family:var(--font-sans-xcondensed);font-weight:700;font-size:24px;line-height:.95;text-transform:uppercase">{{ c.title }}</span>
+          </span>
+        </button>
+      </sc-for>
+      <div style="flex:0 0 calc((100% - 14px)/3)"></div>
+    </div>
+    <div style="padding:20px;display:flex;align-items:center;gap:12px">
+      <button onClick="{{ prev }}" aria-label="Previous" style="width:40px;height:40px;border-radius:50%;border:1px solid rgba(251,243,225,.6);background:transparent;color:#FBF3E1;font-size:16px;line-height:1;cursor:pointer">‹</button>
+      <button onClick="{{ next }}" aria-label="Next" style="width:40px;height:40px;border-radius:50%;border:1px solid rgba(251,243,225,.6);background:transparent;color:#FBF3E1;font-size:16px;line-height:1;cursor:pointer">›</button>
+      <div style="flex:1;height:1px;background:rgba(251,243,225,.3);position:relative;overflow:hidden">{{ progressBar }}</div>
+      <span style="font-family:var(--font-sans-xcondensed);font-weight:500;font-size:32px;line-height:1;color:#FBF3E1;min-width:44px;text-align:right">{{ num }}</span>
+    </div>
+    <div data-screen-label="03c As seen on" style="margin:0 20px;padding:20px 0 28px;border-top:1px solid rgba(251,243,225,.22);display:flex;flex-direction:column;gap:18px">
+      <span style="font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:#DBBC88">As seen on</span>
+      <div style="display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:22px 8px;align-items:center;justify-items:center">
+        <a href="#" style="font-family:var(--font-serif);font-size:14px;letter-spacing:.03em;color:#FBF3E1;text-align:center;line-height:1.1">Condé Nast <span style="font-style:italic">Traveller</span></a>
+        <a href="#" style="font-family:var(--font-serif);font-weight:700;font-size:20px;letter-spacing:.14em;text-transform:uppercase;color:#FBF3E1">Vogue</a>
+        <a href="#" style="font-family:var(--font-sans-condensed);font-weight:800;font-size:24px;letter-spacing:-.02em;color:#FBF3E1">GQ</a>
+        <a href="#" style="font-weight:700;font-size:16px;text-transform:lowercase;letter-spacing:-.01em;color:#FBF3E1">mint<span style="font-weight:300">lounge</span></a>
+        <a href="#" style="font-family:var(--font-serif);font-size:18px;color:#FBF3E1">The Hindu</a>
+        <a href="#" style="font-family:var(--font-sans-xcondensed);font-weight:600;font-size:18px;letter-spacing:.2em;text-transform:uppercase;color:#FBF3E1">AD India</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="visit" data-screen-label="04 Plan your visit" style="overflow:hidden;border-bottom:1.5px solid #364622;background:#FBF3E1;scroll-margin-top:56px">
+  <div style="background:#364622;padding:22px 20px 24px;display:flex;flex-direction:column;align-items:center;gap:16px">
+    <span style="align-self:flex-start;font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:#DBBC88">Tap a place to see the distance</span>
+    <div data-reveal="expand" style="position:relative;height:380px;aspect-ratio:740/980;max-width:100%">
+      <svg viewBox="0 0 740 980" style="position:absolute;inset:0;width:100%;height:100%;overflow:visible">
+        <polygon points="80,40 230,40 310,90 480,160 610,190 660,290 640,440 690,560 660,690 560,790 540,890 460,940 380,920 340,820 310,740 280,670 260,590 240,540 200,480 140,440 180,410 190,370 160,340 120,310 90,260 70,210 50,140" fill="#7D8F69" stroke="#B0B885" stroke-width="2" stroke-linejoin="round"></polygon>
+        <polygon points="300,300 480,160 610,190 660,290 640,440 520,470 400,470" fill="#94A67E" opacity=".55"></polygon>
+        <polygon points="260,590 320,500 520,470 640,440 690,560 660,690 560,790 420,760 310,740" fill="#677456" opacity=".5"></polygon>
+        <line x1="370" y1="440" x2="{{ sel.x }}" y2="{{ sel.y }}" stroke="#FBF3E1" stroke-width="3" stroke-dasharray="8 8"></line>
+      </svg>
+      <sc-for list="{{ places }}" as="pl" hint-placeholder-count="10">
+        <button data-reveal="pop" data-reveal-delay="{{ pl.delay }}" onClick="{{ pl.pick }}" style="position:absolute;margin:-18px 0 0 -18px;left:{{ pl.left }};top:{{ pl.top }};width:36px;height:36px;border:0;background:transparent;cursor:pointer;padding:0;display:grid;place-items:center">
+          <span style="position:relative;z-index:1;width:9px;height:9px;border-radius:50%;border:1.5px solid #FBF3E1;transition:all 280ms ease;background:{{ pl.fill }}"></span>
+          <span style="position:absolute;z-index:3;left:{{ pl.lx }};right:{{ pl.rx }};white-space:nowrap;font-size:10px;letter-spacing:.04em;color:#FBF3E1;font-weight:{{ pl.weight }}">{{ pl.name }}</span>
+        </button>
+      </sc-for>
+      <div style="position:absolute;left:50%;top:44.9%;transform:translate(-50%,-50%);width:18px;height:18px;pointer-events:none"><div data-reveal="pop" data-reveal-delay="800" style="position:absolute;inset:0">
+        <span style="position:absolute;inset:0;border-radius:50%;background:#DBBC88;animation:tgccPulse 2.2s ease-out infinite"></span>
+        <span style="position:absolute;inset:3px;border-radius:50%;background:#DBBC88;border:2px solid #FBF3E1"></span>
+      </div></div>
+      <span data-reveal="pop" data-reveal-delay="900" style="position:absolute;left:53%;top:47.2%;font-size:9px;letter-spacing:.1em;text-transform:uppercase;font-weight:700;color:#DBBC88;white-space:nowrap;pointer-events:none">TGCC · Ponda</span>
+    </div>
+    <div style="align-self:stretch;display:flex;justify-content:space-between;align-items:flex-end;gap:16px;color:#FBF3E1;padding-top:14px;border-top:1px solid rgba(251,243,225,.25)">
+      <div style="display:flex;flex-direction:column;gap:4px">
+        <span style="font-size:10px;letter-spacing:.12em;text-transform:uppercase;color:#DBBC88">From</span>
+        <span style="font-family:var(--font-sans-xcondensed);font-weight:700;font-size:28px;line-height:.95;text-transform:uppercase">{{ sel.name }}</span>
+      </div>
+      <div style="display:flex;gap:18px;text-align:right">
+        <div style="display:flex;flex-direction:column;gap:2px"><span style="font-family:var(--font-sans-xcondensed);font-weight:500;font-size:26px;line-height:1">{{ sel.km }}</span><span style="font-size:10px;color:#B0B885">by road</span></div>
+        <div style="display:flex;flex-direction:column;gap:2px"><span style="font-family:var(--font-sans-xcondensed);font-weight:500;font-size:26px;line-height:1">{{ sel.time }}</span><span style="font-size:10px;color:#B0B885">drive time</span></div>
+      </div>
+    </div>
+  </div>
+  <div data-reveal="up" style="padding:32px 20px 36px;display:flex;flex-direction:column;gap:22px">
+    <div style="display:flex;flex-direction:column;gap:8px">
+      <span style="font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:#615D51">Plan Your Visit</span>
+      <h2 style="margin:0;font-size:32px;line-height:1.05;font-weight:200">Find us <span style="font-family:var(--font-serif);font-weight:400">in Ponda,</span> <span style="font-weight:700">Goa.</span></h2>
+    </div>
+    <div style="display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:0 18px">
+      <sc-for list="{{ visitInfo }}" as="v" hint-placeholder-count="6">
+        <div style="display:flex;flex-direction:column;gap:4px;padding:10px 0 12px;border-top:1px solid rgba(77,77,60,.25)">
+          <span style="font-size:10px;letter-spacing:.12em;text-transform:uppercase;font-weight:700;color:#4D4D3C">{{ v.k }}</span>
+          <sc-for list="{{ v.lines }}" as="ln" hint-placeholder-count="2"><span style="font-size:13px;line-height:1.4;color:#4D4D3C">{{ ln }}</span></sc-for>
+        </div>
+      </sc-for>
+    </div>
+    <div style="display:flex;gap:10px;flex-wrap:wrap">
+      <x-import component-from-global-scope="TheGoodCraftCoDesignSystem_6c692a.Button" variant="primary" size="sm" hint-size="140px,36px">Plan Your Visit</x-import>
+      <x-import component-from-global-scope="TheGoodCraftCoDesignSystem_6c692a.Button" variant="secondary" size="sm" hint-size="130px,36px">Book Tickets</x-import>
+    </div>
+  </div>
+</section>
+
+<section data-screen-label="06 Our story" style="overflow:hidden;background:#FBF3E1;padding-top:36px">
+  <div style="padding:0 20px;display:flex;flex-direction:column;gap:6px">
+    <div style="display:flex;align-items:center;gap:14px">
+      <img data-reveal="arrow" src="assets/arrow-terracotta.png" alt="" style="width:52px;height:auto;display:block">
+      <h2 data-reveal="left" data-reveal-delay="300" style="margin:0;padding-bottom:.06em;font-size:44px;line-height:.95;letter-spacing:-.03em;color:#A0401F"><span style="font-weight:200">Our </span><span style="font-family:var(--font-serif);font-weight:400">story</span></h2>
+    </div>
+    <div data-reveal="left" data-reveal-delay="450" style="display:flex;flex-direction:column;align-items:flex-start;gap:18px;padding:8px 0 24px">
+      <p style="margin:0;font-family:var(--font-serif);font-size:18px;line-height:1.3;color:#4D4D3C;text-wrap:pretty">We set out to become the standard of good in Indian craft spirits. It starts with the land, and the people who work it.</p>
+      <x-import component-from-global-scope="TheGoodCraftCoDesignSystem_6c692a.Button" variant="primary" size="md" hint-size="190px,42px">Discover Our Story</x-import>
+    </div>
+  </div>
+  <div style="display:flex;gap:3px;height:580px;background:#FBF3E1">
+    <sc-for list="{{ dots }}" as="d" hint-placeholder-count="4">
+      <div data-reveal="up" data-reveal-delay="{{ d.delay }}" onClick="{{ d.tap }}" style="position:relative;min-width:0;overflow:hidden;cursor:pointer;background:#4D4D3C;transition:flex 700ms cubic-bezier(.2,.7,.2,1);flex:{{ d.flex }}">
+        <img src="{{ d.img }}" alt="{{ d.n }}" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;transition:transform 1200ms ease;transform:scale({{ d.scale }})">
+        <div style="position:absolute;inset:0;background:rgba(28,28,20,.55)"></div>
+        <div style="position:absolute;inset:0;background:linear-gradient(180deg,rgba(28,28,20,.1) 30%,rgba(28,28,20,.7) 100%)"></div>
+        <span style="position:absolute;left:50%;bottom:22px;writing-mode:vertical-rl;transform:translateX(-50%) rotate(180deg);white-space:nowrap;font-family:var(--font-sans-xcondensed);font-weight:700;font-size:38px;line-height:1;text-transform:uppercase;letter-spacing:.01em;color:#FBF3E1;transition:opacity 300ms ease;opacity:{{ d.vOp }}">{{ d.n }}</span>
+        <div style="position:absolute;left:50%;top:26%;transform:translate(-50%,-50%);width:200px;height:200px;display:grid;place-items:center;pointer-events:none">
+          <sc-if value="{{ d.on }}" hint-placeholder-val="{{ false }}">
+            <div style="position:absolute;inset:0;animation:tgccSpin 26s linear infinite">
+              <x-import component-from-global-scope="TheGoodCraftCoDesignSystem_6c692a.CircularText" text="{{ d.ring }}" size="200" font-size="11" color="#FBF3E1" weight="{{ ringWeight }}" hint-size="200px,200px"></x-import>
+            </div>
+          </sc-if>
+          <span style="position:relative;width:16px;height:16px;border-radius:50%;background:#FBF3E1;box-shadow:0 0 0 6px rgba(251,243,225,.25);animation:{{ d.dotAnim }}"></span>
+        </div>
+        <div style="position:absolute;left:18px;right:18px;bottom:24px;display:flex;flex-direction:column;gap:10px;color:#FBF3E1;transition:opacity 400ms ease;opacity:{{ d.bodyOp }};pointer-events:none">
+          <span style="font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:#DBBC88">{{ d.idx }} · {{ d.n }}</span>
+          <p style="margin:0;font-family:var(--font-serif);font-size:20px;line-height:1.25;color:#FBF3E1">{{ d.body }}</p>
+        </div>
+      </div>
+    </sc-for>
+  </div>
+</section>
+
+<section data-screen-label="05a Our locations" style="overflow:hidden;background:#FBF3E1;padding:32px 20px 24px;display:flex;flex-direction:column;gap:12px">
+  <div style="display:flex;align-items:center;gap:14px">
+    <img data-reveal="arrow" src="assets/arrow-olive.png" alt="" style="width:52px;height:auto;display:block">
+    <h2 data-reveal="left" data-reveal-delay="300" style="margin:0;font-size:34px;line-height:1.05;font-weight:200;color:#4D4D3C">Our <span style="font-family:var(--font-serif);font-weight:400">locations</span></h2>
+  </div>
+  <span data-reveal="left" data-reveal-delay="450" style="font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:#615D51">Ponda, Goa · Whitefield, Bangalore</span>
+</section>
+
+<section data-screen-label="05b Goa + Bangalore" style="overflow:hidden;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:3px">
+  <sc-for list="{{ cities }}" as="t" hint-placeholder-count="2">
+    <div data-reveal="up" onClick="{{ t.tap }}" style="position:relative;height:480px;overflow:hidden;background:#4D4D3C;cursor:pointer">
+      <img src="{{ t.img }}" alt="{{ t.title }}" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;transition:transform 900ms cubic-bezier(.2,.7,.2,1);transform:scale({{ t.scale }})">
+      <span style="position:absolute;inset:0;background:linear-gradient(180deg,rgba(46,47,35,0) 45%,rgba(46,47,35,.75) 100%)"></span>
+      <span style="position:absolute;left:14px;bottom:60px;font-family:var(--font-sans-xcondensed);font-weight:700;font-size:44px;line-height:.9;text-transform:uppercase;color:#FBF3E1">{{ t.title }}</span>
+      <span style="position:absolute;left:14px;bottom:16px;width:30px;height:30px;border-radius:50%;border:1px solid #FBF3E1;display:grid;place-items:center;color:#FBF3E1;font-size:16px;font-weight:300">+</span>
+      <div style="position:absolute;left:0;right:0;bottom:0;max-height:100%;overflow-y:auto;box-sizing:border-box;padding:18px 14px;display:flex;flex-direction:column;gap:10px;background:rgba(46,47,35,.94);color:#FBF3E1;transition:transform 520ms cubic-bezier(.2,.7,.2,1), opacity 400ms ease;transform:translateY({{ t.ty }});opacity:{{ t.op }}">
+        <span style="font-size:10px;letter-spacing:.12em;text-transform:uppercase;color:#DBBC88">{{ t.eyebrow }}</span>
+        <span style="font-family:var(--font-sans-xcondensed);font-weight:700;font-size:34px;line-height:.9;text-transform:uppercase">{{ t.title }}</span>
+        <span style="font-size:12.5px;line-height:1.45;text-wrap:pretty">{{ t.body }}</span>
+        <div style="display:flex;flex-direction:column;align-items:stretch;gap:8px;margin-top:4px">
+          <sc-for list="{{ t.ctas }}" as="ct" hint-placeholder-count="1">
+            <a href="#" style="padding:11px 10px;text-align:center;font-size:10px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;border:1px solid #FBF3E1;background:{{ ct.bg }};color:{{ ct.fg }}">{{ ct.label }}</a>
+          </sc-for>
+        </div>
+      </div>
+    </div>
+  </sc-for>
+</section>
+
+<section data-screen-label="05 Private &amp; custom" style="overflow:hidden;background:{{ privateBg }};color:#FBF3E1">
+  <div data-reveal="left" style="position:relative;height:150px;overflow:hidden;display:flex;align-items:flex-end">
+    <img src="assets/private.png" alt="Guests at the bar" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:50% 72%">
+    <div style="position:absolute;inset:0;background:rgba(12,12,9,.55)"></div>
+    <h2 style="position:relative;margin:0;padding:18px 20px;font-size:28px;line-height:1;font-weight:200;color:#FBF3E1">Private <span style="font-family:var(--font-serif);font-weight:400">&amp; custom</span> <span style="font-weight:700">experiences</span></h2>
+  </div>
+  <div data-reveal="right" style="padding:20px 20px 24px;display:flex;flex-direction:column;gap:16px">
+    <p style="margin:0;font-size:14px;line-height:1.5;color:#FBF3E1;text-wrap:pretty">For celebrations, teams and private groups. Tell us what you have in mind and we will shape the day around it, from a closed tasting to a full distillery takeover.</p>
+    <div style="display:flex;align-items:center;flex-wrap:wrap;gap:12px 20px">
+      <x-import component-from-global-scope="TheGoodCraftCoDesignSystem_6c692a.Button" variant="inverse" size="md" hint-size="150px,42px">Enquire Now</x-import>
+      <span style="font-size:10px;letter-spacing:.12em;text-transform:uppercase;color:#DBBC88">Celebrations · Teams · Private groups</span>
+    </div>
+  </div>
+</section>
+
+<section data-screen-label="06b Explore" style="overflow:hidden;background:#DBBC88;padding:24px 20px;display:flex;align-items:center;gap:14px">
+  <img data-reveal="arrow" src="assets/arrow-olive.png" alt="" style="width:52px;height:auto;display:block">
+  <h2 data-reveal="left" data-reveal-delay="300" style="margin:0;font-size:34px;line-height:1.05;font-weight:200;color:#4D4D3C">Explore</h2>
+</section>
+
+<section data-screen-label="07 Dining + Shop" style="display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:3px">
+  <sc-for list="{{ ds }}" as="t" hint-placeholder-count="2">
+    <div data-reveal="up" onClick="{{ t.tap }}" style="position:relative;height:540px;overflow:hidden;background:#4D4D3C;cursor:pointer">
+      <img src="{{ t.img }}" alt="{{ t.title }}" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;transition:transform 900ms cubic-bezier(.2,.7,.2,1);transform:scale({{ t.scale }})">
+      <span style="position:absolute;inset:0;transition:background 500ms ease;background:rgba(28,28,20,{{ t.dim }})"></span>
+      <span style="position:absolute;left:14px;right:14px;bottom:16px;display:flex;flex-direction:column;gap:12px;color:#FBF3E1">
+        <span style="display:flex;flex-direction:column;align-items:flex-start;gap:10px">
+          <span style="font-size:38px;line-height:.95;font-weight:200">{{ t.title }}</span>
+          <span style="flex:none;width:30px;height:30px;border-radius:50%;border:1px solid #FBF3E1;display:grid;place-items:center;font-size:16px;font-weight:300">+</span>
+        </span>
+        <span style="display:flex;flex-direction:column;gap:12px;overflow:hidden;transition:max-height 600ms cubic-bezier(.2,.7,.2,1), opacity 400ms ease;max-height:{{ t.maxH }};opacity:{{ t.op }}">
+          <span style="font-size:12.5px;line-height:1.45;text-wrap:pretty">{{ t.body }}</span>
+          <span style="display:flex;flex-direction:column;gap:4px;font-size:11px;letter-spacing:.06em;color:#DBBC88"><sc-for list="{{ t.points }}" as="pt" hint-placeholder-count="3"><span>— {{ pt }}</span></sc-for></span>
+          <span style="align-self:stretch;padding:11px 8px;text-align:center;background:#DBBC88;color:#4D4D3C;font-size:10px;font-weight:600;letter-spacing:.1em;text-transform:uppercase">{{ t.cta }}</span>
+        </span>
+      </span>
+    </div>
+  </sc-for>
+</section>
+
+<footer data-screen-label="08 Footer" style="background:#FBF3E1;color:#4D4D3C;position:relative;overflow:hidden;padding-bottom:84px">
+  <div data-reveal="up" style="padding:36px 20px 0;display:flex;flex-direction:column;gap:28px">
+    <div style="display:flex;justify-content:space-between;align-items:center">
+      <x-import component-from-global-scope="TheGoodCraftCoDesignSystem_6c692a.Logo" color="olive" size="{{ footLogo }}" hint-size="90px,90px"></x-import>
+      <div style="display:flex;gap:8px">
+        <sc-for list="{{ socials }}" as="so" hint-placeholder-count="4">
+          <a href="#" aria-label="{{ so.n }}" style="width:30px;height:30px;border-radius:50%;border:1.35px solid #4D4D3C;display:grid;place-items:center">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#4D4D3C" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="{{ so.d }}"></path></svg>
+          </a>
+        </sc-for>
+      </div>
+    </div>
+    <div style="display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:28px 20px;padding-top:24px;border-top:1px solid rgba(77,77,60,.4)">
+      <sc-for list="{{ footCols }}" as="fc" hint-placeholder-count="4">
+        <div style="display:flex;flex-direction:column;gap:10px">
+          <span style="font-size:12px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;margin-bottom:4px">{{ fc.h }}</span>
+          <sc-for list="{{ fc.links }}" as="fl" hint-placeholder-count="4"><a href="#" style="font-family:var(--font-serif);font-size:15px;color:#4D4D3C">{{ fl }}</a></sc-for>
+        </div>
+      </sc-for>
+    </div>
+  </div>
+  <div style="margin-top:28px;height:150px;width:100%;background-image:url(assets/footer-illustration.png);background-repeat:no-repeat;background-size:905px 302px;background-position:28% -109px"></div>
+  <div style="margin:0 20px;padding:14px 0 18px;border-top:1px solid #4D4D3C;display:flex;flex-wrap:wrap;justify-content:space-between;gap:8px;font-family:var(--font-serif);font-size:13px">
+    <span>© The Good Craft Co.</span>
+    <span style="display:flex;gap:12px"><span>Ponda, Goa</span><span>·</span><span>Bangalore R&amp;D</span></span>
+  </div>
+</footer>
+
+</div>
+
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{&quot;autoplaySeconds&quot;:{&quot;editor&quot;:&quot;int&quot;,&quot;default&quot;:6,&quot;min&quot;:3,&quot;max&quot;:15,&quot;unit&quot;:&quot;s&quot;,&quot;tsType&quot;:&quot;number&quot;},&quot;privateBg&quot;:{&quot;editor&quot;:&quot;enum&quot;,&quot;options&quot;:[&quot;black&quot;,&quot;olive&quot;],&quot;default&quot;:&quot;black&quot;,&quot;tsType&quot;:&quot;string&quot;}}">
+const EXPS = [
+  { title: 'The TGCC Tour', meta: 'Daily · 90 min [TBC]', img: 'assets/exp-tour.png', short: 'Walk the distillery floor, from grain to cask.' },
+  { title: 'The Tasting Room', meta: 'Daily · 45 min [TBC]', img: 'assets/exp-tasting.png', short: 'Taste our Indian spirits neat and side by side.' },
+  { title: 'Grain to Glass', meta: 'Weekends · 2 hrs [TBC]', img: 'assets/exp-grain.png', short: 'Meet the raw materials and the farmers who grow them.' },
+  { title: 'Blend Your Own', meta: 'By booking · 2 hrs [TBC]', img: 'assets/exp-blend.png', short: 'Blend alongside our team and leave with your own bottle.' },
+  { title: 'The Academy', meta: 'Monthly · Half day [TBC]', img: 'assets/exp-academy.png', short: 'Short courses on the craft of Indian spirit-making.' },
+];
+const NAV = [
+  { key: 'exp', label: 'Experiences', blurb: 'Tours, tastings and workshops, every day.', links: ['The TGCC Tour', 'Tastings', 'Workshops', 'Private Experiences'] },
+  { key: 'events', label: 'Events', blurb: 'Gatherings on the distillery grounds.', links: ['Upcoming Events', 'Private & Custom', 'Teams & Corporate'] },
+  { key: 'dining', label: 'Dining', blurb: 'Chef Madhav\'s 4- and 6-course menus, plus the bar.', links: ['The Restaurant', 'The Bar', 'Reserve a Table'] },
+  { key: 'shop', label: 'Shop', blurb: 'Glassware, spirits & merch. In store only.', links: ['Our Spirits', 'Glassware', 'Merchandise'] },
+  { key: 'academy', label: 'Academy', blurb: 'Learn the craft of Indian spirit-making.', links: ['Courses', 'Masterclasses', 'Calendar'] },
+  { key: 'story', label: 'Our Story', blurb: 'The land, the people, the little things.', links: ['Our Story', 'Innovation', 'Press', 'Careers'] },
+];
+const PLACES = [
+  { id: 'dabolim', name: 'Dabolim Airport', side: 'l', x: 190, y: 470, km: '28 km', time: '45 min' },
+  { id: 'mopa', name: 'Mopa Airport', x: 220, y: 110, km: '62 km', time: '1 hr 20' },
+  { id: 'panaji', name: 'Panaji', side: 'l', x: 190, y: 350, km: '29 km', time: '45 min' },
+  { id: 'oldgoa', name: 'Old Goa', x: 270, y: 340, km: '19 km', time: '30 min' },
+  { id: 'mapusa', name: 'Mapusa', x: 175, y: 250, km: '42 km', time: '1 hr 05' },
+  { id: 'calangute', name: 'Calangute', side: 'l', x: 130, y: 298, km: '45 km', time: '1 hr 15' },
+  { id: 'anjuna', name: 'Anjuna', side: 'l', x: 100, y: 255, km: '48 km', time: '1 hr 20' },
+  { id: 'vasco', name: 'Vasco da Gama', side: 'l', x: 165, y: 432, km: '32 km', time: '50 min' },
+  { id: 'margao', name: 'Margao', x: 320, y: 570, km: '18 km', time: '30 min' },
+  { id: 'palolem', name: 'Palolem', x: 385, y: 830, km: '55 km', time: '1 hr 30' },
+];
+const DOTS = [
+  { id: 'land', n: 'The land', img: 'assets/story-land.png', ring: 'Grown by farmers we know by name · our farmers, our friends · ', body: 'Our grain comes from farms we visit, grown by people we know by name.' },
+  { id: 'hands', n: 'The hands', img: 'assets/story-hands.png', ring: 'Small batches · made by hand · from the land to the still · ', body: 'Every harvest passes through many hands before it reaches the still. We honour each of them.' },
+  { id: 'forgotten', n: 'Forgotten ingredients', img: 'assets/story-market.png', ring: 'Rediscovering the beauty of India\'s forgotten ingredients · ', body: 'We are rediscovering the beauty of India\'s forgotten ingredients, one market at a time.' },
+  { id: 'lightly', n: 'Tread lightly', img: 'assets/story-bustard.png', ring: 'Less waste · same spirit · we consider every drop precious · ', body: 'We share this land with others. A small step, every day, is all it takes.' },
+];
+const ICONS = {
+  Instagram: 'M7 2h10a5 5 0 0 1 5 5v10a5 5 0 0 1-5 5H7a5 5 0 0 1-5-5V7a5 5 0 0 1 5-5zM16 11.4A4 4 0 1 1 12.6 8 4 4 0 0 1 16 11.4zM17.5 6.5h.01',
+  LinkedIn: 'M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-4 0v7h-4v-7a6 6 0 0 1 6-6zM2 9h4v12H2zM4 2a2 2 0 1 1 0 4 2 2 0 0 1 0-4z',
+  YouTube: 'M2.5 17a24 24 0 0 1 0-10 2 2 0 0 1 1.4-1.4 49.6 49.6 0 0 1 16.2 0A2 2 0 0 1 21.5 7a24 24 0 0 1 0 10 2 2 0 0 1-1.4 1.4 49.6 49.6 0 0 1-16.2 0A2 2 0 0 1 2.5 17M10 15l5-3-5-3z',
+  Spotify: 'M12 2a10 10 0 1 0 0 20 10 10 0 0 0 0-20zM7 9.5c3.5-1 7.5-.6 10.5 1M7.5 12.8c3-.8 6-.4 8.5 1M8 15.8c2.4-.5 4.6-.2 6.5.8',
+};
+
+class Component extends DCLogic {
+  state = { menu: false, acc: null, scrolled: false, bar: false, exp: 0, paused: false, place: 'dabolim', dot: null, tile: null };
+  scrollRef = React.createRef();
+  componentDidMount() {
+    setTimeout(() => this.setupReveal(), 60);
+    this.onWin = () => {
+      const y = window.scrollY, sc = y > 30, bar = y > window.innerHeight * 0.6;
+      if (sc !== this.state.scrolled || bar !== this.state.bar) this.setState({ scrolled: sc, bar });
+    };
+    window.addEventListener('scroll', this.onWin, { passive: true });
+    this.start();
+  }
+  componentWillUnmount() { window.removeEventListener('scroll', this.onWin); clearInterval(this.t); this.io && this.io.disconnect(); document.body.style.overflow = ''; }
+  setupReveal() {
+    const off = { up: 'translateY(48px)', left: 'translateX(-48px)', right: 'translateX(48px)', expand: 'scale(.9)', pop: 'scale(0)', arrow: 'translateX(-32px)' };
+    const groups = new Map();
+    this.io = new IntersectionObserver((entries) => entries.forEach(en => {
+      if (!en.isIntersecting) return;
+      (groups.get(en.target) || []).forEach(el => {
+        const d = +(el.dataset.revealDelay || 0);
+        setTimeout(() => { el.style.opacity = '1'; el.style.transform = 'none'; }, d);
+      });
+      this.io.unobserve(en.target);
+    }), { threshold: 0.05, rootMargin: '0px 0px -30px 0px' });
+    document.querySelectorAll('[data-reveal]').forEach(el => {
+      const k = el.dataset.reveal; if (!off[k]) return;
+      const base = el.style.transition;
+      const tf = k === 'pop' ? '600ms cubic-bezier(.3,1.5,.5,1)' : '1000ms cubic-bezier(.2,.7,.2,1)';
+      el.style.transition = (base ? base + ', ' : '') + 'opacity 900ms ease, transform ' + tf;
+      el.style.opacity = '0'; el.style.transform = off[k];
+      const host = el.closest('section,footer') || el;
+      if (!groups.has(host)) groups.set(host, []);
+      const tgt = (k === 'arrow' || el.dataset.revealDelay) ? host : el;
+      if (tgt === el) groups.set(el, [el]); else groups.get(host).push(el);
+      this.io.observe(tgt);
+    });
+  }
+  secs() { return Math.max(3, this.props.autoplaySeconds ?? 6); }
+  start() { clearInterval(this.t); this.t = setInterval(() => { if (!this.state.paused) this.go(this.state.exp + 1); }, this.secs() * 1000); }
+  step() { const sc = this.scrollRef.current, c = sc && sc.children[0]; return c ? c.offsetWidth + 14 : 0; }
+  go(i) {
+    i = (i + EXPS.length) % EXPS.length;
+    const sc = this.scrollRef.current;
+    this.start();
+    this.setState({ exp: i });
+  }
+  componentDidUpdate(_p, ps) {
+    const sc = this.scrollRef.current;
+    if (ps.exp !== this.state.exp && sc) sc.scrollTo({ left: 0, behavior: 'smooth' });
+  }
+  toggleMenu = () => { const m = !this.state.menu; document.body.style.overflow = m ? 'hidden' : ''; this.setState({ menu: m, acc: null }); };
+  renderVals() {
+    const s = this.state, m = s.menu;
+    const sel = PLACES.find(p => p.id === s.place);
+    const awards = [
+      { t: "Asia's First", s: 'Award body · Year [TBC]' }, { t: "India's Best", s: 'Award body · Year [TBC]' },
+      { t: "India's First", s: 'Achievement · Year [TBC]' }, { t: 'Award Name', s: 'Awarding body · Year' },
+      { t: "Goa's Finest", s: 'Award body · Year [TBC]' }, { t: 'Award Name', s: 'Awarding body · Year' },
+    ];
+    const tileFor = (key, o) => { const on = s.tile === key; return { ...o, tap: () => this.setState({ tile: on ? null : key }), scale: on ? 1.05 : 1, ty: on ? '0%' : '100%', op: on ? 1 : 0, dim: on ? .7 : .3, maxH: on ? '340px' : '0px' }; };
+    const prog = React.createElement('div', { key: 'p' + s.exp + (s.paused ? 'x' : ''), style: { position: 'absolute', inset: 0, background: '#DBBC88', transformOrigin: 'left', animation: s.paused ? 'none' : `tgccProg ${this.secs()}s linear forwards`, transform: s.paused ? 'scaleX(.5)' : undefined } });
+    const solid = { bg: '#FBF3E1', fg: '#4D4D3C' }, ghost = { bg: 'transparent', fg: '#FBF3E1' };
+    return {
+      navBg: s.scrolled || m ? 'rgba(46,47,35,.96)' : 'transparent',
+      logoSize: 44,
+      toggleMenu: this.toggleMenu, menuOpen: m,
+      bar1Top: m ? '21px' : '14px', bar1Rot: m ? '45deg' : '0deg', bar2Op: m ? 0 : 1, bar3Top: m ? '21px' : '28px', bar3Rot: m ? '-45deg' : '0deg',
+      nav: NAV.map(n => { const o = s.acc === n.key; return { ...n, open: o, sign: o ? '–' : '+', tap: () => this.setState({ acc: o ? null : n.key }) }; }),
+      barY: s.bar && !m ? '0%' : '110%',
+      awardsLoop: [...awards, ...awards],
+      exps: EXPS.map((e, i) => ({ ...e, op: i === s.exp ? 1 : 0, scale: i === s.exp ? 1.06 : 1 })),
+      cur: EXPS[s.exp],
+      cards: EXPS.map((_, k) => { const i = (s.exp + 1 + k) % EXPS.length; return { ...EXPS[i], go: () => this.go(i), op: 1 }; }).slice(0, EXPS.length - 1),
+      scrollRef: this.scrollRef,
+      prev: () => this.go(s.exp - 1), next: () => this.go(s.exp + 1),
+      pause: () => this.setState({ paused: true }), resume: () => { this.setState({ paused: false }); this.start(); },
+      progressBar: prog,
+      num: String(s.exp + 1).padStart(2, '0'),
+      places: PLACES.map((p, k) => ({ ...p, delay: 1000 + k * 90, lx: p.side === 'l' ? 'auto' : '22px', rx: p.side === 'l' ? '22px' : 'auto', left: (p.x / 740 * 100) + '%', top: (p.y / 980 * 100) + '%', pick: () => this.setState({ place: p.id }), fill: p.id === s.place ? '#DBBC88' : 'transparent', weight: p.id === s.place ? 700 : 400 })),
+      sel,
+      visitInfo: [
+        { k: 'Getting here', lines: ['Dabolim Airport · 28 km', 'Mopa Airport · 62 km'] },
+        { k: 'Opening times', lines: ['Tue – Sun · 11:00 – 19:00 [TBC]', 'Tours on the hour'] },
+        { k: 'Things to do', lines: ['Distillery tour & tastings', 'Restaurant, bar & shop'] },
+        { k: 'Accessibility', lines: ['Step-free access throughout', 'Wheelchairs on request'] },
+        { k: 'Minimum age', lines: ['18+ for tastings, with photo ID', 'Under-18s on tours with an adult'] },
+        { k: 'On site', lines: ['Free parking', 'Cloakroom'] },
+      ],
+      privateBg: this.props.privateBg === 'olive' ? '#2E2F23' : '#12120E',
+      cities: [
+        tileFor('goa', { title: 'Goa', img: 'assets/goa.png', eyebrow: 'The distillery · Ponda', body: 'Our home and working distillery, set among the spice farms of Ponda. Join an upcoming event, or host a private tasting, a team day or a celebration on the grounds.', ctas: [{ label: 'Upcoming events', ...solid }, { label: 'Enquire now', ...ghost }] }),
+        tileFor('blr', { title: 'Bangalore', img: 'assets/bangalore.png', eyebrow: 'R&D · Whitefield, Bangalore', body: 'Our R&D space in Whitefield, where we experiment with new Indian ingredients and methods. Small, hands-on sessions with the team behind our next spirits.', ctas: [{ label: 'Enquire now', ...solid }] }),
+      ],
+      dots: DOTS.map((d, i) => { const on = s.dot === d.id; return { ...d, delay: 200 + i * 200, idx: String(i + 1).padStart(2, '0'), on, tap: () => this.setState({ dot: on ? null : d.id }), flex: on ? 4.4 : 1, scale: on ? 1.04 : 1.12, bodyOp: on ? 1 : 0, vOp: on ? 0 : 1, dotAnim: on ? 'none' : 'tgccDot 2s ease-in-out infinite' }; }),
+      ringWeight: 600,
+      ds: [
+        tileFor('dining', { title: 'Dining & Bar', img: 'assets/dining.png', body: 'Chef Madhav\'s 4- and 6-course menus, built around Goan produce, with our spirits poured at the bar.', points: ['Lunch & dinner', '4 or 6 courses', 'The Bar'], cta: 'Reserve a table' }),
+        tileFor('shop', { title: 'Shop', img: 'assets/shop.png', body: 'Our spirits, glassware and merchandise, made with the same care as everything else we do.', points: ['Spirits', 'Glassware', 'Merch'], cta: 'Explore our products' }),
+      ],
+      footLogo: 88,
+      footCols: [
+        { h: 'Visit', links: ['Ponda, Goa', 'Plan Your Visit', 'Getting Here', 'Book Tickets'] },
+        { h: 'Explore', links: ['Experiences', 'Dining & Bar', 'Shop', 'Private Experiences'] },
+        { h: 'About', links: ['Our Story', 'Innovation', 'Press', 'Careers'] },
+        { h: 'Legal', links: ['Terms of Service', 'Privacy Policy', 'Cookie Policy'] },
+      ],
+      socials: Object.entries(ICONS).map(([n, d]) => ({ n, d })),
+    };
+  }
+}
+</script>
+</body>
+</html>

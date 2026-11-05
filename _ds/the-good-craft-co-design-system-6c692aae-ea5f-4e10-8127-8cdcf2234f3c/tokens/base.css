@@ -1,0 +1,4 @@
+.tgcc-eyebrow{font-family:var(--font-sans);font-size:var(--fs-eyebrow);letter-spacing:var(--ls-eyebrow);text-transform:uppercase;color:var(--fg-1)}
+.tgcc-eyebrow b{font-weight:var(--fw-bold)}
+.tgcc-serif{font-family:var(--font-serif);font-weight:var(--fw-light)}
+.tgcc-bold{font-weight:var(--fw-bold)}

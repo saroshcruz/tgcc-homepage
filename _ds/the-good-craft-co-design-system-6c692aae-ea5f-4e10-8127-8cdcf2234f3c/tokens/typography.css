@@ -1,0 +1,14 @@
+:root{
+--font-sans:'Uniform','Avenir Next',system-ui,sans-serif;
+--font-sans-condensed:'Uniform Condensed','Uniform',system-ui,sans-serif;
+--font-sans-xcondensed:'Uniform Extra Condensed','Uniform Condensed','Uniform',system-ui,sans-serif;
+--font-serif:'Mirador','Newsreader',Georgia,serif;
+--font-display:var(--font-sans);
+--fw-thin:200;/* @kind font */--fw-light:300;/* @kind font */--fw-regular:400;/* @kind font */--fw-medium:500;/* @kind font */--fw-semibold:600;/* @kind font */--fw-bold:700;/* @kind font */--fw-black:800;/* @kind font */--fw-ultra:900;/* @kind font */
+--fs-hero:96px;--fs-display:72px;--fs-h1:56px;--fs-h2:40px;--fs-h3:28px;--fs-h4:20px;--fs-body-lg:18px;--fs-body:16px;--fs-small:14px;--fs-caption:12px;--fs-eyebrow:11px;
+--lh-tight:1.05;/* @kind font */--lh-heading:1.15;/* @kind font */--lh-body:1.55;/* @kind font */
+--ls-eyebrow:.08em;/* @kind font */--ls-caps:.12em;/* @kind font */--ls-circular:.18em;/* @kind font */
+--text-headline-light:var(--fw-thin) var(--fs-h1)/var(--lh-heading) var(--font-sans);
+--text-headline-bold:var(--fw-bold) var(--fs-h1)/var(--lh-heading) var(--font-sans);
+--text-body-font:var(--fw-regular) var(--fs-body)/var(--lh-body) var(--font-sans);
+}

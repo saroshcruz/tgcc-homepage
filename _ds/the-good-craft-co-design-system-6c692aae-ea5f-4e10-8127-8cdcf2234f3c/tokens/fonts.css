@@ -1,0 +1,23 @@
+/* Licensed brand fonts. Uniform (sans, 3 widths) + Mirador (serif). Mirador files are DEMO cuts. Newsreader kept as serif fallback for glyphs the demo may lack. */
+@font-face{font-family:'Uniform';font-style:normal;font-weight:200 300;font-display:swap;src:url('../fonts/Uniform-Light.otf') format('opentype');}
+@font-face{font-family:'Uniform';font-style:normal;font-weight:400;font-display:swap;src:url('../fonts/Uniform-Regular.otf') format('opentype');}
+@font-face{font-family:'Uniform';font-style:normal;font-weight:500;font-display:swap;src:url('../fonts/Uniform-Medium.otf') format('opentype');}
+@font-face{font-family:'Uniform';font-style:normal;font-weight:600 700;font-display:swap;src:url('../fonts/Uniform-Bold.otf') format('opentype');}
+@font-face{font-family:'Uniform';font-style:normal;font-weight:800;font-display:swap;src:url('../fonts/Uniform-Black.otf') format('opentype');}
+@font-face{font-family:'Uniform';font-style:normal;font-weight:900;font-display:swap;src:url('../fonts/Uniform-Ultra.otf') format('opentype');}
+@font-face{font-family:'Uniform Condensed';font-style:normal;font-weight:200 300;font-display:swap;src:url('../fonts/UniformCondensed-Light.otf') format('opentype');}
+@font-face{font-family:'Uniform Condensed';font-style:normal;font-weight:400;font-display:swap;src:url('../fonts/UniformCondensed-Regular.otf') format('opentype');}
+@font-face{font-family:'Uniform Condensed';font-style:normal;font-weight:500;font-display:swap;src:url('../fonts/UniformCondensed-Medium.otf') format('opentype');}
+@font-face{font-family:'Uniform Condensed';font-style:normal;font-weight:600 700;font-display:swap;src:url('../fonts/UniformCondensed-Bold.otf') format('opentype');}
+@font-face{font-family:'Uniform Condensed';font-style:normal;font-weight:800;font-display:swap;src:url('../fonts/UniformCondensed-Black.otf') format('opentype');}
+@font-face{font-family:'Uniform Condensed';font-style:normal;font-weight:900;font-display:swap;src:url('../fonts/UniformCondensed-Ultra.otf') format('opentype');}
+@font-face{font-family:'Uniform Extra Condensed';font-style:normal;font-weight:200 300;font-display:swap;src:url('../fonts/UniformExtraCondensed-Light.otf') format('opentype');}
+@font-face{font-family:'Uniform Extra Condensed';font-style:normal;font-weight:400;font-display:swap;src:url('../fonts/UniformExtraCondensed-Regular.otf') format('opentype');}
+@font-face{font-family:'Uniform Extra Condensed';font-style:normal;font-weight:500;font-display:swap;src:url('../fonts/UniformExtraCondensed-Medium.otf') format('opentype');}
+@font-face{font-family:'Uniform Extra Condensed';font-style:normal;font-weight:600 700;font-display:swap;src:url('../fonts/UniformExtraCondensed-Bold.otf') format('opentype');}
+@font-face{font-family:'Uniform Extra Condensed';font-style:normal;font-weight:800;font-display:swap;src:url('../fonts/UniformExtraCondensed-Black.otf') format('opentype');}
+@font-face{font-family:'Uniform Extra Condensed';font-style:normal;font-weight:900;font-display:swap;src:url('../fonts/UniformExtraCondensed-Ultra.otf') format('opentype');}
+@font-face{font-family:'Mirador';font-style:normal;font-weight:200 500;font-display:swap;src:url('../fonts/Mirador-Book.otf') format('opentype');}
+@font-face{font-family:'Mirador';font-style:normal;font-weight:600 900;font-display:swap;src:url('../fonts/Mirador-Bold.otf') format('opentype');}
+@font-face{font-family:'Newsreader';font-style:normal;font-weight:200 600;font-display:swap;src:url('../fonts/Newsreader-normal-200_600.woff2') format('woff2');}
+@font-face{font-family:'Newsreader';font-style:italic;font-weight:200 600;font-display:swap;src:url('../fonts/Newsreader-italic-200_600.woff2') format('woff2');}

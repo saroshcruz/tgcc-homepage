@@ -1,0 +1,11 @@
+:root{
+--space-1:4px;--space-2:8px;--space-3:12px;--space-4:16px;--space-5:24px;--space-6:32px;--space-7:48px;--space-8:64px;--space-9:96px;--space-10:128px;
+--page-margin:48px;--grid-gutter:24px;
+/* Comms grids (VL R3 p14) */
+--grid-landscape-cols:7;/* @kind other */--grid-landscape-rows:4;/* @kind other */--grid-portrait-cols:5;/* @kind other */--grid-portrait-rows:7;/* @kind other */--grid-square-cols:4;/* @kind other */--grid-square-rows:4;/* @kind other */
+--radius-0:0px;--radius-sm:2px;--radius-md:4px;--radius-pill:999px;--radius-circle:50%;--radius-arch:999px 999px 0 0;
+--border-hair:1px;--border-thin:1.5px;
+--shadow-none:none;--shadow-print:0 1px 2px rgba(46,47,35,.12);--shadow-lift:0 8px 24px rgba(46,47,35,.14);--shadow-frame:0 18px 40px rgba(30,20,10,.28);
+--ease-out:cubic-bezier(.22,.61,.36,1);/* @kind other */--ease-in-out:cubic-bezier(.65,0,.35,1);/* @kind other */--dur-fast:150ms;/* @kind other */--dur-base:280ms;/* @kind other */--dur-slow:600ms;/* @kind other */
+--logo-min-digital:75px;
+}

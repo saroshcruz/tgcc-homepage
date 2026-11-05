@@ -1,0 +1,28 @@
+:root{
+/* Primary brand colours (Brand Guidelines p17) */
+--tan:#DBBC88;--creme:#FBF3E1;--taupe:#979281;--olive:#4D4D3C;
+/* Secondary extended palette (Brand Guidelines p18) — 7 hue columns x 4 tones, light (100) to dark (400) */
+--stone-100:#989380;--stone-200:#7E786A;--stone-300:#615D51;--stone-400:#434037;
+--moss-100:#A5A67C;--moss-200:#757559;--moss-300:#4E4D39;--moss-400:#3C3D2D;
+--parchment-100:#FEF3DF;--parchment-200:#F0E3C3;--parchment-300:#E2D1A5;--parchment-400:#C2B186;
+--honey-100:#FEEBB0;--honey-200:#FFDF8A;--honey-300:#FBC56D;--honey-400:#DFB060;
+--oak-100:#D1B286;--oak-200:#B99D76;--oak-300:#9C845E;--oak-400:#705F45;
+--clay-100:#D49979;--clay-200:#D1836F;--clay-300:#B56C59;--clay-400:#844F3F;
+--sage-100:#B0B885;--sage-200:#94A67E;--sage-300:#7D8F69;--sage-400:#677456;
+/* Visual Language R3 palette (p11) — digital/comms extension */
+--vl-sand:#D5AA78;--vl-linen:#EEE1CE;--vl-ash:#8B817F;
+--vl-sky:#7992B2;--vl-saffron:#CE7F29;--vl-forest:#364622;--vl-rust:#D0491F;--vl-fern:#5F7452;
+--vl-cinnamon:#A26B3E;--vl-teal:#2C6F81;--vl-lichen:#9BA99C;--vl-leaf:#7C9971;--vl-turmeric:#D47226;--vl-oxblood:#902423;
+/* Observed in VL deck application */
+--terracotta:#A0401F;--earth:#793C23;--khaki:#BAA98A;--sand-panel:#DCCFB4;--mist:#A9BDB5;
+/* Semantic */
+--bg-page:var(--creme);--bg-section:var(--taupe);--bg-warm:var(--tan);--bg-deep:var(--olive);
+--surface-card:var(--parchment-100);--surface-panel:var(--sand-panel);--surface-inverse:var(--olive);
+--fg-1:var(--olive);--fg-2:var(--stone-300);--fg-3:var(--taupe);--fg-on-dark:var(--creme);--fg-on-tan:#8A6A10;
+--text-body:var(--olive);--text-muted:var(--stone-200);--text-heading:var(--olive);--text-heading-tan:#7A5C0E;--text-accent:var(--vl-teal);
+--border-subtle:rgba(77,77,60,.18);--border-strong:var(--olive);--rule:var(--taupe);
+--accent:var(--olive);--accent-hover:var(--moss-400);--accent-press:#2E2F23;
+--focus-ring:var(--vl-teal);
+--success:var(--sage-300);--warning:var(--honey-400);--danger:var(--clay-400);--info:var(--vl-teal);
+--overlay:rgba(46,47,35,.55);
+}
