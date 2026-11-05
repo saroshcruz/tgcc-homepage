@@ -32,7 +32,7 @@ a{color:inherit;text-decoration:none}a:hover{color:inherit;opacity:.86}
 <div style="position:relative;max-width:430px;margin:0 auto;background:#FBF3E1;overflow-x:clip">
 
 <header style="position:fixed;top:0;left:50%;transform:translateX(-50%);width:100%;max-width:430px;z-index:50;transition:background 300ms ease;background:{{ navBg }}">
-  <div style="display:flex;align-items:center;justify-content:space-between;padding:10px 20px;height:56px">
+  <div style="display:flex;align-items:center;justify-content:space-between;padding:22px 20px 0;height:76px">
     <a href="#top" style="display:flex">
       <x-import component-from-global-scope="TheGoodCraftCoDesignSystem_6c692a.Logo" color="creme" size="{{ logoSize }}" hint-size="60px,60px"></x-import>
     </a>
@@ -460,7 +460,7 @@ class Component extends DCLogic {
       pause: () => this.setState({ paused: true }), resume: () => { this.setState({ paused: false }); this.start(); },
       progressBar: prog,
       num: String(s.exp + 1).padStart(2, '0'),
-      places: PLACES.map((p, k) => ({ ...p, delay: 1000 + k * 90, lx: p.side === 'l' ? 'auto' : '22px', rx: p.side === 'l' ? '22px' : 'auto', left: (p.x / 740 * 100) + '%', top: (p.y / 980 * 100) + '%', pick: () => this.setState({ place: p.id }), fill: p.id === s.place ? '#DBBC88' : 'transparent', weight: p.id === s.place ? 700 : 400 })),
+      places: PLACES.map((p, k) => ({ ...p, delay: 1000 + k * 90, lx: p.side === 'l' ? 'auto' : '32px', rx: p.side === 'l' ? '32px' : 'auto', left: (p.x / 740 * 100) + '%', top: (p.y / 980 * 100) + '%', pick: () => this.setState({ place: p.id }), fill: p.id === s.place ? '#DBBC88' : 'transparent', weight: p.id === s.place ? 700 : 400 })),
       sel,
       visitInfo: [
         { k: 'Getting here', lines: ['Dabolim Airport · 28 km', 'Mopa Airport · 62 km'] },
