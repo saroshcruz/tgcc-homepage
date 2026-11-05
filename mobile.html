@@ -102,40 +102,47 @@ a{color:inherit;text-decoration:none}a:hover{color:inherit;opacity:.86}
   <x-import component-from-global-scope="TheGoodCraftCoDesignSystem_6c692a.Button" variant="primary" size="md" hint-size="120px,42px">View all</x-import>
 </section>
 
-<section data-screen-label="03b Experiences slideshow" style="position:relative;overflow:hidden;background:#4D4D3C">
-  <sc-for list="{{ exps }}" as="e" hint-placeholder-count="1">
-    <img src="{{ e.img }}" alt="{{ e.title }}" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;transition:opacity 900ms ease, transform 6s ease;opacity:{{ e.op }};transform:scale({{ e.scale }})">
-  </sc-for>
-  <div style="position:absolute;inset:0;background:linear-gradient(180deg,rgba(28,28,20,.82) 0%,rgba(28,28,20,.5) 38%,rgba(28,28,20,.55) 60%,rgba(28,28,20,.9) 100%)"></div>
-  <div style="position:relative;padding:44px 0 0;color:#FBF3E1">
-    <div style="padding:0 20px;display:flex;flex-direction:column;gap:10px">
-      <span style="width:24px;height:2px;background:#DBBC88"></span>
+<section data-screen-label="03b Experiences slideshow" style="position:relative;overflow:hidden;background:#2E2F23;color:#FBF3E1">
+  <div style="position:relative;width:100%;aspect-ratio:4/5;overflow:hidden;background:#2E2F23">
+    <sc-for list="{{ exps }}" as="e" hint-placeholder-count="5">
+      <img src="{{ e.img }}" alt="{{ e.title }}" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;transition:opacity 700ms ease;opacity:{{ e.op }}">
+    </sc-for>
+    <div style="position:absolute;inset:0;pointer-events:none;background:linear-gradient(180deg,rgba(28,28,20,.55) 0%,rgba(28,28,20,0) 30%,rgba(28,28,20,.35) 55%,rgba(28,28,20,.92) 100%)"></div>
+    <div style="position:absolute;left:20px;right:20px;top:24px;display:flex;justify-content:space-between;align-items:baseline">
+      <span style="font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:#DBBC88">Experiences</span>
+      <span style="font-family:var(--font-sans-xcondensed);font-weight:500;font-size:26px;line-height:1;color:#FBF3E1">{{ num }}<span style="opacity:.6"> / 05</span></span>
+    </div>
+    <div style="position:absolute;left:20px;right:20px;bottom:22px;display:flex;flex-direction:column;gap:10px">
       <span style="font-size:12px;color:#FBF3E1">{{ cur.meta }}</span>
-      <h3 style="margin:0;font-family:var(--font-sans-xcondensed);font-weight:700;text-transform:uppercase;font-size:49px;line-height:.9;color:#FBF3E1">{{ cur.title }}</h3>
-      <p style="margin:0;max-width:320px;font-size:13px;line-height:1.45;color:#FBF3E1;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden">{{ cur.short }}</p>
-      <div style="display:flex;gap:8px;align-items:center;margin-top:4px">
-        <a href="#" style="display:inline-flex;align-items:center;height:36px;box-sizing:border-box;padding:0 16px;border:1px solid #DBBC88;border-radius:999px;background:#DBBC88;color:#4D4D3C;font-size:11px;font-weight:600;letter-spacing:.1em;text-transform:uppercase">Book Tickets</a>
-        <a href="#" style="display:inline-flex;align-items:center;height:36px;box-sizing:border-box;padding:0 16px;border:1px solid rgba(251,243,225,.7);border-radius:999px;color:#FBF3E1;font-size:11px;font-weight:600;letter-spacing:.1em;text-transform:uppercase">Details</a>
+      <h3 style="margin:0;font-family:var(--font-sans-xcondensed);font-weight:700;text-transform:uppercase;font-size:56px;line-height:.9;color:#FBF3E1">{{ cur.title }}</h3>
+      <p style="margin:0;max-width:300px;font-size:14px;line-height:1.45;color:#FBF3E1">{{ cur.short }}</p>
+      <div style="display:flex;gap:8px;align-items:center">
+        <a href="#" style="display:inline-flex;align-items:center;height:36px;box-sizing:border-box;padding:0 18px;border:1px solid #DBBC88;border-radius:999px;background:#DBBC88;color:#4D4D3C;font-size:11px;font-weight:700;letter-spacing:.1em;text-transform:uppercase">Book Tickets</a>
+        <a href="#" style="display:inline-flex;align-items:center;height:36px;box-sizing:border-box;padding:0 18px;border:1px solid rgba(251,243,225,.7);border-radius:999px;color:#FBF3E1;font-size:11px;font-weight:700;letter-spacing:.1em;text-transform:uppercase">Details</a>
       </div>
     </div>
-    <div ref="{{ scrollRef }}" onTouchStart="{{ pause }}" onTouchEnd="{{ resume }}" class="tgcc-sc" style="margin-top:28px;display:flex;gap:14px;overflow-x:auto;scroll-snap-type:x mandatory;scroll-padding-left:20px;padding:0 20px;scrollbar-width:none;-webkit-overflow-scrolling:touch">
-      <sc-for list="{{ cards }}" as="c" hint-placeholder-count="4">
-        <button onClick="{{ c.go }}" style="flex:0 0 calc((100% - 14px)/1.5);scroll-snap-align:start;aspect-ratio:3/4;position:relative;padding:0;border:0;cursor:pointer;overflow:hidden;background:#4D4D3C;text-align:left;box-shadow:0 14px 30px rgba(0,0,0,.35);transition:opacity 400ms ease;opacity:{{ c.op }}">
-          <img src="{{ c.img }}" alt="" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover">
-          <span style="position:absolute;inset:0;background:linear-gradient(180deg,rgba(46,47,35,0) 45%,rgba(46,47,35,.92) 100%)"></span>
-          <span style="position:absolute;left:14px;right:14px;bottom:14px;display:flex;flex-direction:column;gap:6px;color:#FBF3E1">
-            <span style="width:16px;height:1px;background:#FBF3E1"></span>
-            <span style="font-size:10px;color:#FBF3E1">{{ c.meta }}</span>
-            <span style="font-family:var(--font-sans-xcondensed);font-weight:700;font-size:21px;line-height:.95;text-transform:uppercase">{{ c.title }}</span>
-          </span>
-        </button>
-      </sc-for>
-      <div style="flex:0 0 calc((100% - 14px)/3)"></div>
+  </div>
+  <div style="padding:16px 0 22px;display:flex;flex-direction:column;gap:12px">
+    <div style="padding:0 20px;display:flex;justify-content:space-between;align-items:center">
+      <span style="font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:#FBF3E1">More experiences</span>
+      <span style="font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:#DBBC88">Swipe →</span>
     </div>
-    <div style="padding:20px;display:flex;align-items:center;justify-content:center;gap:12px">
-      <div style="flex:0 1 220px;height:1px;background:rgba(251,243,225,.3);position:relative;overflow:hidden">{{ progressBar }}</div>
-      <span style="font-family:var(--font-sans-xcondensed);font-weight:500;font-size:32px;line-height:1;color:#FBF3E1;min-width:44px;text-align:left">{{ num }}</span>
+    <div style="position:relative">
+      <div ref="{{ scrollRef }}" onTouchStart="{{ pause }}" onTouchEnd="{{ resume }}" class="tgcc-sc" style="position:relative;display:flex;gap:10px;overflow-x:auto;padding:0 20px;scrollbar-width:none;-webkit-overflow-scrolling:touch">
+        <sc-for list="{{ tiles }}" as="t" hint-placeholder-count="5">
+          <button onClick="{{ t.go }}" aria-label="{{ t.title }}" style="flex:0 0 118px;width:118px;aspect-ratio:3/4;position:relative;padding:0;border:0;cursor:pointer;overflow:hidden;background:#4D4D3C;text-align:left;outline:{{ t.outline }};outline-offset:-2px;opacity:{{ t.op }};transition:opacity 300ms ease">
+            <img src="{{ t.img }}" alt="" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover">
+            <span style="position:absolute;inset:0;background:linear-gradient(180deg,rgba(28,28,20,0) 40%,rgba(28,28,20,.9) 100%)"></span>
+            <span style="position:absolute;left:8px;right:8px;bottom:8px;display:flex;flex-direction:column;gap:4px">
+              <span style="font-size:9px;color:#DBBC88">{{ t.num }}</span>
+              <span style="font-family:var(--font-sans-xcondensed);font-weight:700;font-size:17px;line-height:.95;text-transform:uppercase;color:#FBF3E1">{{ t.title }}</span>
+            </span>
+          </button>
+        </sc-for>
+      </div>
+      <div style="position:absolute;top:0;right:0;bottom:0;width:44px;pointer-events:none;background:linear-gradient(90deg,rgba(46,47,35,0),#2E2F23)"></div>
     </div>
+  </div>
     <div data-screen-label="03c As seen on" style="margin:0 20px;padding:20px 0 28px;border-top:1px solid rgba(251,243,225,.22);display:flex;flex-direction:column;gap:18px">
       <span style="font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:#DBBC88">As seen on</span>
       <div style="display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:22px 8px;align-items:center;justify-items:center">
@@ -147,7 +154,6 @@ a{color:inherit;text-decoration:none}a:hover{color:inherit;opacity:.86}
         <a href="#" style="font-family:var(--font-sans-xcondensed);font-weight:600;font-size:18px;letter-spacing:.2em;text-transform:uppercase;color:#FBF3E1">AD India</a>
       </div>
     </div>
-  </div>
 </section>
 
 <section id="visit" data-screen-label="04 Plan your visit" style="overflow:hidden;border-bottom:1.5px solid #364622;background:#FBF3E1;scroll-margin-top:56px">
@@ -484,10 +490,12 @@ class Component extends DCLogic {
     const sc = this.scrollRef.current;
     this.start();
     this.setState({ exp: i });
+    const t = sc && sc.children[i];
+    if (t) sc.scrollTo({ left: Math.max(0, t.offsetLeft - 20), behavior: 'smooth' });
   }
   componentDidUpdate(_p, ps) {
     const sc = this.scrollRef.current;
-    if (ps.exp !== this.state.exp && sc) sc.scrollTo({ left: 0, behavior: 'smooth' });
+    if (ps.exp !== this.state.exp && sc) { const t = sc.children[this.state.exp]; if (t) sc.scrollTo({ left: Math.max(0, t.offsetLeft - 20), behavior: 'smooth' }); }
   }
   toggleMenu = () => { const m = !this.state.menu; document.body.style.overflow = m ? 'hidden' : ''; this.setState({ menu: m, acc: null }); };
   renderVals() {
@@ -512,7 +520,7 @@ class Component extends DCLogic {
       awardsLoop: [...awards, ...awards],
       exps: EXPS.map((e, i) => ({ ...e, op: i === s.exp ? 1 : 0, scale: i === s.exp ? 1.06 : 1 })),
       cur: EXPS[s.exp],
-      cards: EXPS.map((_, k) => { const i = (s.exp + 1 + k) % EXPS.length; return { ...EXPS[i], go: () => this.go(i), op: 1 }; }).slice(0, EXPS.length - 1),
+      tiles: EXPS.map((e, i) => { const on = i === s.exp; return { ...e, num: String(i + 1).padStart(2, '0'), op: on ? 1 : .6, outline: on ? '2px solid #DBBC88' : '2px solid transparent', go: () => this.go(i) }; }),
       scrollRef: this.scrollRef,
       prev: () => this.go(s.exp - 1), next: () => this.go(s.exp + 1),
       pause: () => this.setState({ paused: true }), resume: () => { this.setState({ paused: false }); this.start(); },
