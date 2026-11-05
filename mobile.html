@@ -262,7 +262,7 @@ a{color:inherit;text-decoration:none}a:hover{color:inherit;opacity:.86}
     </svg>
     <sc-for list="{{ stops }}" as="p" hint-placeholder-count="4">
       <button onClick="{{ p.tap }}" aria-label="{{ p.n }}" style="position:absolute;left:{{ p.left }};top:{{ p.top }};width:28px;height:28px;padding:0;border:0;background:transparent;transform:translate(-50%,-50%);cursor:pointer;overflow:visible;font-family:inherit">
-        <svg viewBox="0 0 28 38" style="position:absolute;left:0;top:-24px;width:28px;height:38px;overflow:visible;transform-origin:50% 100%;transform:scale({{ p.scale }});transition:transform 400ms ease"><path fill-rule="evenodd" d="M14 0C6.3 0 0 6.1 0 13.7 0 24 14 38 14 38s14-14 14-24.3C28 6.1 21.7 0 14 0ZM14 19a5 5 0 1 1 0-10 5 5 0 0 1 0 10Z" fill="#DBBC88" opacity="{{ p.pinOp }}"></path></svg>
+        <svg viewBox="0 0 28 38" style="position:absolute;left:1.5px;top:-20px;width:25px;height:34px;overflow:visible;transform-origin:50% 100%;transform:scale({{ p.scale }});transition:transform 400ms ease"><path fill-rule="evenodd" d="M14 0C6.3 0 0 6.1 0 13.7 0 24 14 38 14 38s14-14 14-24.3C28 6.1 21.7 0 14 0ZM14 19a5 5 0 1 1 0-10 5 5 0 0 1 0 10Z" fill="#DBBC88" opacity="{{ p.pinOp }}"></path></svg>
         <span style="position:absolute;left:50%;transform:translateX(-50%);width:92px;text-align:center;font-size:11px;line-height:1.2;letter-spacing:.08em;text-transform:uppercase;font-weight:600;color:{{ p.lc }};{{ p.lpos }}">{{ p.n }}</span>
       </button>
     </sc-for>
@@ -534,7 +534,7 @@ class Component extends DCLogic {
         tileFor('blr', { title: 'Bangalore', img: 'assets/bangalore.png', eyebrow: 'R&D · Whitefield, Bangalore', body: 'Our R&D space in Whitefield, where we experiment with new Indian ingredients and methods. Small, hands-on sessions with the team behind our next spirits.', ctas: [{ label: 'Enquire now', ...solid }] }),
       ],
       dots: DOTS.map((d, i) => { const on = s.dot === d.id; return { ...d, delay: 200 + i * 200, idx: String(i + 1).padStart(2, '0'), on, tap: () => this.setState({ dot: on ? null : d.id }), flex: on ? 4.4 : 1, scale: on ? 1.04 : 1.12, bodyOp: on ? 1 : 0, vOp: on ? 0 : 1, dotAnim: on ? 'none' : 'tgccDot 2s ease-in-out infinite' }; }),
-      stops: DOTS.map((d, i) => { const pt = [[30,108],[125,52],[225,112],[318,50]][i], on = s.stop === i; return { ...d, idx: String(i + 1).padStart(2, '0'), scale: on ? 1.15 : 1, pinOp: i <= s.stop ? 1 : .35, lc: on ? '#4D4D3C' : '#8A8576', lpos: i % 2 === 1 ? 'bottom:58px' : 'top:26px', left: (pt[0] / 350 * 100) + '%', top: ((pt[1] - 14) / 138 * 100) + '%', op: on ? 1 : 0, pos: d.id === 'lightly' ? '50% 8%' : '50% 50%', tap: () => { this.setState({ stop: i }); this.startStops(); } }; }),
+      stops: DOTS.map((d, i) => { const pt = [[30,108],[125,52],[225,112],[318,50]][i], on = s.stop === i; return { ...d, idx: String(i + 1).padStart(2, '0'), scale: on ? 1.15 : 1, pinOp: i <= s.stop ? 1 : .35, lc: on ? '#4D4D3C' : '#8A8576', lpos: i % 2 === 1 ? 'bottom:64px' : 'top:44px', left: (pt[0] / 350 * 100) + '%', top: ((pt[1] - 14) / 138 * 100) + '%', op: on ? 1 : 0, pos: d.id === 'lightly' ? '50% 8%' : '50% 50%', tap: () => { this.setState({ stop: i }); this.startStops(); } }; }),
       trailW: [39, 128, 228, 317][s.stop],
       ringWeight: 600,
       ds: [
