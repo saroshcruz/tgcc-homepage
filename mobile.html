@@ -32,9 +32,11 @@ a{color:inherit;text-decoration:none}a:hover{color:inherit;opacity:.86}
 <div style="position:relative;max-width:430px;margin:0 auto;background:#FBF3E1;overflow-x:clip">
 
 <header style="position:fixed;top:0;left:50%;transform:translateX(-50%) translateY({{ headY }});width:100%;max-width:430px;z-index:50;transition:background 300ms ease,transform 300ms ease;background:{{ navBg }}">
-  <div style="display:flex;align-items:center;justify-content:space-between;padding:0 20px;height:76px;align-items:center">
-    <a href="#top" style="display:flex">
-      <x-import component-from-global-scope="TheGoodCraftCoDesignSystem_6c692a.Logo" color="creme" size="{{ logoSize }}" hint-size="60px,60px"></x-import>
+  <div style="display:flex;align-items:center;justify-content:space-between;padding:0 20px;height:68px;align-items:center">
+    <a href="#top" style="display:block;position:relative;width:62px;height:61px;flex:none">
+      <span style="position:absolute;left:0;top:0;display:flex;transform:scale(.823);transform-origin:0 0">
+        <x-import component-from-global-scope="TheGoodCraftCoDesignSystem_6c692a.Logo" color="creme" size="{{ logoSize }}" hint-size="60px,60px"></x-import>
+      </span>
     </a>
     <button onClick="{{ toggleMenu }}" aria-label="Menu" style="position:relative;width:44px;height:44px;border:0;background:transparent;cursor:pointer;padding:0">
       <span style="position:absolute;left:10px;right:10px;height:2px;background:#FBF3E1;transition:all 300ms ease;top:{{ bar1Top }};transform:rotate({{ bar1Rot }})"></span>
@@ -70,10 +72,9 @@ a{color:inherit;text-decoration:none}a:hover{color:inherit;opacity:.86}
 
 <section id="top" data-screen-label="01 Hero" style="position:relative;height:100vh;height:100svh;min-height:600px;max-height:860px;overflow:hidden;background:#3C3D2D">
   <img src="assets/hero-exterior.jpg" alt="The TGCC distillery in Ponda" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:62% 50%">
-  <div style="position:absolute;inset:0;pointer-events:none;background:linear-gradient(180deg,rgba(28,28,20,.62) 0%,rgba(28,28,20,.3) 22%,rgba(28,28,20,.5) 52%,rgba(28,28,20,.9) 100%)"></div>
+  <div style="position:absolute;inset:0;pointer-events:none;background:linear-gradient(180deg,rgba(28,28,20,.67) 0%,rgba(28,28,20,.35) 22%,rgba(28,28,20,.55) 52%,rgba(28,28,20,.95) 100%)"></div>
   <div style="position:absolute;left:20px;right:20px;bottom:112px;display:flex;flex-direction:column;gap:24px">
     <div style="display:flex;flex-direction:column;gap:14px">
-      <img data-reveal="arrow" src="assets/arrow-tan.png" alt="" style="width:64px;height:auto;display:block;margin-bottom:2px">
       <span data-reveal="left" data-reveal-delay="450" style="font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:#DBBC88">Ponda, Goa · A working distillery</span>
       <h1 data-reveal="left" data-reveal-delay="580" style="margin:0;color:#FBF3E1;font-weight:200;font-size:42px;line-height:1.02;letter-spacing:-.005em">Step inside <span style="font-family:var(--font-serif);font-weight:400">the house</span> of good craft</h1>
       <p data-reveal="left" data-reveal-delay="720" style="margin:0;color:#FBF3E1;font-size:15px;line-height:1.5;max-width:340px;text-wrap:pretty">Where we make Indian spirits by hand, in small batches, from ingredients grown on our own land.</p>
@@ -112,10 +113,10 @@ a{color:inherit;text-decoration:none}a:hover{color:inherit;opacity:.86}
     <div style="padding:0 20px;display:flex;flex-direction:column;gap:10px">
       <span style="width:24px;height:2px;background:#DBBC88"></span>
       <span style="font-size:12px;color:#FBF3E1">{{ cur.meta }}</span>
-      <h3 style="margin:0;font-family:var(--font-sans-xcondensed);font-weight:700;text-transform:uppercase;font-size:56px;line-height:.9;color:#FBF3E1">{{ cur.title }}</h3>
+      <h3 style="margin:0;font-family:var(--font-sans-xcondensed);font-weight:700;text-transform:uppercase;font-size:49px;line-height:.9;color:#FBF3E1">{{ cur.title }}</h3>
       <p style="margin:0;max-width:320px;font-size:13px;line-height:1.45;color:#FBF3E1;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden">{{ cur.short }}</p>
       <div style="display:flex;gap:8px;align-items:center;margin-top:4px">
-        <x-import component-from-global-scope="TheGoodCraftCoDesignSystem_6c692a.Button" variant="tan" size="sm" hint-size="130px,36px">Book Tickets</x-import>
+        <a href="#" style="display:inline-flex;align-items:center;height:36px;box-sizing:border-box;padding:0 16px;border:1px solid #DBBC88;border-radius:999px;background:#DBBC88;color:#4D4D3C;font-size:11px;font-weight:600;letter-spacing:.1em;text-transform:uppercase">Book Tickets</a>
         <a href="#" style="display:inline-flex;align-items:center;height:36px;box-sizing:border-box;padding:0 16px;border:1px solid rgba(251,243,225,.7);border-radius:999px;color:#FBF3E1;font-size:11px;font-weight:600;letter-spacing:.1em;text-transform:uppercase">Details</a>
       </div>
     </div>
@@ -127,17 +128,15 @@ a{color:inherit;text-decoration:none}a:hover{color:inherit;opacity:.86}
           <span style="position:absolute;left:14px;right:14px;bottom:14px;display:flex;flex-direction:column;gap:6px;color:#FBF3E1">
             <span style="width:16px;height:1px;background:#FBF3E1"></span>
             <span style="font-size:10px;color:#FBF3E1">{{ c.meta }}</span>
-            <span style="font-family:var(--font-sans-xcondensed);font-weight:700;font-size:24px;line-height:.95;text-transform:uppercase">{{ c.title }}</span>
+            <span style="font-family:var(--font-sans-xcondensed);font-weight:700;font-size:21px;line-height:.95;text-transform:uppercase">{{ c.title }}</span>
           </span>
         </button>
       </sc-for>
       <div style="flex:0 0 calc((100% - 14px)/3)"></div>
     </div>
-    <div style="padding:20px;display:flex;align-items:center;gap:12px">
-      <button onClick="{{ prev }}" aria-label="Previous" style="width:40px;height:40px;border-radius:50%;border:1px solid rgba(251,243,225,.6);background:transparent;color:#FBF3E1;font-size:16px;line-height:1;cursor:pointer">‹</button>
-      <button onClick="{{ next }}" aria-label="Next" style="width:40px;height:40px;border-radius:50%;border:1px solid rgba(251,243,225,.6);background:transparent;color:#FBF3E1;font-size:16px;line-height:1;cursor:pointer">›</button>
-      <div style="flex:1;height:1px;background:rgba(251,243,225,.3);position:relative;overflow:hidden">{{ progressBar }}</div>
-      <span style="font-family:var(--font-sans-xcondensed);font-weight:500;font-size:32px;line-height:1;color:#FBF3E1;min-width:44px;text-align:right">{{ num }}</span>
+    <div style="padding:20px;display:flex;align-items:center;justify-content:center;gap:12px">
+      <div style="flex:0 1 220px;height:1px;background:rgba(251,243,225,.3);position:relative;overflow:hidden">{{ progressBar }}</div>
+      <span style="font-family:var(--font-sans-xcondensed);font-weight:500;font-size:32px;line-height:1;color:#FBF3E1;min-width:44px;text-align:left">{{ num }}</span>
     </div>
     <div data-screen-label="03c As seen on" style="margin:0 20px;padding:20px 0 28px;border-top:1px solid rgba(251,243,225,.22);display:flex;flex-direction:column;gap:18px">
       <span style="font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:#DBBC88">As seen on</span>
