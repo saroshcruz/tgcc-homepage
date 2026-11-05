@@ -32,12 +32,10 @@ a{color:inherit;text-decoration:none}a:hover{color:inherit;opacity:.86}
 <div style="position:relative;max-width:430px;margin:0 auto;background:#FBF3E1;overflow-x:clip">
 
 <header style="position:fixed;top:0;left:50%;transform:translateX(-50%) translateY({{ headY }});width:100%;max-width:430px;z-index:50;transition:background 300ms ease,transform 300ms ease;background:{{ navBg }}">
-  <div style="display:flex;align-items:center;justify-content:space-between;padding:0 20px;height:68px;align-items:center">
-    <a href="#top" style="display:block;position:relative;width:62px;height:61px;flex:none">
-      <span style="position:absolute;left:0;top:0;display:flex;transform:scale(.823);transform-origin:0 0">
-        <x-import component-from-global-scope="TheGoodCraftCoDesignSystem_6c692a.Logo" color="creme" size="{{ logoSize }}" hint-size="60px,60px"></x-import>
-      </span>
-    </a>
+  <div style="display:flex;align-items:center;justify-content:space-between;padding:0 20px;height:100px;align-items:center">
+    <a href="#top" style="display:flex;align-items:center;justify-content:center;width:75px;height:75px"><div style="flex:none">
+      <x-import component-from-global-scope="TheGoodCraftCoDesignSystem_6c692a.Logo" color="creme" size="{{ logoSize }}" hint-size="75px,75px"></x-import>
+    </div></a>
     <button onClick="{{ toggleMenu }}" aria-label="Menu" style="position:relative;width:44px;height:44px;border:0;background:transparent;cursor:pointer;padding:0">
       <span style="position:absolute;left:10px;right:10px;height:2px;background:#FBF3E1;transition:all 300ms ease;top:{{ bar1Top }};transform:rotate({{ bar1Rot }})"></span>
       <span style="position:absolute;left:10px;right:10px;top:21px;height:2px;background:#FBF3E1;transition:opacity 200ms ease;opacity:{{ bar2Op }}"></span>
@@ -72,7 +70,7 @@ a{color:inherit;text-decoration:none}a:hover{color:inherit;opacity:.86}
 
 <section id="top" data-screen-label="01 Hero" style="position:relative;height:100vh;height:100svh;min-height:600px;max-height:860px;overflow:hidden;background:#3C3D2D">
   <img src="assets/hero-exterior.jpg" alt="The TGCC distillery in Ponda" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:62% 50%">
-  <div style="position:absolute;inset:0;pointer-events:none;background:linear-gradient(180deg,rgba(28,28,20,.67) 0%,rgba(28,28,20,.35) 22%,rgba(28,28,20,.55) 52%,rgba(28,28,20,.95) 100%)"></div>
+  <div style="position:absolute;inset:0;pointer-events:none;background:linear-gradient(180deg,rgba(28,28,20,.67) 0%,rgba(28,28,20,.35) 22%,rgba(28,28,20,.55) 52%,rgba(28,28,20,.92) 100%)"></div>
   <div style="position:absolute;left:20px;right:20px;bottom:112px;display:flex;flex-direction:column;gap:24px">
     <div style="display:flex;flex-direction:column;gap:14px">
       <span data-reveal="left" data-reveal-delay="450" style="font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:#DBBC88">Ponda, Goa · A working distillery</span>
@@ -240,6 +238,40 @@ a{color:inherit;text-decoration:none}a:hover{color:inherit;opacity:.86}
   </div>
 </section>
 
+<section data-screen-label="06c Our story map" style="overflow:hidden;background:#FFFFFF;padding:26px 20px 26px;display:flex;flex-direction:column;gap:14px">
+  <div style="display:flex;flex-direction:column;gap:6px">
+    <span style="font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:#A0401F">Our story</span>
+    <h2 style="margin:0;font-size:32px;line-height:1.05;font-weight:200;color:#4D4D3C">Four stops, <span style="font-family:var(--font-serif);font-weight:400">one craft.</span></h2>
+  </div>
+  <div style="position:relative;width:100%;aspect-ratio:350/138">
+    <svg viewBox="0 14 350 138" preserveAspectRatio="none" style="position:absolute;inset:0;width:100%;height:100%;display:block" aria-hidden="true">
+      <path d="M30 108 C 60 108, 90 52, 125 52 S 190 112, 225 112 S 285 50, 318 50" fill="none" stroke="#DBBC88" stroke-width="2.5" stroke-linecap="butt" stroke-dasharray="9 7"></path>
+    </svg>
+    <sc-for list="{{ stops }}" as="p" hint-placeholder-count="4">
+      <button onClick="{{ p.tap }}" aria-label="{{ p.n }}" style="position:absolute;left:{{ p.left }};top:{{ p.top }};width:28px;height:28px;margin:-14px 0 0 -14px;padding:0;border-radius:50%;box-sizing:border-box;border:1.5px solid #DBBC88;background:{{ p.bg }};color:#4D4D3C;font-family:inherit;font-size:12px;font-weight:700;line-height:1;cursor:pointer;display:grid;place-items:center;transition:background 300ms ease">{{ p.num }}</button>
+    </sc-for>
+  </div>
+  <div style="position:relative;width:100%;aspect-ratio:3/4;overflow:hidden;background:#4D4D3C">
+    <sc-for list="{{ stops }}" as="c" hint-placeholder-count="4">
+      <div style="position:absolute;inset:0;transition:opacity 700ms ease;opacity:{{ c.op }};pointer-events:none">
+        <img src="{{ c.img }}" alt="{{ c.n }}" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:{{ c.pos }}">
+        <div style="position:absolute;inset:0;background:rgba(28,28,20,.45)"></div>
+        <div style="position:absolute;inset:0;background:linear-gradient(180deg,rgba(28,28,20,.1) 30%,rgba(28,28,20,.75) 100%)"></div>
+        <div style="position:absolute;left:50%;top:30%;transform:translate(-50%,-50%);width:200px;height:200px;display:grid;place-items:center">
+          <div style="position:absolute;inset:0;animation:tgccSpin 26s linear infinite">
+            <x-import component-from-global-scope="TheGoodCraftCoDesignSystem_6c692a.CircularText" text="{{ c.ring }}" size="200" font-size="11" color="#FBF3E1" weight="600" hint-size="200px,200px"></x-import>
+          </div>
+          <span style="position:relative;width:16px;height:16px;border-radius:50%;background:#FBF3E1;box-shadow:0 0 0 6px rgba(251,243,225,.25)"></span>
+        </div>
+        <div style="position:absolute;left:18px;right:18px;bottom:22px;display:flex;flex-direction:column;gap:8px;color:#FBF3E1">
+          <span style="font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:#DBBC88">{{ c.idx }} · {{ c.n }}</span>
+          <p style="margin:0;font-family:var(--font-serif);font-size:20px;line-height:1.25;color:#FBF3E1">{{ c.body }}</p>
+        </div>
+      </div>
+    </sc-for>
+  </div>
+</section>
+
 <section data-screen-label="05a Our locations" style="overflow:hidden;background:#FBF3E1;padding:32px 20px 24px;display:flex;flex-direction:column;gap:12px">
   <div style="display:flex;align-items:center;gap:14px">
     <img data-reveal="arrow" src="assets/arrow-olive.png" alt="" style="width:52px;height:auto;display:block">
@@ -382,7 +414,7 @@ const ICONS = {
 };
 
 class Component extends DCLogic {
-  state = { menu: false, acc: null, scrolled: false, hide: false, bar: false, exp: 0, paused: false, place: 'dabolim', dot: null, tile: null };
+  state = { menu: false, acc: null, scrolled: false, hide: false, stop: 0, bar: false, exp: 0, paused: false, place: 'dabolim', dot: null, tile: null };
   scrollRef = React.createRef();
   componentDidMount() {
     setTimeout(() => this.setupReveal(), 60);
@@ -400,8 +432,10 @@ class Component extends DCLogic {
     this.onWin = () => { if (!this.ticking) { this.ticking = true; requestAnimationFrame(update); } };
     window.addEventListener('scroll', this.onWin, { passive: true });
     this.start();
+    this.startStops();
   }
-  componentWillUnmount() { window.removeEventListener('scroll', this.onWin); clearInterval(this.t); this.io && this.io.disconnect(); document.body.style.overflow = ''; }
+  startStops() { clearInterval(this.st); this.st = setInterval(() => this.setState({ stop: (this.state.stop + 1) % DOTS.length }), 7000); }
+  componentWillUnmount() { window.removeEventListener('scroll', this.onWin); clearInterval(this.t); clearInterval(this.st); this.io && this.io.disconnect(); document.body.style.overflow = ''; }
   setupReveal() {
     const off = { up: 'translateY(48px)', left: 'translateX(-48px)', right: 'translateX(48px)', expand: 'scale(.9)', pop: 'scale(0)', arrow: 'translateX(-32px)' };
     const groups = new Map();
@@ -453,7 +487,7 @@ class Component extends DCLogic {
     const solid = { bg: '#FBF3E1', fg: '#4D4D3C' }, ghost = { bg: 'transparent', fg: '#FBF3E1' };
     return {
       navBg: s.scrolled || m ? 'rgba(46,47,35,.96)' : 'transparent',
-      logoSize: 44,
+      logoSize: 75,
       headY: s.hide && !m ? '-100%' : '0',
       toggleMenu: this.toggleMenu, menuOpen: m,
       bar1Top: m ? '21px' : '14px', bar1Rot: m ? '45deg' : '0deg', bar2Op: m ? 0 : 1, bar3Top: m ? '21px' : '28px', bar3Rot: m ? '-45deg' : '0deg',
@@ -484,6 +518,7 @@ class Component extends DCLogic {
         tileFor('blr', { title: 'Bangalore', img: 'assets/bangalore.png', eyebrow: 'R&D · Whitefield, Bangalore', body: 'Our R&D space in Whitefield, where we experiment with new Indian ingredients and methods. Small, hands-on sessions with the team behind our next spirits.', ctas: [{ label: 'Enquire now', ...solid }] }),
       ],
       dots: DOTS.map((d, i) => { const on = s.dot === d.id; return { ...d, delay: 200 + i * 200, idx: String(i + 1).padStart(2, '0'), on, tap: () => this.setState({ dot: on ? null : d.id }), flex: on ? 4.4 : 1, scale: on ? 1.04 : 1.12, bodyOp: on ? 1 : 0, vOp: on ? 0 : 1, dotAnim: on ? 'none' : 'tgccDot 2s ease-in-out infinite' }; }),
+      stops: DOTS.map((d, i) => { const pt = [[30,108],[125,52],[225,112],[318,50]][i], on = s.stop === i; return { ...d, num: i + 1, idx: String(i + 1).padStart(2, '0'), left: (pt[0] / 350 * 100) + '%', top: ((pt[1] - 14) / 138 * 100) + '%', bg: on ? '#DBBC88' : '#FFFFFF', op: on ? 1 : 0, pos: d.id === 'lightly' ? '50% 8%' : '50% 50%', tap: () => { this.setState({ stop: i }); this.startStops(); } }; }),
       ringWeight: 600,
       ds: [
         tileFor('dining', { title: 'Dining & Bar', img: 'assets/dining.png', body: 'Chef Madhav\'s 4- and 6-course menus, built around Goan produce, with our spirits poured at the bar.', points: ['Lunch & dinner', '4 or 6 courses', 'The Bar'], cta: 'Reserve a table' }),
