@@ -31,8 +31,8 @@ a{color:inherit;text-decoration:none}a:hover{color:inherit;opacity:.86}
 
 <div style="position:relative;max-width:430px;margin:0 auto;background:#FBF3E1;overflow-x:clip">
 
-<header style="position:fixed;top:0;left:50%;transform:translateX(-50%);width:100%;max-width:430px;z-index:50;transition:background 300ms ease;background:{{ navBg }}">
-  <div style="display:flex;align-items:center;justify-content:space-between;padding:22px 20px 0;height:76px">
+<header style="position:fixed;top:0;left:50%;transform:translateX(-50%) translateY({{ headY }});width:100%;max-width:430px;z-index:50;transition:background 300ms ease,transform 300ms ease;background:{{ navBg }}">
+  <div style="display:flex;align-items:center;justify-content:space-between;padding:0 20px;height:76px;align-items:center">
     <a href="#top" style="display:flex">
       <x-import component-from-global-scope="TheGoodCraftCoDesignSystem_6c692a.Logo" color="creme" size="{{ logoSize }}" hint-size="60px,60px"></x-import>
     </a>
@@ -63,9 +63,9 @@ a{color:inherit;text-decoration:none}a:hover{color:inherit;opacity:.86}
   </sc-if>
 </header>
 
-<div style="position:fixed;bottom:0;left:50%;width:100%;max-width:430px;z-index:40;display:flex;gap:10px;padding:12px 16px calc(12px + env(safe-area-inset-bottom));box-sizing:border-box;background:rgba(46,47,35,.96);border-top:1px solid rgba(251,243,225,.16);transition:transform 400ms cubic-bezier(.2,.7,.2,1);transform:translateX(-50%) translateY({{ barY }})">
-  <a href="#visit" style="flex:1;display:flex;justify-content:center;align-items:center;height:48px;border:1px solid #FBF3E1;color:#FBF3E1;font-size:12px;font-weight:600;letter-spacing:.1em;text-transform:uppercase">Plan Your Visit</a>
-  <a href="#" style="flex:1;display:flex;justify-content:center;align-items:center;height:48px;background:#DBBC88;color:#4D4D3C;font-size:12px;font-weight:600;letter-spacing:.1em;text-transform:uppercase">Book Tickets</a>
+<div style="position:fixed;bottom:0;left:50%;width:100%;max-width:430px;z-index:40;display:flex;gap:10px;padding:8px 16px calc(8px + env(safe-area-inset-bottom));box-sizing:border-box;background:rgba(46,47,35,.96);border-top:1px solid rgba(251,243,225,.16);transition:transform 400ms cubic-bezier(.2,.7,.2,1);transform:translateX(-50%) translateY({{ barY }})">
+  <a href="#visit" style="flex:1;display:flex;justify-content:center;align-items:center;height:31px;border:1px solid #FBF3E1;color:#FBF3E1;font-size:12px;font-weight:600;letter-spacing:.1em;text-transform:uppercase">Plan Your Visit</a>
+  <a href="#" style="flex:1;display:flex;justify-content:center;align-items:center;height:31px;background:#DBBC88;color:#4D4D3C;font-size:12px;font-weight:600;letter-spacing:.1em;text-transform:uppercase">Book Tickets</a>
 </div>
 
 <section id="top" data-screen-label="01 Hero" style="position:relative;height:100vh;height:100svh;min-height:600px;max-height:860px;overflow:hidden;background:#3C3D2D">
@@ -383,14 +383,22 @@ const ICONS = {
 };
 
 class Component extends DCLogic {
-  state = { menu: false, acc: null, scrolled: false, bar: false, exp: 0, paused: false, place: 'dabolim', dot: null, tile: null };
+  state = { menu: false, acc: null, scrolled: false, hide: false, bar: false, exp: 0, paused: false, place: 'dabolim', dot: null, tile: null };
   scrollRef = React.createRef();
   componentDidMount() {
     setTimeout(() => this.setupReveal(), 60);
-    this.onWin = () => {
-      const y = window.scrollY, sc = y > 30, bar = y > window.innerHeight * 0.6;
-      if (sc !== this.state.scrolled || bar !== this.state.bar) this.setState({ scrolled: sc, bar });
+    this.lastY = window.scrollY; this.ticking = false;
+    const update = () => {
+      this.ticking = false;
+      const y = Math.max(0, window.scrollY), sc = y > 30, bar = y > window.innerHeight * 0.6, dy = y - this.lastY;
+      let hide = this.state.hide;
+      if (y < 80 || this.state.menu) hide = false;
+      else if (dy > 0) hide = true;
+      else if (dy <= -8) hide = false;
+      if (Math.abs(dy) >= 8 || y < 80) this.lastY = y;
+      if (sc !== this.state.scrolled || bar !== this.state.bar || hide !== this.state.hide) this.setState({ scrolled: sc, bar, hide });
     };
+    this.onWin = () => { if (!this.ticking) { this.ticking = true; requestAnimationFrame(update); } };
     window.addEventListener('scroll', this.onWin, { passive: true });
     this.start();
   }
@@ -447,6 +455,7 @@ class Component extends DCLogic {
     return {
       navBg: s.scrolled || m ? 'rgba(46,47,35,.96)' : 'transparent',
       logoSize: 44,
+      headY: s.hide && !m ? '-100%' : '0',
       toggleMenu: this.toggleMenu, menuOpen: m,
       bar1Top: m ? '21px' : '14px', bar1Rot: m ? '45deg' : '0deg', bar2Op: m ? 0 : 1, bar3Top: m ? '21px' : '28px', bar3Rot: m ? '-45deg' : '0deg',
       nav: NAV.map(n => { const o = s.acc === n.key; return { ...n, open: o, sign: o ? '–' : '+', tap: () => this.setState({ acc: o ? null : n.key }) }; }),
