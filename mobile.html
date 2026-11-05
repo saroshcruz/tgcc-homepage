@@ -188,12 +188,23 @@ a{color:inherit;text-decoration:none}a:hover{color:inherit;opacity:.86}
       <span style="font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:#615D51">Plan Your Visit</span>
       <h2 style="margin:0;font-size:32px;line-height:1.05;font-weight:200">Find us <span style="font-family:var(--font-serif);font-weight:400">in Ponda,</span> <span style="font-weight:700">Goa.</span></h2>
     </div>
-    <div style="display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:0 18px">
+    <div style="display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:0 18px;align-items:start">
       <sc-for list="{{ visitInfo }}" as="v" hint-placeholder-count="6">
-        <div style="display:flex;flex-direction:column;gap:4px;padding:10px 0 12px;border-top:1px solid rgba(77,77,60,.25)">
-          <span style="font-size:10px;letter-spacing:.12em;text-transform:uppercase;font-weight:700;color:#4D4D3C">{{ v.k }}</span>
-          <sc-for list="{{ v.lines }}" as="ln" hint-placeholder-count="2"><span style="font-size:13px;line-height:1.4;color:#4D4D3C">{{ ln }}</span></sc-for>
+        <div style="border-top:1px solid rgba(77,77,60,.25)">
+          <button onClick="{{ v.tap }}" aria-expanded="{{ v.open }}" style="width:100%;display:flex;justify-content:space-between;align-items:center;padding:12px 0;background:transparent;border:0;cursor:pointer;font-family:inherit;text-align:left;font-size:10px;letter-spacing:.12em;text-transform:uppercase;font-weight:700;color:#4D4D3C">
+            <span>{{ v.k }}</span>
+            <span style="flex:none;width:8px;height:8px;box-sizing:border-box;border-right:1.5px solid #4D4D3C;border-bottom:1.5px solid #4D4D3C;transition:transform 300ms ease;transform:rotate({{ v.rot }});margin-top:{{ v.mt }}"></span>
+          </button>
+          <div style="display:grid;grid-template-rows:{{ v.rows }};transition:grid-template-rows 350ms ease">
+            <div style="overflow:hidden;min-height:0">
+              <div style="display:flex;flex-direction:column;gap:4px;padding-bottom:12px">
+                <sc-for list="{{ v.lines }}" as="ln" hint-placeholder-count="2"><span style="font-size:13px;line-height:1.4;color:#4D4D3C">{{ ln }}</span></sc-for>
+              </div>
+            </div>
+          </div>
         </div>
+      </sc-for>
+    </div>
       </sc-for>
     </div>
     <div style="display:flex;gap:10px;flex-wrap:wrap">
@@ -245,7 +256,9 @@ a{color:inherit;text-decoration:none}a:hover{color:inherit;opacity:.86}
   </div>
   <div style="position:relative;width:100%;aspect-ratio:350/138">
     <svg viewBox="0 14 350 138" preserveAspectRatio="none" style="position:absolute;inset:0;width:100%;height:100%;display:block" aria-hidden="true">
-      <path d="M30 108 C 60 108, 90 52, 125 52 S 190 112, 225 112 S 285 50, 318 50" fill="none" stroke="#DBBC88" stroke-width="2.5" stroke-linecap="butt" stroke-dasharray="9 7"></path>
+      <defs><clipPath id="tgccTrail"><rect x="0" y="0" height="200" style="width:{{ trailW }}px;transition:width 900ms cubic-bezier(.4,.1,.2,1)"></rect></clipPath></defs>
+      <path d="M30 108 C 60 108, 90 52, 125 52 S 190 112, 225 112 S 285 50, 318 50" fill="none" stroke="#DBBC88" stroke-width="2.5" stroke-linecap="butt" stroke-dasharray="9 7" opacity=".22"></path>
+      <path d="M30 108 C 60 108, 90 52, 125 52 S 190 112, 225 112 S 285 50, 318 50" fill="none" stroke="#DBBC88" stroke-width="2.5" stroke-linecap="butt" stroke-dasharray="9 7" clip-path="url(#tgccTrail)"></path>
     </svg>
     <sc-for list="{{ stops }}" as="p" hint-placeholder-count="4">
       <button onClick="{{ p.tap }}" aria-label="{{ p.n }}" style="position:absolute;left:{{ p.left }};top:{{ p.top }};width:28px;height:28px;margin:-14px 0 0 -14px;padding:0;border-radius:50%;box-sizing:border-box;border:1.5px solid #DBBC88;background:{{ p.bg }};color:#4D4D3C;font-family:inherit;font-size:12px;font-weight:700;line-height:1;cursor:pointer;display:grid;place-items:center;transition:background 300ms ease">{{ p.num }}</button>
@@ -414,7 +427,7 @@ const ICONS = {
 };
 
 class Component extends DCLogic {
-  state = { menu: false, acc: null, scrolled: false, hide: false, stop: 0, bar: false, exp: 0, paused: false, place: 'dabolim', dot: null, tile: null };
+  state = { menu: false, acc: null, scrolled: false, hide: false, stop: 0, bar: false, exp: 0, paused: false, place: 'dabolim', vis: [true, true, false, false, false, false], dot: null, tile: null };
   scrollRef = React.createRef();
   componentDidMount() {
     setTimeout(() => this.setupReveal(), 60);
@@ -502,7 +515,7 @@ class Component extends DCLogic {
       pause: () => this.setState({ paused: true }), resume: () => { this.setState({ paused: false }); this.start(); },
       progressBar: prog,
       num: String(s.exp + 1).padStart(2, '0'),
-      places: PLACES.map((p, k) => ({ ...p, delay: 1000 + k * 90, lx: p.side === 'l' ? 'auto' : '32px', rx: p.side === 'l' ? '32px' : 'auto', left: (p.x / 740 * 100) + '%', top: (p.y / 980 * 100) + '%', pick: () => this.setState({ place: p.id }), fill: p.id === s.place ? '#DBBC88' : 'transparent', weight: p.id === s.place ? 700 : 400 })),
+      places: PLACES.map((p, k) => ({ ...p, delay: 1000 + k * 90, lx: p.side === 'l' ? 'auto' : '32px', rx: p.side === 'l' ? '32px' : 'auto', left: (p.x / 740 * 100) + '%', top: (p.y / 980 * 100) + '%', pick: () => this.setState({ place: p.id, vis: [true, true, false, false, false, false] }), fill: p.id === s.place ? '#DBBC88' : 'transparent', weight: p.id === s.place ? 700 : 400 })),
       sel,
       visitInfo: [
         { k: 'Getting here', lines: ['Dabolim Airport · 28 km', 'Mopa Airport · 62 km'] },
@@ -511,7 +524,7 @@ class Component extends DCLogic {
         { k: 'Accessibility', lines: ['Step-free access throughout', 'Wheelchairs on request'] },
         { k: 'Minimum age', lines: ['18+ for tastings, with photo ID', 'Under-18s on tours with an adult'] },
         { k: 'On site', lines: ['Free parking', 'Cloakroom'] },
-      ],
+      ].map((v, i) => { const o = s.vis[i]; return { ...v, open: o, rows: o ? '1fr' : '0fr', rot: o ? '-135deg' : '45deg', mt: o ? '4px' : '-4px', tap: () => { const vis = this.state.vis.slice(); vis[i] = !vis[i]; this.setState({ vis }); } }; }),
       privateBg: this.props.privateBg === 'olive' ? '#2E2F23' : '#12120E',
       cities: [
         tileFor('goa', { title: 'Goa', img: 'assets/goa.png', eyebrow: 'The distillery · Ponda', body: 'Our home and working distillery, set among the spice farms of Ponda. Join an upcoming event, or host a private tasting, a team day or a celebration on the grounds.', ctas: [{ label: 'Upcoming events', ...solid }, { label: 'Enquire now', ...ghost }] }),
@@ -519,6 +532,7 @@ class Component extends DCLogic {
       ],
       dots: DOTS.map((d, i) => { const on = s.dot === d.id; return { ...d, delay: 200 + i * 200, idx: String(i + 1).padStart(2, '0'), on, tap: () => this.setState({ dot: on ? null : d.id }), flex: on ? 4.4 : 1, scale: on ? 1.04 : 1.12, bodyOp: on ? 1 : 0, vOp: on ? 0 : 1, dotAnim: on ? 'none' : 'tgccDot 2s ease-in-out infinite' }; }),
       stops: DOTS.map((d, i) => { const pt = [[30,108],[125,52],[225,112],[318,50]][i], on = s.stop === i; return { ...d, num: i + 1, idx: String(i + 1).padStart(2, '0'), left: (pt[0] / 350 * 100) + '%', top: ((pt[1] - 14) / 138 * 100) + '%', bg: on ? '#DBBC88' : '#FFFFFF', op: on ? 1 : 0, pos: d.id === 'lightly' ? '50% 8%' : '50% 50%', tap: () => { this.setState({ stop: i }); this.startStops(); } }; }),
+      trailW: [39, 128, 228, 317][s.stop],
       ringWeight: 600,
       ds: [
         tileFor('dining', { title: 'Dining & Bar', img: 'assets/dining.png', body: 'Chef Madhav\'s 4- and 6-course menus, built around Goan produce, with our spirits poured at the bar.', points: ['Lunch & dinner', '4 or 6 courses', 'The Bar'], cta: 'Reserve a table' }),
