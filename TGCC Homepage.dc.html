@@ -49,11 +49,11 @@ a{color:inherit;text-decoration:none}a:hover{color:inherit;opacity:.86}
     <div style="background:rgba(46,47,35,.94);border-top:1px solid rgba(251,243,225,.18);padding:36px clamp(20px,4vw,56px) 44px;display:grid;grid-template-columns:minmax(0,1fr) minmax(0,2fr);gap:40px;animation:tgccFade 280ms ease">
       <div style="display:flex;flex-direction:column;gap:10px">
         <span style="font-size:11px;font-weight:500;letter-spacing:.12em;text-transform:uppercase;color:#DBBC88">{{ menu.label }}</span>
-        <p style="margin:0;font-family:var(--font-serif);font-size:24px;line-height:1.25;color:#FBF3E1;max-width:340px;text-wrap:pretty">{{ menu.blurb }}</p>
+        <p style="margin:0;font-family:var(--font-serif);font-size:24px;line-height:1.25;color:#FBF3E1;max-width:480px;text-wrap:balance">{{ menu.blurb }}</p>
       </div>
       <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:0 32px">
-        <sc-for list="{{ menu.links }}" as="l" hint-placeholder-count="3">
-          <a href="#" style="display:flex;justify-content:space-between;align-items:center;padding:14px 0;border-bottom:1px solid rgba(251,243,225,.2);font-size:16px;color:#FBF3E1">{{ l }}<span style="font-size:12px;color:#DBBC88">→</span></a>
+        <sc-for list="{{ menuLinks }}" as="l" hint-placeholder-count="3">
+          <a href="#" onMouseEnter="{{ l.enter }}" onMouseLeave="{{ subLeave }}" style="display:flex;justify-content:flex-start;align-items:center;gap:10px;padding:14px 0;font-size:16px;color:#FBF3E1"><span style="position:relative;padding-bottom:4px">{{ l.label }}<span style="position:absolute;left:0;bottom:0;height:1px;background:#FBF3E1;transition:width 320ms cubic-bezier(.2,.7,.2,1);width:{{ l.line }}"></span></span>{{ l.ar }}</a>
         </sc-for>
       </div>
     </div>
@@ -67,8 +67,8 @@ a{color:inherit;text-decoration:none}a:hover{color:inherit;opacity:.86}
   <div style="position:absolute;left:clamp(20px,4vw,56px);right:clamp(20px,4vw,56px);bottom:150px;display:flex;align-items:flex-end;justify-content:space-between;gap:32px">
     <div style="display:flex;flex-direction:column;gap:18px;max-width:880px;min-width:0;flex:1 1 auto">
       <span data-reveal="left" data-reveal-delay="200" style="font-size:11px;font-weight:500;letter-spacing:.12em;text-transform:uppercase;color:#DBBC88">Ponda, Goa: A Working Distillery</span>
-      <h1 data-reveal="left" data-reveal-delay="340" style="margin:0;color:#FBF3E1;font-weight:500;font-size:clamp(40px,4.8vw,72px);line-height:1.04;letter-spacing:-.01em;max-width:760px">Step inside and discover <span style="font-family:var(--font-serif);font-weight:400">the Indian spirit, up close.</span></h1>
-      <p data-reveal="left" data-reveal-delay="480" style="margin:0;color:#FBF3E1;font-size:16px;line-height:1.55;max-width:480px;text-wrap:pretty">We make everything by hand, in small batches, with ingredients from our own land.</p>
+      <h1 data-reveal="left" data-reveal-delay="340" style="margin:0;color:#FBF3E1;font-weight:500;font-size:clamp(40px,4.8vw,72px);line-height:1.04;letter-spacing:-.01em;max-width:760px"><span style="font-family:var(--font-serif);font-weight:400">Discover the Indian spirit, up close</span></h1>
+      <p data-reveal="left" data-reveal-delay="480" style="margin:0;color:#FBF3E1;font-size:16px;line-height:1.55;max-width:480px;text-wrap:pretty">A journey through local ingredients, thoughtful processes, and the art of making something extraordinary.</p>
     </div>
     <div data-reveal="left" data-reveal-delay="620" style="display:flex;gap:12px;flex-shrink:0">
       <span onMouseEnter="{{ hv.heroBook }}" onMouseLeave="{{ ctaOff }}" style="display:inline-flex">
@@ -93,7 +93,7 @@ a{color:inherit;text-decoration:none}a:hover{color:inherit;opacity:.86}
 </section>
 
 <section id="experiences" data-screen-label="03 Experiences intro" style="background:#FBF3E1;padding:24px clamp(20px,4vw,56px);display:flex;flex-wrap:wrap;justify-content:space-between;align-items:center;gap:24px;scroll-margin-top:104px">
-  <h2 data-reveal="left" style="margin:0;font-size:clamp(30px,3vw,44px);line-height:1.05;font-weight:500;letter-spacing:-.01em;color:#4D4D3C">Come and explore how craft is made. <span style="font-family:var(--font-serif);font-weight:400">Tours run every day.</span></h2>
+  <h2 data-reveal="left" style="margin:0;font-size:clamp(30px,3vw,44px);line-height:1.05;font-weight:500;letter-spacing:-.01em;color:#4D4D3C">Come and explore how craft is made. <span style="color:#7D7D63;font-family:var(--font-serif);font-weight:400">Tours run every day.</span></h2>
   <span onMouseEnter="{{ hv.viewAll }}" onMouseLeave="{{ ctaOff }}" style="display:inline-flex">
     <x-import component-from-global-scope="TheGoodCraftCoDesignSystem_6c692a.Button" variant="primary" size="md" icon-right="{{ ar.viewAll }}" hint-size="120px,42px">View all</x-import>
   </span>
@@ -119,7 +119,7 @@ a{color:inherit;text-decoration:none}a:hover{color:inherit;opacity:.86}
       </div>
       <div style="display:flex;flex-direction:column;gap:14px;transition:opacity 420ms ease, transform 700ms cubic-bezier(.2,.7,.2,1);opacity:{{ txtOp }};transform:translateY({{ txtY }})">
         <span style="font-size:11px;font-weight:500;letter-spacing:.12em;text-transform:uppercase;color:#DBBC88">{{ cur.meta }}</span>
-        <h3 style="margin:0;font-weight:500;font-size:clamp(36px,3.4vw,52px);line-height:1.02;letter-spacing:-.01em;color:#FBF3E1">{{ cur.title }}</h3>
+        <h3 style="margin:0;font-family:var(--font-serif);font-weight:400;font-size:clamp(36px,3.4vw,52px);line-height:1.02;letter-spacing:-.01em;color:#FBF3E1">{{ cur.title }}</h3>
         <p style="margin:0;max-width:420px;font-size:16px;line-height:1.55;color:#FBF3E1;text-wrap:pretty">{{ cur.desc }}</p>
         <div style="display:flex;gap:12px;align-items:center;flex-wrap:wrap;margin-top:4px">
           <span onMouseEnter="{{ hv.slBook }}" onMouseLeave="{{ ctaOff }}" style="display:inline-flex">
@@ -154,64 +154,64 @@ a{color:inherit;text-decoration:none}a:hover{color:inherit;opacity:.86}
 </section>
 
 <section id="visit" data-screen-label="04 Visit" style="overflow:hidden;border-bottom:1.5px solid #364622;display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,460px),1fr));background:#FBF3E1">
-  <div data-reveal="expand" style="position:relative;background:#364622;padding:28px;min-height:540px;box-sizing:border-box;overflow:hidden;display:flex;justify-content:center;align-items:center">
-    <span style="position:absolute;top:24px;left:28px;font-size:11px;font-weight:500;letter-spacing:.12em;text-transform:uppercase;color:#DBBC88">Tap a place to see the distance</span>
-    <div style="position:relative;height:440px;aspect-ratio:740/980;max-width:100%">
+  <div data-reveal="expand" style="position:relative;background:#364622;padding:24px 32px;min-height:0;box-sizing:border-box;overflow:hidden;display:flex;flex-direction:column;align-items:stretch;gap:12px">
+    <span style="font-size:11px;font-weight:500;letter-spacing:.12em;text-transform:uppercase;color:#DBBC88">Tap a place to see the distance</span>
+    <div style="position:relative;flex:none;margin:auto 0;align-self:center;height:440px;max-width:calc(100% - 120px);aspect-ratio:740/980;left:44px">
       <svg viewBox="0 0 740 980" style="position:absolute;inset:0;width:100%;height:100%;overflow:visible">
-        <polygon points="80,40 230,40 310,90 480,160 610,190 660,290 640,440 690,560 660,690 560,790 540,890 460,940 380,920 340,820 310,740 280,670 260,590 240,540 200,480 140,440 180,410 190,370 160,340 120,310 90,260 70,210 50,140" fill="#7D8F69" stroke="#B0B885" stroke-width="2" stroke-linejoin="round"></polygon>
-        <polygon points="300,300 480,160 610,190 660,290 640,440 520,470 400,470" fill="#94A67E" opacity=".55"></polygon>
-        <polygon points="260,590 320,500 520,470 640,440 690,560 660,690 560,790 420,760 310,740" fill="#677456" opacity=".5"></polygon>
+        <polygon points="80,40 230,40 310,90 480,160 610,190 660,290 640,440 690,560 660,690 560,790 540,890 460,940 380,920 340,820 310,740 280,670 260,590 240,540 200,480 140,440 180,410 190,370 160,340 120,310 90,260 70,210 50,140" fill="#55673F" stroke="#8E9A68" stroke-width="2" stroke-linejoin="round"></polygon>
+        <polygon points="300,300 480,160 610,190 660,290 640,440 520,470 400,470" fill="#6B7D51" opacity=".55"></polygon>
+        <polygon points="260,590 320,500 520,470 640,440 690,560 660,690 560,790 420,760 310,740" fill="#465530" opacity=".5"></polygon>
         <line x1="{{ sel.x }}" y1="{{ sel.y }}" x2="{{ lineEnd.x }}" y2="{{ lineEnd.y }}" stroke="#FBF3E1" stroke-width="3" stroke-dasharray="8 8"></line>
       </svg>
       <sc-for list="{{ places }}" as="pl" hint-placeholder-count="10">
         <button data-reveal="pop" data-reveal-delay="{{ pl.delay }}" onClick="{{ pl.pick }}" onMouseEnter="{{ pl.hover }}" onMouseLeave="{{ placeLeave }}" style="position:absolute;margin:-15px 0 0 -15px;left:{{ pl.left }};top:{{ pl.top }};width:30px;height:30px;border:0;background:transparent;cursor:pointer;padding:0;display:grid;place-items:center">
           <span style="position:absolute;width:9px;height:9px;border-radius:50%;border:1px solid #FBF3E1;transition:transform 360ms cubic-bezier(.2,.7,.2,1), opacity 300ms ease;transform:scale({{ pl.ring }});opacity:{{ pl.ringOp }}"></span>
           <span style="position:relative;z-index:1;width:9px;height:9px;border-radius:50%;border:1.5px solid #FBF3E1;transition:transform 280ms cubic-bezier(.2,.7,.2,1), background 280ms ease;transform:scale({{ pl.dot }});background:{{ pl.fill }}"></span>
-          <span style="position:absolute;z-index:3;left:{{ pl.lx }};right:{{ pl.rx }};white-space:nowrap;font-size:10px;letter-spacing:.06em;color:#FBF3E1;font-weight:{{ pl.weight }}">{{ pl.name }}</span>
+          <span style="position:absolute;z-index:3;left:{{ pl.lx }};right:{{ pl.rx }};white-space:nowrap;font-family:var(--font-serif);font-size:14px;line-height:1;letter-spacing:.01em;color:#FBF3E1;transform:translateY({{ pl.ly }});font-weight:{{ pl.weight }}">{{ pl.name }}</span>
         </button>
       </sc-for>
       <div style="position:absolute;left:50%;top:44.9%;transform:translate(-50%,-50%);width:18px;height:18px;pointer-events:none"><div data-reveal="pop" data-reveal-delay="800" style="position:absolute;inset:0">
         <span style="position:absolute;inset:0;border-radius:50%;background:#DBBC88;animation:tgccPulse 2.2s ease-out infinite"></span>
         <span style="position:absolute;inset:3px;border-radius:50%;background:#DBBC88;border:2px solid #FBF3E1"></span>
       </div></div>
-      <span data-reveal="pop" data-reveal-delay="900" style="position:absolute;left:53%;top:47.2%;font-size:10px;letter-spacing:.12em;text-transform:uppercase;font-weight:700;color:#DBBC88;white-space:nowrap;pointer-events:none">The Good Craft Co. · Ponda</span>
+      <span data-reveal="pop" data-reveal-delay="900" style="position:absolute;left:calc(50% + 20px);top:44.9%;translate:0 -50%;font-family:var(--font-serif);font-size:20px;line-height:1;letter-spacing:.04em;font-weight:700;color:#DBBC88;white-space:nowrap;pointer-events:none">TGCC</span>
     </div>
-    <div style="position:absolute;left:28px;bottom:24px;display:flex;flex-direction:column;gap:4px;color:#FBF3E1">
+    <div style="display:flex;justify-content:space-between;align-items:flex-end;gap:24px;flex-wrap:wrap;padding-top:14px;border-top:1px solid rgba(251,243,225,.2)">
+    <div style="display:flex;flex-direction:column;gap:4px;color:#FBF3E1">
       <span style="font-size:10px;font-weight:500;letter-spacing:.12em;text-transform:uppercase;color:#DBBC88">From</span>
-      <span style="font-weight:500;font-size:26px;line-height:1.05">{{ sel.name }}</span>
+      <span style="font-family:var(--font-serif);font-weight:400;font-size:26px;line-height:1.05">{{ sel.name }}</span>
     </div>
-    <div style="position:absolute;right:28px;bottom:24px;display:flex;gap:24px;color:#FBF3E1;text-align:right">
+    <div style="display:flex;gap:32px;color:#FBF3E1;text-align:right">
       <div style="display:flex;flex-direction:column;gap:2px"><span style="font-family:var(--font-serif);font-size:26px;line-height:1.05">{{ sel.km }}</span><span style="font-size:10px;color:#B0B885">by road, approx.</span></div>
       <div style="display:flex;flex-direction:column;gap:2px"><span style="font-family:var(--font-serif);font-size:26px;line-height:1.05">{{ sel.time }}</span><span style="font-size:10px;color:#B0B885">drive time</span></div>
     </div>
+    </div>
   </div>
-  <div data-reveal="left" data-reveal-delay="450" style="padding:40px clamp(24px,4vw,56px);display:flex;flex-direction:column;gap:24px;justify-content:center">
-    <h2 style="margin:0;font-size:clamp(30px,3vw,44px);line-height:1.05;font-weight:500;letter-spacing:-.01em">Find us <span style="font-family:var(--font-serif);font-weight:400">in Ponda, Goa.</span></h2>
+  <div data-reveal="left" data-reveal-delay="450" style="position:relative;padding:40px clamp(24px,4vw,56px) 180px;display:flex;flex-direction:column;gap:24px;justify-content:flex-start;min-height:0">
+    <h2 style="margin:0;font-size:clamp(30px,3vw,44px);line-height:1.05;font-weight:500;letter-spacing:-.01em;color:#4D4D3C">Find us. <span style="color:#7D7D63;font-family:var(--font-serif);font-weight:400">Ponda, Goa.</span></h2>
     <div style="display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:0 24px">
-      <sc-for list="{{ visitInfo }}" as="v" hint-placeholder-count="6">
-        <div style="display:flex;flex-direction:column;gap:4px;padding:10px 0;border-top:1px solid rgba(77,77,60,.25)">
+      <sc-for list="{{ visitInfo }}" as="v" hint-placeholder-count="4">
+        <div style="display:flex;flex-direction:column;gap:3px;padding:12px 0;border-top:1px solid rgba(77,77,60,.25)">
           <span style="font-size:11px;letter-spacing:.12em;text-transform:uppercase;font-weight:500;color:#4D4D3C">{{ v.k }}</span>
           <sc-for list="{{ v.lines }}" as="ln" hint-placeholder-count="2"><span style="font-size:14px;line-height:1.45;color:#4D4D3C">{{ ln }}</span></sc-for>
         </div>
       </sc-for>
     </div>
-    <div style="display:flex;gap:12px;flex-wrap:wrap">
-      <span onMouseEnter="{{ hv.visitPlan }}" onMouseLeave="{{ ctaOff }}" style="display:inline-flex">
-        <x-import component-from-global-scope="TheGoodCraftCoDesignSystem_6c692a.Button" variant="primary" size="sm" icon-right="{{ ar.visitPlan }}" hint-size="140px,36px">Plan Your Visit</x-import>
+    <div style="display:grid;grid-template-columns:240px;gap:10px">
+      <span onMouseEnter="{{ hv.visitBook }}" onMouseLeave="{{ ctaOff }}" style="display:flex">
+        <x-import component-from-global-scope="TheGoodCraftCoDesignSystem_6c692a.Button" dc-props="{{ btnFull }}" style="width:100%" variant="primary" size="md" icon-right="{{ ar.visitBook }}" hint-size="160px,42px">Book Tickets</x-import>
       </span>
-      <span onMouseEnter="{{ hv.visitBook }}" onMouseLeave="{{ ctaOff }}" style="display:inline-flex">
-        <x-import component-from-global-scope="TheGoodCraftCoDesignSystem_6c692a.Button" variant="secondary" size="sm" icon-right="{{ ar.visitBook }}" hint-size="130px,36px">Book Tickets</x-import>
+      <span onMouseEnter="{{ hv.visitPlan }}" onMouseLeave="{{ ctaOff }}" style="display:flex">
+        <x-import component-from-global-scope="TheGoodCraftCoDesignSystem_6c692a.Button" dc-props="{{ btnFull }}" style="width:100%" variant="secondary" size="md" icon-right="{{ ar.visitPlan }}" hint-size="140px,36px">Plan Your Visit</x-import>
       </span>
     </div>
+    <img src="assets/visit-illustration.png" alt="The distillery among palms and hibiscus" style="position:absolute;right:-28px;bottom:-10px;display:block;width:clamp(300px,60%,420px);aspect-ratio:1439/985;pointer-events:none">
   </div>
 </section>
 
 <section data-screen-label="06 Our story" style="overflow:hidden;background:#FBF3E1">
   <div style="padding:24px clamp(20px,4vw,56px);display:flex;flex-wrap:wrap;justify-content:space-between;align-items:center;gap:24px">
-    <div data-reveal="left" style="display:flex;flex-direction:column;gap:10px;max-width:640px">
-      <h2 style="margin:0;font-size:clamp(30px,3vw,44px);line-height:1.05;font-weight:500;letter-spacing:-.01em;color:#4D4D3C">Our <span style="font-family:var(--font-serif);font-weight:400">story</span></h2>
-      <p style="margin:0;font-size:16px;line-height:1.55;color:#4D4D3C;text-wrap:pretty">We set out to become the standard for good in Indian craft spirits. It starts with the land, and the people who work it.</p>
-    </div>
+    <h2 data-reveal="left" style="margin:0;font-family:var(--font-serif);font-size:clamp(30px,3vw,44px);line-height:1.05;font-weight:400;letter-spacing:-.01em;color:#4D4D3C">Our story</h2>
     <div data-reveal="left" data-reveal-delay="200" style="display:flex;flex-direction:column">
       <div style="display:flex;gap:12px;flex-wrap:wrap">
         <span onMouseEnter="{{ hv.story }}" onMouseLeave="{{ ctaOff }}" style="display:inline-flex">
@@ -226,7 +226,7 @@ a{color:inherit;text-decoration:none}a:hover{color:inherit;opacity:.86}
   <div style="display:flex;gap:3px;height:clamp(560px,76vh,760px);background:#FBF3E1">
     <sc-for list="{{ dots }}" as="d" hint-placeholder-count="4">
       <div data-reveal="up" data-reveal-delay="{{ d.delay }}" onMouseEnter="{{ d.enter }}" onMouseLeave="{{ dotLeave }}" style="position:relative;min-width:0;overflow:hidden;cursor:pointer;background:#4D4D3C;transition:flex 800ms cubic-bezier(.2,.7,.2,1);flex:{{ d.flex }}">
-        <img src="{{ d.img }}" alt="{{ d.n }}" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;transition:transform 1200ms ease;transform:scale({{ d.scale }})">
+        <img src="{{ d.img }}" alt="{{ d.n }}" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:{{ d.pos }};transform-origin:{{ d.pos }};transition:transform 1200ms ease;transform:scale({{ d.scale }})">
         <div style="position:absolute;inset:0;transition:background 500ms ease;background:rgba(28,28,20,{{ d.dim }})"></div>
         <div style="position:absolute;inset:0;background:linear-gradient(180deg,rgba(28,28,20,0) 50%,rgba(28,28,20,.7) 100%)"></div>
         <div style="position:absolute;left:50%;top:42%;transform:translate(-50%,-50%);width:300px;height:300px;display:grid;place-items:center">
@@ -235,10 +235,10 @@ a{color:inherit;text-decoration:none}a:hover{color:inherit;opacity:.86}
               <x-import component-from-global-scope="TheGoodCraftCoDesignSystem_6c692a.CircularText" text="{{ d.ring }}" size="{{ ringSize }}" font-size="{{ d.ringFont }}" color="#FBF3E1" weight="{{ ringWeight }}" hint-size="300px,300px"></x-import>
             </div>
           </sc-if>
-          <span style="position:relative;width:18px;height:18px;border-radius:50%;background:#FBF3E1;box-shadow:0 0 0 8px rgba(251,243,225,.25);transition:transform 280ms ease;transform:scale({{ d.dotScale }})"></span>
+          <img src="{{ d.icon }}" alt="" style="position:relative;display:block;width:36px;height:36px;border-radius:50%;box-shadow:0 0 0 5px rgba(251,243,225,.1);filter:drop-shadow(0 2px 6px rgba(28,28,20,.5));transition:transform 500ms cubic-bezier(.2,.7,.2,1);transform:scale({{ d.dotScale }})">
         </div>
-        <div style="position:absolute;left:28px;bottom:32px;width:340px;max-width:calc(100% - 56px);display:flex;flex-direction:column;gap:12px;color:#FBF3E1">
-          <span style="font-size:11px;font-weight:500;letter-spacing:.12em;text-transform:uppercase;color:#DBBC88">{{ d.idx }} · {{ d.n }}</span>
+        <div style="position:absolute;left:28px;bottom:32px;width:340px;max-width:calc(100% - 56px);display:flex;flex-direction:column-reverse;gap:12px;color:#FBF3E1">
+          <span style="font-size:11px;font-weight:500;letter-spacing:.12em;text-transform:uppercase;color:#DBBC88;white-space:nowrap">{{ d.idx }} · {{ d.n }}</span>
           <p style="margin:0;font-family:var(--font-serif);font-size:20px;line-height:1.35;color:#FBF3E1;transition:opacity 500ms ease;opacity:{{ d.bodyOp }}">{{ d.body }}</p>
         </div>
       </div>
@@ -247,8 +247,7 @@ a{color:inherit;text-decoration:none}a:hover{color:inherit;opacity:.86}
 </section>
 
 <section data-screen-label="05a Our locations" style="overflow:hidden;background:#FBF3E1;padding:24px clamp(20px,4vw,56px);display:flex;flex-wrap:wrap;justify-content:space-between;align-items:center;gap:24px">
-  <h2 data-reveal="left" style="margin:0;font-size:clamp(30px,3vw,44px);line-height:1.05;font-weight:500;letter-spacing:-.01em;color:#4D4D3C">Our <span style="font-family:var(--font-serif);font-weight:400">locations</span></h2>
-  <span data-reveal="left" data-reveal-delay="200" style="font-size:11px;font-weight:500;letter-spacing:.12em;text-transform:uppercase;color:#615D51">Ponda, Goa · Whitefield, Bangalore</span>
+  <h2 data-reveal="left" style="margin:0;font-family:var(--font-serif);font-size:clamp(30px,3vw,44px);line-height:1.05;font-weight:400;letter-spacing:-.01em;color:#4D4D3C">Our locations</h2>
 </section>
 
 <section data-screen-label="05b Goa + Bangalore" style="overflow:hidden;display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,480px),1fr))">
@@ -256,10 +255,9 @@ a{color:inherit;text-decoration:none}a:hover{color:inherit;opacity:.86}
     <div data-reveal="{{ t.reveal }}" onMouseEnter="{{ t.enter }}" onMouseLeave="{{ tileLeave }}" style="position:relative;display:block;height:clamp(360px,50vh,500px);overflow:hidden;background:#4D4D3C">
       <img src="{{ t.img }}" alt="{{ t.title }}" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;transition:transform 900ms cubic-bezier(.2,.7,.2,1);transform:scale({{ t.scale }})">
       <span style="position:absolute;inset:0;background:linear-gradient(180deg,rgba(28,28,20,.25) 0%,rgba(28,28,20,.35) 45%,rgba(28,28,20,.85) 100%)"></span>
-      <span style="position:absolute;left:32px;bottom:28px;font-weight:500;font-size:clamp(36px,3.4vw,52px);line-height:1.02;letter-spacing:-.01em;color:#FBF3E1">{{ t.title }}</span>
+      <span style="position:absolute;left:32px;bottom:28px;font-family:var(--font-serif);font-weight:400;font-size:clamp(36px,3.4vw,52px);line-height:1.02;letter-spacing:-.01em;color:#FBF3E1">{{ t.title }}</span>
       <div style="position:absolute;left:0;right:0;bottom:0;padding:28px 32px;display:flex;flex-direction:column;gap:12px;background:rgba(46,47,35,.92);color:#FBF3E1;transition:transform 520ms cubic-bezier(.2,.7,.2,1), opacity 400ms ease;transform:translateY({{ t.ty }});opacity:{{ t.op }}">
-        <span style="font-size:11px;font-weight:500;letter-spacing:.12em;text-transform:uppercase;color:#DBBC88">{{ t.eyebrow }}</span>
-        <span style="font-weight:500;font-size:clamp(36px,3.4vw,52px);line-height:1.02;letter-spacing:-.01em">{{ t.title }}</span>
+        <span style="font-family:var(--font-serif);font-weight:400;font-size:clamp(36px,3.4vw,52px);line-height:1.02;letter-spacing:-.01em">{{ t.title }}</span>
         <span style="font-size:16px;line-height:1.55;max-width:460px;text-wrap:pretty">{{ t.body }}</span>
         <div style="display:flex;flex-wrap:wrap;gap:10px;margin-top:6px">
           <sc-for list="{{ t.ctas }}" as="ct" hint-placeholder-count="1">
@@ -272,7 +270,7 @@ a{color:inherit;text-decoration:none}a:hover{color:inherit;opacity:.86}
 </section>
 
 <section data-screen-label="06b Explore more" style="overflow:hidden;background:#FBF3E1;padding:24px clamp(20px,4vw,56px)">
-  <h2 data-reveal="left" style="margin:0;font-size:clamp(30px,3vw,44px);line-height:1.05;font-weight:500;letter-spacing:-.01em;color:#4D4D3C">Explore <span style="font-family:var(--font-serif);font-weight:400">more</span></h2>
+  <h2 data-reveal="left" style="margin:0;font-family:var(--font-serif);font-size:clamp(30px,3vw,44px);line-height:1.05;font-weight:400;letter-spacing:-.01em;color:#4D4D3C">Explore more</h2>
 </section>
 
 <section data-screen-label="07 Dining + Shop" style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,480px),1fr))">
@@ -282,7 +280,7 @@ a{color:inherit;text-decoration:none}a:hover{color:inherit;opacity:.86}
       <span style="position:absolute;inset:0;transition:background 500ms ease;background:rgba(28,28,20,{{ t.dim }})"></span>
       <span style="position:absolute;inset:0;background:linear-gradient(180deg,rgba(28,28,20,0) 45%,rgba(28,28,20,.6) 100%)"></span>
       <span style="position:absolute;left:36px;right:36px;bottom:36px;display:flex;flex-direction:column;gap:16px;color:#FBF3E1">
-        <span style="font-weight:500;font-size:clamp(36px,3.4vw,52px);line-height:1.02;letter-spacing:-.01em">{{ t.title }}</span>
+        <span style="font-family:var(--font-serif);font-weight:400;font-size:clamp(36px,3.4vw,52px);line-height:1.02;letter-spacing:-.01em">{{ t.title }}</span>
         <span style="display:flex;flex-direction:column;gap:16px;overflow:hidden;transition:max-height 600ms cubic-bezier(.2,.7,.2,1), opacity 400ms ease;max-height:{{ t.maxH }};opacity:{{ t.op }}">
           <span style="font-size:16px;line-height:1.55;max-width:440px;text-wrap:pretty">{{ t.body }}</span>
           <span style="display:flex;flex-wrap:wrap;gap:8px 22px;font-size:12px;letter-spacing:.08em;color:#DBBC88"><sc-for list="{{ t.points }}" as="pt" hint-placeholder-count="3"><span>— {{ pt }}</span></sc-for></span>
@@ -317,7 +315,7 @@ a{color:inherit;text-decoration:none}a:hover{color:inherit;opacity:.86}
   <div data-screen-label="08b Footer illustration" style="margin-top:16px;aspect-ratio:2172/366;width:100%;background-image:url(assets/footer-illustration.png);background-repeat:no-repeat;background-size:100% auto;background-position:0 73.18%"></div>
   <div style="margin:0 clamp(20px,4vw,56px);padding:14px 0 16px;border-top:1px solid #4D4D3C;display:flex;flex-wrap:wrap;justify-content:space-between;gap:12px;font-family:var(--font-serif);font-size:14px">
     <span>© The Good Craft Co.</span>
-    <span style="display:flex;gap:16px"><span>Ponda, Goa</span><span>·</span><span>Bangalore R&amp;D</span></span>
+    <span style="display:flex;gap:16px"><span>Ponda, Goa</span><span>·</span><span>Whitefield, Bangalore</span></span>
   </div>
 </footer>
 </x-dc>
@@ -329,31 +327,31 @@ const EXPS = [
   { title: 'Private and Custom', meta: 'By request [TBC]', img: 'assets/exp-custom-v2.jpg', tone: '#793C23', desc: 'Walk, taste and blend in private, with the day tailored to you.' },
 ];
 const NAV = [
-  { key: 'exp', label: 'Experiences', blurb: 'Tours, tastings and workshops, crafted for the curious.', links: ['The Signature Tour', 'Tastings', 'Workshops', 'Private & Custom'] },
+  { key: 'exp', label: 'Experiences', blurb: 'Tours, tastings and workshops, crafted for the curious.', links: ['The Signature Tour', 'Private & Custom'] },
   { key: 'events', label: 'Events', blurb: 'The distillery grounds, set for your next gathering.', links: ['Upcoming Events', 'Teams & Corporate', 'Private & Custom'] },
   { key: 'dining', label: 'Dining', blurb: 'Chef Madhav\'s 4- and 6-course menus, plus the bar.', links: ['The Restaurant', 'The Bar', 'Reserve a Table'] },
   { key: 'shop', label: 'Shop', blurb: 'Craft spirits, glassware and merch. In-store only.', links: ['Visit the shop'] },
   { key: 'academy', label: 'Academy', blurb: 'Learn the craft of Indian spirit-making.', links: ['Courses', 'Masterclasses', 'Calendar'] },
-  { key: 'story', label: 'Our Story', blurb: 'Our land, our people, our spirit.', links: ['About Us', 'Innovation', 'Blog', 'Press', 'Careers'] },
+  { key: 'story', label: 'Our Story', blurb: 'Our land, our people, our spirit.', links: ['About Us', 'Innovation', 'Blog', 'Press'] },
 ];
 const VISIT_MENU = { key: 'visit', label: 'Plan Your Visit', blurb: 'Open daily in Ponda, Goa.', links: ['Getting Here', 'Hours', 'FAQs', 'Accessibility'] };
 const PLACES = [
-  { id: 'dabolim', name: 'Dabolim Airport', side: 'l', x: 190, y: 470, km: '28 km', time: '45 min' },
-  { id: 'mopa', name: 'Mopa Airport', x: 220, y: 110, km: '62 km', time: '1 hr 20' },
-  { id: 'panaji', name: 'Panaji', side: 'l', x: 190, y: 350, km: '29 km', time: '45 min' },
-  { id: 'oldgoa', name: 'Old Goa', x: 270, y: 340, km: '19 km', time: '30 min' },
-  { id: 'mapusa', name: 'Mapusa', x: 175, y: 250, km: '42 km', time: '1 hr 05' },
-  { id: 'calangute', name: 'Calangute', side: 'l', x: 130, y: 298, km: '45 km', time: '1 hr 15' },
-  { id: 'anjuna', name: 'Anjuna', side: 'l', x: 100, y: 255, km: '48 km', time: '1 hr 20' },
-  { id: 'vasco', name: 'Vasco da Gama', side: 'l', x: 165, y: 432, km: '32 km', time: '50 min' },
-  { id: 'margao', name: 'Margao', x: 320, y: 570, km: '18 km', time: '30 min' },
-  { id: 'palolem', name: 'Palolem', x: 385, y: 830, km: '55 km', time: '1 hr 30' },
+  { id: 'dabolim', name: 'Dabolim Airport', side: 'l', x: 210, y: 505, km: '28 km', time: '45 min' },
+  { id: 'mopa', name: 'Mopa Airport', x: 225, y: 85, km: '62 km', time: '1 hr 20' },
+  { id: 'panaji', name: 'Panaji', side: 'l', x: 185, y: 365, km: '29 km', time: '45 min' },
+  { id: 'oldgoa', name: 'Old Goa', x: 275, y: 340, km: '19 km', time: '30 min' },
+  { id: 'mapusa', name: 'Mapusa', x: 195, y: 225, km: '42 km', time: '1 hr 05' },
+  { id: 'calangute', name: 'Calangute', side: 'l', x: 125, y: 295, km: '45 km', time: '1 hr 15' },
+  { id: 'anjuna', name: 'Anjuna', side: 'l', x: 95, y: 220, km: '48 km', time: '1 hr 20' },
+  { id: 'vasco', name: 'Vasco da Gama', side: 'l', x: 150, y: 430, km: '32 km', time: '50 min' },
+  { id: 'margao', name: 'Margao', x: 330, y: 600, km: '18 km', time: '30 min' },
+  { id: 'palolem', name: 'Palolem', x: 400, y: 840, km: '55 km', time: '1 hr 30' },
 ];
 const DOTS = [
-  { id: 'land', n: 'The land', img: 'assets/story-land.png', ring: 'Grown by farmers we know by name Our farmers, our friends · ', body: 'Grown by farmers we know by name.' },
-  { id: 'hands', n: 'The hands', img: 'assets/story-hands.png', ring: 'Small batches Made by hand From the land of the still · ', body: 'Every harvest passes through many hands before it reaches the still. We honour each of them.' },
-  { id: 'forgotten', n: 'Forgotten ingredients', img: 'assets/story-market.png', ring: 'Ingredients India almost forgot, found again · ', body: 'We are rediscovering the beauty of India\'s forgotten ingredients, one market at a time.' },
-  { id: 'lightly', n: 'Tread lightly', img: 'assets/story-bustard.png', ring: 'Less waste, same spirit Nothing is wasted, down to the last drop · ', body: 'We share this land with others. A small step, every day, is all it takes.' },
+  { id: 'land', n: 'The land', img: 'assets/story-land.png', icon: 'assets/story-icon-land.png', ring: 'Grown by farmers we know by name Our farmers, our friends · ', body: 'Grown by farmers we know by name.' },
+  { id: 'hands', n: 'The hands', img: 'assets/story-hands.png', icon: 'assets/story-icon-hands.png', ring: 'Small batches Made by hand From the land of the still · ', body: 'Every harvest passes through many hands before it reaches the still. We honour each of them.' },
+  { id: 'forgotten', n: 'Forgotten ingredients', img: 'assets/story-market.png', icon: 'assets/story-icon-forgotten.png', ring: 'Ingredients India almost forgot, found again · ', body: 'We are rediscovering the beauty of India\'s forgotten ingredients, one market at a time.' },
+  { id: 'lightly', n: 'With Care', pos: '50% 0%', img: 'assets/story-bustard.png', icon: 'assets/story-icon-care.png', ring: 'Less waste, same spirit Nothing is wasted, down to the last drop · ', body: 'We share this land with others. A small step, every day, is all it takes.' },
 ];
 const AWARDS = [
   { t: "India's Best", s: 'Award body · Year [TBC]' },
@@ -468,6 +466,7 @@ class Component extends DCLogic {
     const cta = (key, o) => ({ ...o, on: () => this.setState({ cta: key }), ar: arrow(s.cta === key) });
     return {
       slideRef: this.slideRef,
+      btnFull: { style: { width: '100%', justifyContent: 'center', boxSizing: 'border-box' } },
       ar, hv, ctaOff: () => this.setState({ cta: null }),
       navBg: s.scrolled || menu ? 'rgba(46,47,35,.94)' : 'transparent',
       logoSize: s.scrolled ? 75 : 88,
@@ -475,6 +474,8 @@ class Component extends DCLogic {
       visitEnter: () => this.setState({ nav: 'visit' }), visitLine: s.nav === 'visit' ? '100%' : '0%',
       navLeave: () => this.setState({ nav: null }),
       menuOpen: !!menu, menu: menu || NAV[0],
+      menuLinks: (menu || NAV[0]).links.map(l => ({ label: l, enter: () => this.setState({ sub: l }), line: s.sub === l ? '100%' : '0%', ar: arrow(s.sub === l) })),
+      subLeave: () => this.setState({ sub: null }),
       awardsLoop: [...AWARDS, ...AWARDS],
       exps: EXPS.map((e, i) => ({ ...e, i, grad: gradFor(e.tone), op: i === s.bg ? 1 : 0, scale: i === s.bg ? 1.06 : 1 })),
       tone: EXPS[s.exp].tone,
@@ -491,23 +492,21 @@ class Component extends DCLogic {
       prev: () => this.go(s.exp - 1), next: () => this.go(s.exp + 1),
       pause: () => this.setState({ paused: true }), resume: () => this.setState({ paused: false }),
       press: ['Conde Nast Traveller', 'Vogue', 'GQ', 'Mint Lounge', 'The Hindu', 'AD India'],
-      places: PLACES.map((p, k) => ({ ...p, delay: 1000 + k * 90, lx: p.side === 'l' ? 'auto' : '24px', rx: p.side === 'l' ? '24px' : 'auto', left: (p.x / 740 * 100) + '%', top: (p.y / 980 * 100) + '%', pick: () => this.pickPlace(p.id), fill: p.id === s.place || s.hoverPlace === p.id ? '#DBBC88' : 'transparent', dot: s.hoverPlace === p.id ? 1.5 : 1, ring: s.hoverPlace === p.id ? 2.6 : 1, ringOp: s.hoverPlace === p.id ? .6 : 0, hover: () => this.setState({ hoverPlace: p.id }), weight: p.id === s.place ? 700 : 400 })),
+      places: PLACES.map((p, k) => ({ ...p, delay: 1000 + k * 90, lx: p.side === 'l' ? 'auto' : '24px', rx: p.side === 'l' ? '24px' : 'auto', ly: p.ly || '0px', left: (p.x / 740 * 100) + '%', top: (p.y / 980 * 100) + '%', pick: () => this.pickPlace(p.id), fill: p.id === s.place || s.hoverPlace === p.id ? '#DBBC88' : 'transparent', dot: s.hoverPlace === p.id ? 1.5 : 1, ring: s.hoverPlace === p.id ? 2.6 : 1, ringOp: s.hoverPlace === p.id ? .6 : 0, hover: () => this.setState({ hoverPlace: p.id }), weight: p.id === s.place ? 700 : 400 })),
       lineEnd: (() => { const dx = sel.x - 370, dy = sel.y - 440, L = Math.hypot(dx, dy) || 1, n = s.lineN ?? 999, k = Math.min(1, (n * 16) / L); if (n * 16 >= L && this.lineT && n < 200) { clearInterval(this.lineT); } return { x: sel.x - dx * k, y: sel.y - dy * k }; })(),
       sel, placeLeave: () => this.setState({ hoverPlace: null }),
       visitInfo: [
-        { k: 'Getting here', lines: ['Dabolim Airport · 28 km', 'Mopa Airport · 62 km'] },
         { k: 'Opening times', lines: ['Tue – Sun · 11:00 – 19:00 [TBC]', 'Tours on the hour'] },
-        { k: 'Things to do', lines: ['Distillery tour & tastings', 'Restaurant, bar & shop'] },
         { k: 'Accessibility', lines: ['Step-free access throughout', 'Wheelchairs on request'] },
         { k: 'Minimum age', lines: ['Guests must be 18+', 'Photo ID required'] },
         { k: 'On site', lines: ['Free parking', 'Cloakroom'] },
       ],
       cities: [
         tileFor('goa', { reveal: 'left', title: 'Goa', img: 'assets/goa.png', eyebrow: 'The distillery · Ponda', body: 'Our home and working distillery, set among the spice farms of Ponda. Visit for a tour and tasting, or join an upcoming event on the grounds.', ctas: [cta('goa0', { label: 'Upcoming events', ...solid })] }),
-        tileFor('blr', { reveal: 'right', title: 'Bangalore', img: 'assets/bangalore.png', eyebrow: 'R&D · Whitefield, Bangalore', body: 'Our R&D space in Whitefield, where we experiment with new Indian ingredients and methods. Small, hands-on sessions with the team behind our next spirits.', ctas: [cta('blr0', { label: 'Enquire now', ...solid })] }),
+        tileFor('blr', { reveal: 'right', title: 'Bangalore', img: 'assets/bangalore.png', eyebrow: 'R&D · Whitefield, Bangalore', body: 'Our innovation centre in Whitefield, where we experiment with new Indian ingredients and methods. Small, hands-on sessions with the team behind our next spirits.', ctas: [cta('blr0', { label: 'Enquire now', ...solid })] }),
       ],
       tileLeave: () => this.setState({ tile: null }),
-      dots: DOTS.map((d, i) => { const on = s.dot === d.id; const n = d.ring.length; return { ...d, ringFont: Math.min(15, Math.round(10 * 0.9 * 2 * Math.PI * 150 / (0.86 * n + 0.9 * 2 * Math.PI)) / 10), delay: 200 + i * 260, idx: pad(i + 1), on, enter: () => this.setState({ dot: d.id }), flex: on ? 2.6 : 1, scale: on ? 1.04 : 1.12, dim: on ? .5 : (s.dot ? .62 : .4), bodyOp: on ? 1 : 0, dotScale: on ? .6 : 1 }; }),
+      dots: DOTS.map((d, i) => { const on = s.dot === d.id; const n = d.ring.length; return { ...d, ringFont: Math.min(15, Math.round(10 * 0.9 * 2 * Math.PI * 150 / (0.86 * n + 0.9 * 2 * Math.PI)) / 10), delay: 200 + i * 260, idx: pad(i + 1), on, enter: () => this.setState({ dot: d.id }), flex: on ? 2.6 : 1, scale: on ? 1.04 : 1.12, dim: on ? .5 : (s.dot ? .62 : .4), bodyOp: on ? 1 : 0, dotScale: on ? 1.68 : 1, pos: d.pos || '50% 50%' }; }),
       dotLeave: () => this.setState({ dot: null }),
       ringSize: 300, ringWeight: 600,
       ds: [
