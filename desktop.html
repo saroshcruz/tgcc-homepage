@@ -255,7 +255,7 @@ a{color:inherit;text-decoration:none}a:hover{color:inherit;opacity:.86}
     <div data-reveal="{{ t.reveal }}" onMouseEnter="{{ t.enter }}" onMouseLeave="{{ tileLeave }}" style="position:relative;display:block;height:clamp(360px,50vh,500px);overflow:hidden;background:#4D4D3C">
       <img src="{{ t.img }}" alt="{{ t.title }}" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;transition:transform 900ms cubic-bezier(.2,.7,.2,1);transform:scale({{ t.scale }})">
       <span style="position:absolute;inset:0;background:linear-gradient(180deg,rgba(28,28,20,.25) 0%,rgba(28,28,20,.35) 45%,rgba(28,28,20,.85) 100%)"></span>
-      <span style="position:absolute;left:32px;bottom:28px;font-family:var(--font-serif);font-weight:400;font-size:clamp(36px,3.4vw,52px);line-height:1.02;letter-spacing:-.01em;color:#FBF3E1">{{ t.title }}</span>
+      <span style="position:absolute;left:32px;bottom:28px;font-family:var(--font-serif);font-weight:400;font-size:clamp(36px,3.4vw,52px);line-height:1.02;letter-spacing:-.01em;color:#FBF3E1;transition:opacity 300ms ease;opacity:{{ t.base }}">{{ t.title }}</span>
       <div style="position:absolute;left:0;right:0;bottom:0;padding:28px 32px;display:flex;flex-direction:column;gap:12px;background:rgba(46,47,35,.92);color:#FBF3E1;transition:transform 520ms cubic-bezier(.2,.7,.2,1), opacity 400ms ease;transform:translateY({{ t.ty }});opacity:{{ t.op }}">
         <span style="font-family:var(--font-serif);font-weight:400;font-size:clamp(36px,3.4vw,52px);line-height:1.02;letter-spacing:-.01em">{{ t.title }}</span>
         <span style="font-size:16px;line-height:1.55;max-width:460px;text-wrap:pretty">{{ t.body }}</span>
@@ -461,7 +461,7 @@ class Component extends DCLogic {
       T.TickerArrow ? React.createElement(T.TickerArrow, { size: 20, color: 'currentColor' }) : null);
     const ar = {}, hv = {};
     CTA_KEYS.forEach(k => { ar[k] = arrow(s.cta === k); hv[k] = () => this.setState({ cta: k }); });
-    const tileFor = (key, o) => { const on = s.tile === key; return { ...o, enter: () => this.setState({ tile: key }), scale: on ? 1.05 : 1, ty: on ? '0%' : '100%', op: on ? 1 : 0, dim: on ? .68 : .45, maxH: on ? '320px' : '0px', ar: arrow(on) }; };
+    const tileFor = (key, o) => { const on = s.tile === key; return { ...o, enter: () => this.setState({ tile: key }), scale: on ? 1.05 : 1, ty: on ? '0%' : '100%', op: on ? 1 : 0, base: on ? 0 : 1, dim: on ? .68 : .45, maxH: on ? '320px' : '0px', ar: arrow(on) }; };
     const solid = { bg: '#FBF3E1', fg: '#4D4D3C' }, ghost = { bg: 'transparent', fg: '#FBF3E1' };
     const cta = (key, o) => ({ ...o, on: () => this.setState({ cta: key }), ar: arrow(s.cta === key) });
     return {
