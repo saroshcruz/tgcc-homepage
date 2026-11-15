@@ -167,9 +167,10 @@ a{color:inherit;text-decoration:none}a:hover{color:inherit;opacity:.86}@media (m
     <span style="font-size:11px;font-weight:500;letter-spacing:.12em;text-transform:uppercase;color:#DBBC88">Tap a place to see the distance</span>
     <div style="position:relative;flex:none;margin:auto 0;align-self:center;height:440px;max-width:calc(100% - 120px);aspect-ratio:740/980;left:44px">
       <svg viewBox="0 0 740 980" style="position:absolute;inset:0;width:100%;height:100%;overflow:visible">
-        <polygon points="80,40 230,40 310,90 480,160 610,190 660,290 640,440 690,560 660,690 560,790 540,890 460,940 380,920 340,820 310,740 280,670 260,590 240,540 200,480 140,440 180,410 190,370 160,340 120,310 90,260 70,210 50,140" fill="#55673F" stroke="#8E9A68" stroke-width="2" stroke-linejoin="round"></polygon>
-        <polygon points="300,300 480,160 610,190 660,290 640,440 520,470 400,470" fill="#6B7D51" opacity=".55"></polygon>
-        <polygon points="260,590 320,500 520,470 640,440 690,560 660,690 560,790 420,760 310,740" fill="#465530" opacity=".5"></polygon>
+        <polygon points="80,40 230,40 310,90 480,160 610,190 660,290 640,440 690,560 660,690 560,790 540,890 460,940 380,920 340,820 310,740 280,670 260,590 240,540 200,480 140,440 180,410 190,370 160,340 120,310 90,260 70,210 50,140" fill="none" stroke="#8E9A68" stroke-width="22" stroke-linejoin="round" opacity=".16"></polygon>
+        <polygon points="80,40 230,40 310,90 480,160 610,190 660,290 640,440 690,560 660,690 560,790 540,890 460,940 380,920 340,820 310,740 280,670 260,590 240,540 200,480 140,440 180,410 190,370 160,340 120,310 90,260 70,210 50,140" fill="#74895A" stroke="#C4CC9A" stroke-width="2.5" stroke-linejoin="round"></polygon>
+        <polygon points="300,300 480,160 610,190 660,290 640,440 520,470 400,470" fill="#8CA06F" opacity=".55"></polygon>
+        <polygon points="260,590 320,500 520,470 640,440 690,560 660,690 560,790 420,760 310,740" fill="#5B7044" opacity=".55"></polygon>
         <line x1="{{ sel.x }}" y1="{{ sel.y }}" x2="{{ lineEnd.x }}" y2="{{ lineEnd.y }}" stroke="#FBF3E1" stroke-width="3" stroke-dasharray="8 8"></line>
       </svg>
       <sc-for list="{{ places }}" as="pl" hint-placeholder-count="10">
@@ -179,11 +180,11 @@ a{color:inherit;text-decoration:none}a:hover{color:inherit;opacity:.86}@media (m
           <span style="position:absolute;z-index:3;left:{{ pl.lx }};right:{{ pl.rx }};white-space:nowrap;font-family:var(--font-serif);font-size:14px;line-height:1;letter-spacing:.01em;color:#FBF3E1;transform:translateY({{ pl.ly }});font-weight:{{ pl.weight }}">{{ pl.name }}</span>
         </button>
       </sc-for>
-      <div style="position:absolute;left:50%;top:44.9%;transform:translate(-50%,-50%);width:18px;height:18px;pointer-events:none"><div data-reveal="pop" data-reveal-delay="800" style="position:absolute;inset:0">
+      <div style="position:absolute;left:50%;top:44.9%;transform:translate(-50%,-50%);width:28px;height:28px;pointer-events:none"><div data-reveal="pop" data-reveal-delay="800" style="position:absolute;inset:0">
         <span style="position:absolute;inset:0;border-radius:50%;background:#DBBC88;animation:tgccPulse 2.2s ease-out infinite"></span>
-        <span style="position:absolute;inset:3px;border-radius:50%;background:#DBBC88;border:2px solid #FBF3E1"></span>
+        <span style="position:absolute;inset:5px;border-radius:50%;background:#DBBC88;border:2.5px solid #FBF3E1"></span>
       </div></div>
-      <span data-reveal="pop" data-reveal-delay="900" style="position:absolute;left:calc(50% + 20px);top:44.9%;translate:0 -50%;font-family:var(--font-serif);font-size:20px;line-height:1;letter-spacing:.04em;font-weight:700;color:#DBBC88;white-space:nowrap;pointer-events:none">TGCC</span>
+      <span data-reveal="pop" data-reveal-delay="900" style="position:absolute;left:calc(50% + 26px);top:44.9%;translate:0 -50%;font-family:var(--font-serif);font-size:24px;line-height:1;letter-spacing:.04em;font-weight:700;color:#DBBC88;white-space:nowrap;pointer-events:none">TGCC</span>
     </div>
     <div style="display:flex;justify-content:space-between;align-items:flex-end;gap:24px;flex-wrap:wrap;padding-top:14px;border-top:1px solid rgba(251,243,225,.2)">
     <div style="display:flex;flex-direction:column;gap:4px;color:#FBF3E1">
@@ -195,6 +196,7 @@ a{color:inherit;text-decoration:none}a:hover{color:inherit;opacity:.86}@media (m
       <div style="display:flex;flex-direction:column;gap:2px"><span style="font-family:var(--font-serif);font-size:26px;line-height:1.05">{{ sel.time }}</span><span style="font-size:10px;color:#B0B885">drive time</span></div>
     </div>
     </div>
+    <a href="https://www.google.com/maps/dir/?api=1&destination=The+Good+Craft+Co.+Ponda+Goa" target="_blank" rel="noopener" style="align-self:flex-start;display:inline-flex;align-items:center;gap:10px;padding:14px 26px;background:#DBBC88;color:#4D4D3C;font-size:12px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;text-decoration:none">Get directions<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#4D4D3C" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"></path></svg></a>
   </div>
   <div data-reveal="left" data-reveal-delay="450" style="position:relative;padding:40px clamp(24px,4vw,56px) 180px;display:flex;flex-direction:column;gap:24px;justify-content:flex-start;min-height:0">
     <div style="display:flex;flex-direction:column;gap:10px"><h2 style="margin:0;font-size:clamp(30px,3vw,44px);line-height:1.05;font-weight:500;letter-spacing:-.01em;color:#4D4D3C">Find us.</h2><p style="margin:0;font-family:var(--font-serif);font-weight:400;font-size:clamp(18px,1.52vw,22.5px);line-height:1.3;color:#7D7D63">Ponda, Goa.</p></div>
