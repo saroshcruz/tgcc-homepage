@@ -138,7 +138,10 @@ a{color:inherit;text-decoration:none}a:hover{color:inherit;opacity:.86}@media (m
     <span style="flex:none;font-size:11px;font-weight:500;letter-spacing:.12em;text-transform:uppercase;color:#7D7D63">As seen on</span>
     <div style="flex:1;display:flex;flex-wrap:wrap;justify-content:space-between;align-items:center;gap:12px 40px">
       <sc-for list="{{ press }}" as="pr" hint-placeholder-count="6">
-        <a href="#" title="Read the article" style="font-family:var(--font-serif);font-size:20px;color:#4D4D3C">{{ pr }}</a>
+        <a href="#" title="Read the article" aria-label="{{ pr.n }}" style="display:flex;align-items:center;color:#4D4D3C">
+          <span style="display:{{ pr.tx }};font-family:var(--font-serif);font-size:20px">{{ pr.n }}</span>
+          <span style="display:{{ pr.lg }};width:{{ pr.w }}px;height:{{ pr.h }}px;background:#4D4D3C;-webkit-mask:{{ pr.m }};mask:{{ pr.m }}"></span>
+        </a>
       </sc-for>
     </div>
   </div>
@@ -495,7 +498,14 @@ class Component extends DCLogic {
       }),
       prev: () => this.go(s.exp - 1), next: () => this.go(s.exp + 1),
       pause: () => this.setState({ paused: true }), resume: () => this.setState({ paused: false }),
-      press: ['Conde Nast Traveller', 'Vogue', 'GQ', 'Mint Lounge', 'The Hindu', 'AD India'],
+      press: [
+        { n: 'Conde Nast Traveller', tx: 'block', lg: 'none' },
+        { n: 'Vogue', tx: 'none', lg: 'block', w: 94, h: 24, m: 'url(assets/press/vogue.svg) center/contain no-repeat' },
+        { n: 'GQ', tx: 'none', lg: 'block', w: 57, h: 30, m: 'url(assets/press/gq.svg) center/contain no-repeat' },
+        { n: 'Mint Lounge', tx: 'block', lg: 'none' },
+        { n: 'The Hindu', tx: 'none', lg: 'block', w: 124, h: 15, m: 'url(assets/press/the-hindu.svg) center/contain no-repeat' },
+        { n: 'AD India', tx: 'block', lg: 'none' }
+      ],
       places: PLACES.map((p, k) => ({ ...p, delay: 1000 + k * 90, lx: p.side === 'l' ? 'auto' : '24px', rx: p.side === 'l' ? '24px' : 'auto', ly: p.ly || '0px', left: (p.x / 740 * 100) + '%', top: (p.y / 980 * 100) + '%', pick: () => this.pickPlace(p.id), fill: p.id === s.place || s.hoverPlace === p.id ? '#DBBC88' : 'transparent', dot: s.hoverPlace === p.id ? 1.5 : 1, ring: s.hoverPlace === p.id ? 2.6 : 1, ringOp: s.hoverPlace === p.id ? .6 : 0, hover: () => this.setState({ hoverPlace: p.id }), weight: p.id === s.place ? 700 : 400 })),
       lineEnd: (() => { const dx = sel.x - 370, dy = sel.y - 440, L = Math.hypot(dx, dy) || 1, n = s.lineN ?? 999, k = Math.min(1, (n * 16) / L); if (n * 16 >= L && this.lineT && n < 200) { clearInterval(this.lineT); } return { x: sel.x - dx * k, y: sel.y - dy * k }; })(),
       sel, placeLeave: () => this.setState({ hoverPlace: null }),
