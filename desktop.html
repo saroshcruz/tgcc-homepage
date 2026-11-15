@@ -221,6 +221,31 @@ a{color:inherit;text-decoration:none}a:hover{color:inherit;opacity:.86}@media (m
     </div>
   </div>
 
+
+<section data-screen-label="05a Our locations" style="overflow:hidden;background:#FBF3E1;padding:56px 32px 24px;display:flex;flex-direction:column;gap:10px">
+  <h2 data-reveal="left" style="margin:0;font-size:clamp(30px,3vw,44px);line-height:1.05;font-weight:500;letter-spacing:-.01em;color:#4D4D3C">Our locations</h2>
+  <p data-reveal="left" data-reveal-delay="120" style="margin:0;font-family:var(--font-serif);font-weight:400;font-size:clamp(18px,1.52vw,22.5px);line-height:1.3;color:#7D7D63">Goa and Bangalore.</p>
+</section>
+
+<section data-screen-label="05b Goa + Bangalore" style="overflow:hidden;display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,480px),1fr))">
+  <sc-for list="{{ cities }}" as="t" hint-placeholder-count="2">
+    <div data-reveal="{{ t.reveal }}" onMouseEnter="{{ t.enter }}" onMouseLeave="{{ tileLeave }}" style="position:relative;display:block;height:clamp(360px,50vh,500px);overflow:hidden;background:#394622">
+      <img src="{{ t.img }}" alt="{{ t.title }}" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;transition:transform 900ms cubic-bezier(.2,.7,.2,1);transform:scale({{ t.scale }})">
+      <span style="position:absolute;inset:0;background:linear-gradient(180deg,rgba(28,28,20,.25) 0%,rgba(28,28,20,.35) 45%,rgba(28,28,20,.85) 100%)"></span>
+      <span style="position:absolute;left:32px;bottom:28px;font-family:var(--font-serif);font-weight:400;font-size:clamp(36px,3.4vw,52px);line-height:1.02;letter-spacing:-.01em;color:#FBF3E1;transition:opacity 300ms ease;opacity:{{ t.base }}">{{ t.title }}</span>
+      <div style="position:absolute;left:0;right:0;bottom:0;padding:28px 32px;display:flex;flex-direction:column;gap:12px;background:rgba(44,55,25,.92);color:#FBF3E1;transition:transform 520ms cubic-bezier(.2,.7,.2,1), opacity 400ms ease;transform:translateY({{ t.ty }});opacity:{{ t.op }}">
+        <span style="font-family:var(--font-serif);font-weight:400;font-size:clamp(36px,3.4vw,52px);line-height:1.02;letter-spacing:-.01em">{{ t.title }}</span>
+        <span style="font-size:16px;line-height:1.55;max-width:460px;text-wrap:pretty">{{ t.body }}</span>
+        <div style="display:flex;flex-wrap:wrap;gap:10px;margin-top:6px">
+          <sc-for list="{{ t.ctas }}" as="ct" hint-placeholder-count="1">
+            <a href="#" onMouseEnter="{{ ct.on }}" onMouseLeave="{{ ctaOff }}" style="display:inline-flex;align-items:center;gap:10px;padding:12px 24px;font-size:12px;font-weight:600;letter-spacing:.12em;text-transform:uppercase;border:1px solid #FBF3E1;background:{{ ct.bg }};color:{{ ct.fg }}">{{ ct.label }}{{ ct.ar }}</a>
+          </sc-for>
+        </div>
+      </div>
+    </div>
+  </sc-for>
+</section>
+
 <section data-screen-label="06 Our story" style="overflow:hidden;background:#FBF3E1">
   <div style="padding:24px clamp(20px,4vw,56px);display:flex;flex-wrap:wrap;justify-content:space-between;align-items:center;gap:24px">
     <h2 data-reveal="left" style="margin:0;font-family:var(--font-serif);font-size:clamp(30px,3vw,44px);line-height:1.05;font-weight:400;letter-spacing:-.01em;color:#4D4D3C">Our story</h2>
@@ -256,30 +281,6 @@ a{color:inherit;text-decoration:none}a:hover{color:inherit;opacity:.86}@media (m
       </div>
     </sc-for>
   </div>
-</section>
-
-<section data-screen-label="05a Our locations" style="overflow:hidden;background:#FBF3E1;padding:56px 32px 24px;display:flex;flex-direction:column;gap:10px">
-  <h2 data-reveal="left" style="margin:0;font-size:clamp(30px,3vw,44px);line-height:1.05;font-weight:500;letter-spacing:-.01em;color:#4D4D3C">Our locations</h2>
-  <p data-reveal="left" data-reveal-delay="120" style="margin:0;font-family:var(--font-serif);font-weight:400;font-size:clamp(18px,1.52vw,22.5px);line-height:1.3;color:#7D7D63">Goa and Bangalore.</p>
-</section>
-
-<section data-screen-label="05b Goa + Bangalore" style="overflow:hidden;display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,480px),1fr))">
-  <sc-for list="{{ cities }}" as="t" hint-placeholder-count="2">
-    <div data-reveal="{{ t.reveal }}" onMouseEnter="{{ t.enter }}" onMouseLeave="{{ tileLeave }}" style="position:relative;display:block;height:clamp(360px,50vh,500px);overflow:hidden;background:#394622">
-      <img src="{{ t.img }}" alt="{{ t.title }}" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;transition:transform 900ms cubic-bezier(.2,.7,.2,1);transform:scale({{ t.scale }})">
-      <span style="position:absolute;inset:0;background:linear-gradient(180deg,rgba(28,28,20,.25) 0%,rgba(28,28,20,.35) 45%,rgba(28,28,20,.85) 100%)"></span>
-      <span style="position:absolute;left:32px;bottom:28px;font-family:var(--font-serif);font-weight:400;font-size:clamp(36px,3.4vw,52px);line-height:1.02;letter-spacing:-.01em;color:#FBF3E1;transition:opacity 300ms ease;opacity:{{ t.base }}">{{ t.title }}</span>
-      <div style="position:absolute;left:0;right:0;bottom:0;padding:28px 32px;display:flex;flex-direction:column;gap:12px;background:rgba(44,55,25,.92);color:#FBF3E1;transition:transform 520ms cubic-bezier(.2,.7,.2,1), opacity 400ms ease;transform:translateY({{ t.ty }});opacity:{{ t.op }}">
-        <span style="font-family:var(--font-serif);font-weight:400;font-size:clamp(36px,3.4vw,52px);line-height:1.02;letter-spacing:-.01em">{{ t.title }}</span>
-        <span style="font-size:16px;line-height:1.55;max-width:460px;text-wrap:pretty">{{ t.body }}</span>
-        <div style="display:flex;flex-wrap:wrap;gap:10px;margin-top:6px">
-          <sc-for list="{{ t.ctas }}" as="ct" hint-placeholder-count="1">
-            <a href="#" onMouseEnter="{{ ct.on }}" onMouseLeave="{{ ctaOff }}" style="display:inline-flex;align-items:center;gap:10px;padding:12px 24px;font-size:12px;font-weight:600;letter-spacing:.12em;text-transform:uppercase;border:1px solid #FBF3E1;background:{{ ct.bg }};color:{{ ct.fg }}">{{ ct.label }}{{ ct.ar }}</a>
-          </sc-for>
-        </div>
-      </div>
-    </div>
-  </sc-for>
 </section>
 
 <section data-screen-label="06b Explore more" style="overflow:hidden;background:#FBF3E1;padding:56px 32px 24px;display:flex;flex-direction:column;gap:10px">
