@@ -89,9 +89,13 @@ a{color:inherit;text-decoration:none}a:hover{color:inherit;opacity:.86}button[st
   </div>
 </section>
 
-<section id="experiences" data-screen-label="03 Experiences intro" style="background:#FBF3E1;padding:24px clamp(20px,4vw,56px);display:flex;flex-wrap:wrap;justify-content:space-between;align-items:center;gap:24px;scroll-margin-top:104px">
-  <h2 data-reveal="left" style="margin:0;font-size:clamp(30px,3vw,44px);line-height:1.05;font-weight:500;letter-spacing:-.01em;color:#4D4D3C">Come and explore how craft is made. <span style="color:#7D7D63;font-family:var(--font-serif);font-weight:400">Tours run every day.</span></h2>
-  <span onMouseEnter="{{ hv.viewAll }}" onMouseLeave="{{ ctaOff }}" style="display:inline-flex">
+<section id="experiences" data-screen-label="03 Experiences intro" style="position:relative;overflow:hidden;background:#FBF3E1;padding:28px clamp(20px,4vw,56px);min-height:clamp(120px,9.5vw,150px);box-sizing:border-box;display:flex;flex-wrap:wrap;justify-content:space-between;align-items:center;gap:24px;scroll-margin-top:104px">
+  <img src="assets/exp-intro-illustration.png" alt="Copper still among leaves, coffee cherries, cacao and hibiscus" style="position:absolute;right:clamp(200px,17vw,280px);bottom:-4px;width:clamp(240px,25vw,400px);aspect-ratio:1970/636;pointer-events:none">
+  <div data-reveal="left" style="position:relative;z-index:1;display:flex;flex-direction:column;gap:10px">
+    <h2 style="margin:0;font-size:clamp(30px,3vw,44px);line-height:1.05;font-weight:500;letter-spacing:-.01em;color:#4D4D3C">Come and explore how craft is made.</h2>
+    <p style="margin:0;font-family:var(--font-serif);font-weight:400;font-size:clamp(16px,1.35vw,20px);line-height:1.3;color:#7D7D63">Tours run every day.</p>
+  </div>
+  <span onMouseEnter="{{ hv.viewAll }}" onMouseLeave="{{ ctaOff }}" style="position:relative;z-index:1;display:inline-flex">
     <x-import component-from-global-scope="TheGoodCraftCoDesignSystem_6c692a.Button" variant="primary" size="md" icon-right="{{ ar.viewAll }}" hint-size="120px,42px">View all</x-import>
   </span>
 </section>
@@ -309,7 +313,7 @@ a{color:inherit;text-decoration:none}a:hover{color:inherit;opacity:.86}button[st
       </sc-for>
     </div>
   </div>
-  <div data-screen-label="08b Footer illustration" style="margin-top:16px;aspect-ratio:2172/366;width:100%;background-image:url(assets/footer-illustration.png);background-repeat:no-repeat;background-size:100% auto;background-position:0 73.18%"></div>
+  <div data-screen-label="08b Footer illustration" style="margin-top:16px;aspect-ratio:2172/366;width:100%;background-image:url(assets/footer-illustration.png);background-repeat:no-repeat;background-size:100% auto;background-position:0 71.5%"></div>
   <div style="margin:0 clamp(20px,4vw,56px);padding:14px 0 16px;border-top:1px solid #4D4D3C;display:flex;flex-wrap:wrap;justify-content:space-between;gap:12px;font-family:var(--font-serif);font-size:14px">
     <span>© The Good Craft Co.</span>
     <span style="display:flex;gap:16px"><span>Ponda, Goa</span><span>·</span><span>Whitefield, Bangalore</span></span>
