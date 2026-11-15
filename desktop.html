@@ -63,8 +63,8 @@ a{color:inherit;text-decoration:none}a:hover{color:inherit;opacity:.86}@media (m
 <section id="top" data-screen-label="01 Hero" style="position:relative;height:100vh;min-height:680px;overflow:hidden;background:#394622">
   <img src="assets/hero-exterior.jpg" alt="The TGCC distillery in Ponda" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover">
   <div style="position:absolute;inset:0;pointer-events:none;background:linear-gradient(180deg,rgba(28,28,20,.72) 0%,rgba(28,28,20,.52) 28%,rgba(28,28,20,.62) 55%,rgba(28,28,20,.94) 100%)"></div>
-  <div style="position:absolute;left:0;bottom:104px;width:min(1100px,85%);height:62%;pointer-events:none;background:radial-gradient(ellipse 75% 70% at 22% 62%,rgba(28,28,20,.58) 0%,rgba(28,28,20,.34) 45%,rgba(28,28,20,0) 100%)"></div>
-  <div style="position:absolute;left:clamp(20px,4vw,56px);right:clamp(20px,4vw,56px);bottom:150px;display:flex;align-items:flex-end;justify-content:space-between;gap:32px">
+  <div style="position:absolute;left:0;bottom:0;width:min(1100px,85%);height:62%;pointer-events:none;background:radial-gradient(ellipse 75% 70% at 22% 62%,rgba(28,28,20,.58) 0%,rgba(28,28,20,.34) 45%,rgba(28,28,20,0) 100%)"></div>
+  <div style="position:absolute;left:clamp(20px,4vw,56px);right:clamp(20px,4vw,56px);bottom:64px;display:flex;align-items:flex-end;justify-content:space-between;gap:32px">
     <div style="display:flex;flex-direction:column;gap:18px;max-width:880px;min-width:0;flex:1 1 auto">
       <span data-reveal="left" data-reveal-delay="200" style="font-size:11px;font-weight:500;letter-spacing:.12em;text-transform:uppercase;color:#DBBC88">Ponda, Goa: A Working Distillery</span>
       <h1 data-reveal="left" data-reveal-delay="340" style="margin:0;color:#FBF3E1;font-weight:500;font-size:clamp(40px,4.8vw,72px);line-height:1.04;letter-spacing:-.01em;max-width:760px"><span style="font-family:var(--font-serif);font-weight:400">Discover the Indian spirit, up close</span></h1>
@@ -74,19 +74,7 @@ a{color:inherit;text-decoration:none}a:hover{color:inherit;opacity:.86}@media (m
       <a href="#experiences" onMouseEnter="{{ hv.heroExp }}" onMouseLeave="{{ ctaOff }}" style="display:inline-flex;align-items:center;gap:10px;padding:16px 32px;border:1px solid #FBF3E1;color:#FBF3E1;font-size:13px;font-weight:600;letter-spacing:.12em;text-transform:uppercase">Explore Experiences{{ ar.heroExp }}</a>
     </div>
   </div>
-  <div data-screen-label="02 Awards" style="position:absolute;left:0;right:0;bottom:0;height:104px;background:rgba(28,28,20,.86);border-top:1px solid rgba(251,243,225,.16);overflow:hidden;display:flex;align-items:center">
-    <div style="display:flex;width:max-content;animation:tgccMarquee 36s linear infinite">
-      <sc-for list="{{ awardsLoop }}" as="a" hint-placeholder-count="6">
-        <div style="flex:none;width:33.3333vw;box-sizing:border-box;display:flex;align-items:center;justify-content:center;gap:20px;padding:0 16px">
-          <div style="flex:none;width:60px;height:60px;border-radius:50%;border:1px dashed rgba(251,243,225,.5);display:grid;place-items:center;font-size:8px;letter-spacing:.12em;color:rgba(251,243,225,.7)">LOGO</div>
-          <div style="display:flex;flex-direction:column;gap:4px;white-space:nowrap">
-            <span style="font-family:var(--font-serif);font-size:26px;line-height:1.1;color:#FBF3E1">{{ a.t }}</span>
-            <span style="font-size:11px;font-weight:500;letter-spacing:.12em;text-transform:uppercase;color:#DBBC88">{{ a.s }}</span>
-          </div>
-        </div>
-      </sc-for>
-    </div>
-  </div>
+
 </section>
 
 <section id="experiences" data-screen-label="03 Experiences intro" style="position:relative;overflow:hidden;background:#FBF3E1;padding:36px clamp(20px,4vw,56px);box-sizing:border-box;display:flex;flex-direction:column;align-items:flex-start;gap:22px;scroll-margin-top:104px">
@@ -149,6 +137,19 @@ a{color:inherit;text-decoration:none}a:hover{color:inherit;opacity:.86}@media (m
     <div style="flex:1;display:flex;flex-wrap:wrap;justify-content:space-between;align-items:center;gap:12px 40px">
       <sc-for list="{{ press }}" as="pr" hint-placeholder-count="6">
         <a href="#" title="Read the article" style="font-family:var(--font-serif);font-size:20px;color:#4D4D3C">{{ pr }}</a>
+      </sc-for>
+    </div>
+  </div>
+  <div data-screen-label="02 Awards" style="position:relative;height:104px;background:#1C1C14;border-top:1px solid rgba(251,243,225,.16);overflow:hidden;display:flex;align-items:center">
+    <div style="display:flex;width:max-content;animation:tgccMarquee 36s linear infinite">
+      <sc-for list="{{ awardsLoop }}" as="a" hint-placeholder-count="6">
+        <div style="flex:none;width:33.3333vw;box-sizing:border-box;display:flex;align-items:center;justify-content:center;gap:20px;padding:0 16px">
+          <div style="flex:none;width:60px;height:60px;border-radius:50%;border:1px dashed rgba(251,243,225,.5);display:grid;place-items:center;font-size:8px;letter-spacing:.12em;color:rgba(251,243,225,.7)">LOGO</div>
+          <div style="display:flex;flex-direction:column;gap:4px;white-space:nowrap">
+            <span style="font-family:var(--font-serif);font-size:26px;line-height:1.1;color:#FBF3E1">{{ a.t }}</span>
+            <span style="font-size:11px;font-weight:500;letter-spacing:.12em;text-transform:uppercase;color:#DBBC88">{{ a.s }}</span>
+          </div>
+        </div>
       </sc-for>
     </div>
   </div>
