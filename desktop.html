@@ -46,7 +46,7 @@ a{color:inherit;text-decoration:none}a:hover{color:inherit;opacity:.86}
     </div>
   </div>
   <sc-if value="{{ menuOpen }}" hint-placeholder-val="{{ false }}">
-    <div style="background:rgba(46,47,35,.94);border-top:1px solid rgba(251,243,225,.18);padding:36px clamp(20px,4vw,56px) 44px;display:grid;grid-template-columns:minmax(0,1fr) minmax(0,2fr);gap:40px;animation:tgccFade 280ms ease">
+    <div style="background:rgba(44,55,25,.94);border-top:1px solid rgba(251,243,225,.18);padding:36px clamp(20px,4vw,56px) 44px;display:grid;grid-template-columns:minmax(0,1fr) minmax(0,2fr);gap:40px;animation:tgccFade 280ms ease">
       <div style="display:flex;flex-direction:column;gap:10px">
         <span style="font-size:11px;font-weight:500;letter-spacing:.12em;text-transform:uppercase;color:#DBBC88">{{ menu.label }}</span>
         <p style="margin:0;font-family:var(--font-serif);font-size:24px;line-height:1.25;color:#FBF3E1;max-width:480px;text-wrap:balance">{{ menu.blurb }}</p>
@@ -60,7 +60,7 @@ a{color:inherit;text-decoration:none}a:hover{color:inherit;opacity:.86}
   </sc-if>
 </header>
 
-<section id="top" data-screen-label="01 Hero" style="position:relative;height:100vh;min-height:680px;overflow:hidden;background:#3C3D2D">
+<section id="top" data-screen-label="01 Hero" style="position:relative;height:100vh;min-height:680px;overflow:hidden;background:#394622">
   <img src="assets/hero-exterior.jpg" alt="The TGCC distillery in Ponda" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover">
   <div style="position:absolute;inset:0;pointer-events:none;background:linear-gradient(180deg,rgba(28,28,20,.72) 0%,rgba(28,28,20,.52) 28%,rgba(28,28,20,.62) 55%,rgba(28,28,20,.94) 100%)"></div>
   <div style="position:absolute;left:0;bottom:104px;width:min(1100px,85%);height:62%;pointer-events:none;background:radial-gradient(ellipse 75% 70% at 22% 62%,rgba(28,28,20,.58) 0%,rgba(28,28,20,.34) 45%,rgba(28,28,20,0) 100%)"></div>
@@ -68,12 +68,9 @@ a{color:inherit;text-decoration:none}a:hover{color:inherit;opacity:.86}
     <div style="display:flex;flex-direction:column;gap:18px;max-width:880px;min-width:0;flex:1 1 auto">
       <span data-reveal="left" data-reveal-delay="200" style="font-size:11px;font-weight:500;letter-spacing:.12em;text-transform:uppercase;color:#DBBC88">Ponda, Goa: A Working Distillery</span>
       <h1 data-reveal="left" data-reveal-delay="340" style="margin:0;color:#FBF3E1;font-weight:500;font-size:clamp(40px,4.8vw,72px);line-height:1.04;letter-spacing:-.01em;max-width:760px"><span style="font-family:var(--font-serif);font-weight:400">Discover the Indian spirit, up close</span></h1>
-      <p data-reveal="left" data-reveal-delay="480" style="margin:0;color:#FBF3E1;font-size:16px;line-height:1.55;max-width:480px;text-wrap:pretty">A journey through local ingredients, thoughtful processes, and the art of making something extraordinary.</p>
+      <p data-reveal="left" data-reveal-delay="480" style="margin:0;color:#FBF3E1;font-size:16px;line-height:1.55;max-width:480px;text-wrap:pretty">A journey through local ingredients, thoughtful processes and the art of making something extraordinary.</p>
     </div>
     <div data-reveal="left" data-reveal-delay="620" style="display:flex;gap:12px;flex-shrink:0">
-      <span onMouseEnter="{{ hv.heroBook }}" onMouseLeave="{{ ctaOff }}" style="display:inline-flex">
-        <x-import component-from-global-scope="TheGoodCraftCoDesignSystem_6c692a.Button" variant="inverse" size="lg" icon-right="{{ ar.heroBook }}" hint-size="180px,48px">Book Tickets</x-import>
-      </span>
       <a href="#experiences" onMouseEnter="{{ hv.heroExp }}" onMouseLeave="{{ ctaOff }}" style="display:inline-flex;align-items:center;gap:10px;padding:16px 32px;border:1px solid #FBF3E1;color:#FBF3E1;font-size:13px;font-weight:600;letter-spacing:.12em;text-transform:uppercase">Explore Experiences{{ ar.heroExp }}</a>
     </div>
   </div>
@@ -99,7 +96,7 @@ a{color:inherit;text-decoration:none}a:hover{color:inherit;opacity:.86}
   </span>
 </section>
 
-<section ref="{{ slideRef }}" data-screen-label="03b Experiences slideshow" onMouseEnter="{{ pause }}" onMouseLeave="{{ resume }}" style="background:#2E2F23;color:#FBF3E1">
+<section ref="{{ slideRef }}" data-screen-label="03b Experiences slideshow" onMouseEnter="{{ pause }}" onMouseLeave="{{ resume }}" style="background:#2C3719;color:#FBF3E1">
   <div data-stage="1" style="background-color:{{ tone }};position:relative;overflow:hidden;height:calc(100vh - 280px);min-height:540px;display:grid;grid-template-columns:minmax(0,58fr) minmax(0,42fr)">
     <div data-panel="1" style="position:absolute;inset:0;overflow:hidden;z-index:0;isolation:isolate">
       <sc-for list="{{ exps }}" as="e" hint-placeholder-count="1">
@@ -132,7 +129,7 @@ a{color:inherit;text-decoration:none}a:hover{color:inherit;opacity:.86}
         <span style="font-size:11px;font-weight:500;letter-spacing:.12em;text-transform:uppercase;color:#DBBC88">Up next</span>
         <div style="position:relative;width:clamp(116px,8.4vw,150px);aspect-ratio:4/5">
           <sc-for list="{{ cards }}" as="c" hint-placeholder-count="3">
-            <button onClick="{{ c.go }}" data-card="{{ c.i }}" style-hover="scale:1.04" style="position:absolute;inset:0;padding:0;border:0;cursor:pointer;overflow:hidden;background:#4D4D3C;text-align:left;transform-origin:50% 100%;transform:translateX(calc({{ c.slot }} * (100% + 14px)));opacity:{{ c.op }};transition:{{ c.tr }}">
+            <button onClick="{{ c.go }}" data-card="{{ c.i }}" style-hover="scale:1.04" style="position:absolute;inset:0;padding:0;border:0;cursor:pointer;overflow:hidden;background:#394622;text-align:left;transform-origin:50% 100%;transform:translateX(calc({{ c.slot }} * (100% + 14px)));opacity:{{ c.op }};transition:{{ c.tr }}">
               <img src="{{ c.img }}" alt="" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover">
               <span style="position:absolute;inset:0;background:linear-gradient(180deg,rgba(28,28,20,.55) 0%,rgba(28,28,20,.2) 40%,rgba(28,28,20,.85) 100%)"></span>
               <span data-cnum="1" style="position:absolute;left:12px;top:12px;display:block;font-family:var(--font-serif);font-size:22px;line-height:1;color:#FBF3E1">{{ c.num }}</span>
@@ -225,7 +222,7 @@ a{color:inherit;text-decoration:none}a:hover{color:inherit;opacity:.86}
   </div>
   <div style="display:flex;gap:3px;height:clamp(560px,76vh,760px);background:#FBF3E1">
     <sc-for list="{{ dots }}" as="d" hint-placeholder-count="4">
-      <div data-reveal="up" data-reveal-delay="{{ d.delay }}" onMouseEnter="{{ d.enter }}" onMouseLeave="{{ dotLeave }}" style="position:relative;min-width:0;overflow:hidden;cursor:pointer;background:#4D4D3C;transition:flex 800ms cubic-bezier(.2,.7,.2,1);flex:{{ d.flex }}">
+      <div data-reveal="up" data-reveal-delay="{{ d.delay }}" onMouseEnter="{{ d.enter }}" onMouseLeave="{{ dotLeave }}" style="position:relative;min-width:0;overflow:hidden;cursor:pointer;background:#394622;transition:flex 800ms cubic-bezier(.2,.7,.2,1);flex:{{ d.flex }}">
         <img src="{{ d.img }}" alt="{{ d.n }}" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:{{ d.pos }};transform-origin:{{ d.pos }};transition:transform 1200ms ease;transform:scale({{ d.scale }})">
         <div style="position:absolute;inset:0;transition:background 500ms ease;background:rgba(28,28,20,{{ d.dim }})"></div>
         <div style="position:absolute;inset:0;background:linear-gradient(180deg,rgba(28,28,20,0) 50%,rgba(28,28,20,.7) 100%)"></div>
@@ -252,11 +249,11 @@ a{color:inherit;text-decoration:none}a:hover{color:inherit;opacity:.86}
 
 <section data-screen-label="05b Goa + Bangalore" style="overflow:hidden;display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,480px),1fr))">
   <sc-for list="{{ cities }}" as="t" hint-placeholder-count="2">
-    <div data-reveal="{{ t.reveal }}" onMouseEnter="{{ t.enter }}" onMouseLeave="{{ tileLeave }}" style="position:relative;display:block;height:clamp(360px,50vh,500px);overflow:hidden;background:#4D4D3C">
+    <div data-reveal="{{ t.reveal }}" onMouseEnter="{{ t.enter }}" onMouseLeave="{{ tileLeave }}" style="position:relative;display:block;height:clamp(360px,50vh,500px);overflow:hidden;background:#394622">
       <img src="{{ t.img }}" alt="{{ t.title }}" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;transition:transform 900ms cubic-bezier(.2,.7,.2,1);transform:scale({{ t.scale }})">
       <span style="position:absolute;inset:0;background:linear-gradient(180deg,rgba(28,28,20,.25) 0%,rgba(28,28,20,.35) 45%,rgba(28,28,20,.85) 100%)"></span>
       <span style="position:absolute;left:32px;bottom:28px;font-family:var(--font-serif);font-weight:400;font-size:clamp(36px,3.4vw,52px);line-height:1.02;letter-spacing:-.01em;color:#FBF3E1;transition:opacity 300ms ease;opacity:{{ t.base }}">{{ t.title }}</span>
-      <div style="position:absolute;left:0;right:0;bottom:0;padding:28px 32px;display:flex;flex-direction:column;gap:12px;background:rgba(46,47,35,.92);color:#FBF3E1;transition:transform 520ms cubic-bezier(.2,.7,.2,1), opacity 400ms ease;transform:translateY({{ t.ty }});opacity:{{ t.op }}">
+      <div style="position:absolute;left:0;right:0;bottom:0;padding:28px 32px;display:flex;flex-direction:column;gap:12px;background:rgba(44,55,25,.92);color:#FBF3E1;transition:transform 520ms cubic-bezier(.2,.7,.2,1), opacity 400ms ease;transform:translateY({{ t.ty }});opacity:{{ t.op }}">
         <span style="font-family:var(--font-serif);font-weight:400;font-size:clamp(36px,3.4vw,52px);line-height:1.02;letter-spacing:-.01em">{{ t.title }}</span>
         <span style="font-size:16px;line-height:1.55;max-width:460px;text-wrap:pretty">{{ t.body }}</span>
         <div style="display:flex;flex-wrap:wrap;gap:10px;margin-top:6px">
@@ -275,7 +272,7 @@ a{color:inherit;text-decoration:none}a:hover{color:inherit;opacity:.86}
 
 <section data-screen-label="07 Dining + Shop" style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,480px),1fr))">
   <sc-for list="{{ ds }}" as="t" hint-placeholder-count="2">
-    <a href="#" data-reveal="up" data-reveal-delay="{{ t.delay }}" onMouseEnter="{{ t.enter }}" onMouseLeave="{{ tileLeave }}" style="position:relative;display:block;height:clamp(420px,62vh,600px);overflow:hidden;background:#4D4D3C">
+    <a href="#" data-reveal="up" data-reveal-delay="{{ t.delay }}" onMouseEnter="{{ t.enter }}" onMouseLeave="{{ tileLeave }}" style="position:relative;display:block;height:clamp(420px,62vh,600px);overflow:hidden;background:#394622">
       <img src="{{ t.img }}" alt="{{ t.title }}" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;transition:transform 900ms cubic-bezier(.2,.7,.2,1);transform:scale({{ t.scale }})">
       <span style="position:absolute;inset:0;transition:background 500ms ease;background:rgba(28,28,20,{{ t.dim }})"></span>
       <span style="position:absolute;inset:0;background:linear-gradient(180deg,rgba(28,28,20,0) 45%,rgba(28,28,20,.6) 100%)"></span>
@@ -283,7 +280,7 @@ a{color:inherit;text-decoration:none}a:hover{color:inherit;opacity:.86}
         <span style="font-family:var(--font-serif);font-weight:400;font-size:clamp(36px,3.4vw,52px);line-height:1.02;letter-spacing:-.01em">{{ t.title }}</span>
         <span style="display:flex;flex-direction:column;gap:16px;overflow:hidden;transition:max-height 600ms cubic-bezier(.2,.7,.2,1), opacity 400ms ease;max-height:{{ t.maxH }};opacity:{{ t.op }}">
           <span style="font-size:16px;line-height:1.55;max-width:440px;text-wrap:pretty">{{ t.body }}</span>
-          <span style="display:flex;flex-wrap:wrap;gap:8px 22px;font-size:12px;letter-spacing:.08em;color:#DBBC88"><sc-for list="{{ t.points }}" as="pt" hint-placeholder-count="3"><span>— {{ pt }}</span></sc-for></span>
+          <span style="display:flex;flex-wrap:wrap;gap:8px 22px;font-size:12px;letter-spacing:.08em;color:#DBBC88"><sc-for list="{{ t.points }}" as="pt" hint-placeholder-count="3"><span>{{ pt }}</span></sc-for></span>
           <span style="align-self:flex-start;display:inline-flex;align-items:center;gap:10px;padding:12px 24px;background:#DBBC88;color:#4D4D3C;font-size:12px;font-weight:600;letter-spacing:.12em;text-transform:uppercase">{{ t.cta }}{{ t.ar }}</span>
         </span>
       </span>
@@ -468,7 +465,7 @@ class Component extends DCLogic {
       slideRef: this.slideRef,
       btnFull: { style: { width: '100%', justifyContent: 'center', boxSizing: 'border-box' } },
       ar, hv, ctaOff: () => this.setState({ cta: null }),
-      navBg: s.scrolled || menu ? 'rgba(46,47,35,.94)' : 'transparent',
+      navBg: s.scrolled || menu ? 'rgba(44,55,25,.94)' : 'transparent',
       logoSize: s.scrolled ? 75 : 88,
       nav: NAV.map(n => ({ ...n, enter: () => this.setState({ nav: n.key }), line: s.nav === n.key ? '100%' : '0%' })),
       visitEnter: () => this.setState({ nav: 'visit' }), visitLine: s.nav === 'visit' ? '100%' : '0%',
@@ -511,7 +508,7 @@ class Component extends DCLogic {
       ringSize: 300, ringWeight: 600,
       ds: [
         tileFor('dining', { delay: 0, title: 'Dining & Bar', img: 'assets/dining.png', body: 'Chef Madhav\'s 4- and 6-course menus, built around Goan produce, with our spirits poured at the bar.', points: ['Lunch & dinner', '4 or 6 courses', 'The Bar'], cta: 'Reserve A Table' }),
-        tileFor('shop', { delay: 180, title: 'Shop', img: 'assets/shop.png', body: 'Take a bottle, a glass, or a piece of the distillery home. Available in store.', points: [], cta: 'See What’s in Store' }),
+        tileFor('shop', { delay: 180, title: 'Shop', img: 'assets/shop.png', body: 'Take a bottle, a glass or a piece of the distillery home. Available in store.', points: [], cta: 'See What’s in Store' }),
       ],
       footLogo: 84,
       footCols: [
