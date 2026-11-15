@@ -431,7 +431,7 @@ class Component extends DCLogic {
     clearInterval(this.lineT);
     this.setState({ place: id, lineN: 0 });
     this.lineT = setInterval(() => this.setState(st => {
-      if (st.lineN >= 200) { clearInterval(this.lineT); return null; }
+      if (st.lineN >= 48) { clearInterval(this.lineT); return null; }
       return { lineN: st.lineN + 1 };
     }), 30);
   }
@@ -516,8 +516,7 @@ class Component extends DCLogic {
       pause: () => this.setState({ paused: true }), resume: () => this.setState({ paused: false }),
       places: PLACES.map((p, k) => ({ ...p, delay: 1000 + k * 90, lx: p.side === 'l' ? 'auto' : '24px', rx: p.side === 'l' ? '24px' : 'auto', ly: p.ly || '0px', left: (p.x / 740 * 100) + '%', top: (p.y / 980 * 100) + '%', pick: () => this.pickPlace(p.id), fill: p.id === s.place || s.hoverPlace === p.id ? '#DBBC88' : 'transparent', dot: s.hoverPlace === p.id ? 1.5 : 1, ring: s.hoverPlace === p.id ? 2.6 : 1, ringOp: s.hoverPlace === p.id ? .6 : 0, hover: () => this.setState({ hoverPlace: p.id }), weight: p.id === s.place ? 700 : 400 })),
       routeD: ROUTES[sel.id].d, routeLen: ROUTES[sel.id].len,
-      routeOff: (() => { const L = Math.hypot(sel.x - 370, sel.y - 440) || 1, n = s.lineN ?? 999, k = Math.min(1, (n * 16) / L); return ROUTES[sel.id].len * (1 - k); })(),
-      lineEnd: (() => { const dx = sel.x - 370, dy = sel.y - 440, L = Math.hypot(dx, dy) || 1, n = s.lineN ?? 999, k = Math.min(1, (n * 16) / L); if (n * 16 >= L && this.lineT && n < 200) { clearInterval(this.lineT); } return { x: sel.x - dx * k, y: sel.y - dy * k }; })(),
+      routeOff: (() => { const e = (t) => t < .5 ? 4 * t * t * t : 1 - Math.pow(-2 * t + 2, 3) / 2; const k = e(Math.min(1, (s.lineN ?? 999) / 48)); return ROUTES[sel.id].len * (1 - k); })(),
       sel, placeLeave: () => this.setState({ hoverPlace: null }),
       visitInfo: [
         { k: 'Opening times', lines: ['Tue – Sun · 11:00 – 19:00 [TBC]', 'Tours on the hour'] },
