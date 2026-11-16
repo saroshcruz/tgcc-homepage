@@ -302,34 +302,27 @@ a{color:inherit;text-decoration:none}a:hover{color:inherit;opacity:.86}@media (m
 </section>
 
 <footer data-screen-label="08 Footer" style="background:#FBF3E1;color:#4D4D3C;position:relative;overflow:hidden">
-  <div data-reveal="up" style="padding:32px clamp(20px,4vw,56px) 0;display:flex;justify-content:center;align-items:flex-start;gap:clamp(32px,6vw,96px)">
-    <div style="padding-right:clamp(24px,4vw,56px);border-right:1px solid rgba(77,77,60,.4)">
+  <div data-reveal="up" style="padding:32px clamp(20px,4vw,56px) 0;display:grid;grid-template-columns:auto minmax(0,1fr) auto;gap:48px;align-items:start">
+    <div style="padding-right:40px;border-right:1px solid rgba(77,77,60,.4)">
       <x-import component-from-global-scope="TheGoodCraftCoDesignSystem_6c692a.Logo" color="olive" size="{{ footLogo }}" hint-size="84px,84px"></x-import>
     </div>
-    <sc-for list="{{ footTop }}" as="fc" hint-placeholder-count="2">
-        <div style="display:flex;flex-direction:column;gap:8px;min-width:0">
-          <span style="font-size:12px;font-weight:600;letter-spacing:.12em;text-transform:uppercase;margin-bottom:2px">{{ fc.h }}</span>
-          <sc-for list="{{ fc.links }}" as="fl" hint-placeholder-count="4"><a href="#" style="font-family:var(--font-serif);font-size:15px;color:#4D4D3C">{{ fl }}</a></sc-for>
-        </div>
-    </sc-for>
-  </div>
-  <div data-screen-label="08b Footer illustration" style="position:relative;margin-top:16px;aspect-ratio:2172/366;width:100%;background-image:url(assets/footer-art-left.png),url(assets/footer-art-right.png);background-repeat:no-repeat,no-repeat;background-size:auto 100%,auto 100%;background-position:left bottom,right bottom">
-    <div style="position:absolute;left:0;right:0;bottom:28px;display:flex;justify-content:center;align-items:flex-end;gap:clamp(32px,6vw,96px)">
-      <sc-for list="{{ footBottom }}" as="fc" hint-placeholder-count="2">
+    <div style="display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:24px">
+      <sc-for list="{{ footCols }}" as="fc" hint-placeholder-count="4">
         <div style="display:flex;flex-direction:column;gap:8px;min-width:0">
           <span style="font-size:12px;font-weight:600;letter-spacing:.12em;text-transform:uppercase;margin-bottom:2px">{{ fc.h }}</span>
           <sc-for list="{{ fc.links }}" as="fl" hint-placeholder-count="4"><a href="#" style="font-family:var(--font-serif);font-size:15px;color:#4D4D3C">{{ fl }}</a></sc-for>
         </div>
       </sc-for>
-      <div style="display:grid;grid-template-columns:repeat(2,40px);gap:10px">
+    </div>
+    <div style="display:grid;grid-template-columns:repeat(2,40px);gap:10px">
       <sc-for list="{{ socials }}" as="so" hint-placeholder-count="4">
         <a href="#" aria-label="{{ so.n }}" style="width:40px;height:40px;border-radius:50%;border:1.5px solid #4D4D3C;display:grid;place-items:center;box-sizing:border-box">
           <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#4D4D3C" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="{{ so.d }}"></path></svg>
         </a>
       </sc-for>
     </div>
-    </div>
   </div>
+  <div data-screen-label="08b Footer illustration" style="margin-top:16px;aspect-ratio:2172/366;width:100%;background-image:url(assets/footer-art-left.png),url(assets/footer-art-right.png);background-repeat:no-repeat,no-repeat;background-size:auto 100%,auto 100%;background-position:left bottom,right bottom"></div>
   <div style="margin:0 clamp(20px,4vw,56px);padding:14px 0 16px;border-top:1px solid #4D4D3C;display:flex;flex-wrap:wrap;justify-content:space-between;gap:12px;font-family:var(--font-serif);font-size:14px">
     <span>© The Good Craft Co.</span>
     <span style="display:flex;gap:16px"><span>Ponda, Goa</span><span>·</span><span>Whitefield, Bangalore</span></span>
@@ -543,8 +536,6 @@ class Component extends DCLogic {
         tileFor('shop', { delay: 180, title: 'Shop', img: 'assets/shop.png', body: 'Take a bottle, a glass or a piece of the distillery home. Available in store.', points: [], cta: 'See What’s in Store' }),
       ],
       footLogo: 84,
-      footTop: [{ h: 'Explore', links: ['Experiences', 'Dining & Bar', 'Shop', 'Private Experiences'] }, { h: 'About', links: ['Our Story', 'Innovation', 'Press', 'Careers', 'Blog'] }],
-      footBottom: [{ h: 'Visit', links: ['Plan Your Visit', 'Book Tickets'] }, { h: 'Legal', links: ['Terms of Service', 'Privacy Policy', 'Cookie Policy'] }],
       footCols: [
         { h: 'Visit', links: ['Plan Your Visit', 'Book Tickets'] },
         { h: 'Explore', links: ['Experiences', 'Dining & Bar', 'Shop', 'Private Experiences'] },
