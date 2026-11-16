@@ -19,10 +19,10 @@
     + "@font-face{font-family:'TGCC Uniform';font-weight:400;font-display:swap;src:url('" + base + "fonts/Uniform-Regular.otf') format('opentype')}"
     + "@font-face{font-family:'TGCC Uniform';font-weight:500;font-display:swap;src:url('" + base + "fonts/Uniform-Medium.otf') format('opentype')}"
     + "@font-face{font-family:'TGCC Uniform';font-weight:700;font-display:swap;src:url('" + base + "fonts/Uniform-Bold.otf') format('opentype')}"
-    + '#tgcc-ag{position:fixed;inset:0;z-index:2147483000;overflow:hidden;background:#2E2F23;color:#FBF3E1;font-family:"TGCC Uniform",system-ui,sans-serif;-webkit-font-smoothing:antialiased;transition:opacity 500ms ease}'
+    + '#tgcc-ag{position:fixed;inset:0;z-index:2147483000;overflow:hidden;background:#2A130A;color:#FBF3E1;font-family:"TGCC Uniform",system-ui,sans-serif;-webkit-font-smoothing:antialiased;transition:opacity 500ms ease}'
     + '#tgcc-ag *{box-sizing:border-box}'
     + '#tgcc-ag .ag-bg{position:absolute;inset:-40px;width:calc(100% + 80px);height:calc(100% + 80px);object-fit:cover;filter:blur(18px)}'
-    + '#tgcc-ag .ag-tint{position:absolute;inset:0;background:rgba(46,47,35,.62)}'
+    + '#tgcc-ag .ag-tint{position:absolute;inset:0;background:rgba(42,19,10,.62)}'
     + '#tgcc-ag .ag-in{position:relative;height:100%;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:40px;padding:48px 24px 80px;text-align:center}'
     + '#tgcc-ag .ag-logo{width:96px;height:95px;background:#FBF3E1;-webkit-mask:url("' + base + 'tgcc-logo.png") center/contain no-repeat;mask:url("' + base + 'tgcc-logo.png") center/contain no-repeat;flex:none}'
     + '#tgcc-ag .ag-q{display:flex;flex-direction:column;align-items:center;gap:12px}'

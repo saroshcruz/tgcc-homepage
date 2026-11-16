@@ -17,7 +17,7 @@
 <script src="_ds/the-good-craft-co-design-system-6c692aae-ea5f-4e10-8127-8cdcf2234f3c/_ds_bundle.js"></script>
 <style>
 body{margin:0;background:#FBF3E1;color:#4D4D3C;font-family:var(--font-sans)}
-a{color:inherit;text-decoration:none}a:hover{color:inherit;opacity:.86}@media (max-width:1000px){#experiences>img{display:none}}@media (prefers-reduced-motion:reduce){#top>video{display:none}}button[style*='background: var(--olive)']{background:#394622!important;border-color:#394622!important}button[style*='background: var(--olive)']:hover{background:#2C3719!important;border-color:#2C3719!important}button[style*='background: transparent'][style*='color: var(--olive)']{color:#394622!important;border-color:#394622!important}
+a{color:inherit;text-decoration:none}a:hover{color:inherit;opacity:.86}@media (max-width:1000px){#experiences>img{display:none}}@media (prefers-reduced-motion:reduce){#top>video{display:none}}button[style*='background: var(--olive)']{background:#793C23!important;border-color:#793C23!important}button[style*='background: var(--olive)']:hover{background:#55291A!important;border-color:#55291A!important}button[style*='background: transparent'][style*='color: var(--olive)']{color:#793C23!important;border-color:#793C23!important}
 @keyframes tgccMarquee{from{transform:translateX(0)}to{transform:translateX(-50%)}}
 @keyframes tgccSpin{from{transform:rotate(0)}to{transform:rotate(360deg)}}
 @keyframes tgccPulse{0%{transform:scale(1);opacity:.6}100%{transform:scale(2.6);opacity:0}}
@@ -46,7 +46,7 @@ a{color:inherit;text-decoration:none}a:hover{color:inherit;opacity:.86}@media (m
     </div>
   </div>
   <sc-if value="{{ menuOpen }}" hint-placeholder-val="{{ false }}">
-    <div style="background:rgba(44,55,25,.94);border-top:1px solid rgba(251,243,225,.18);padding:36px clamp(20px,4vw,56px) 44px;display:grid;grid-template-columns:minmax(0,1fr) minmax(0,2fr);gap:40px;animation:tgccFade 280ms ease">
+    <div style="background:rgba(85,41,26,.94);border-top:1px solid rgba(251,243,225,.18);padding:36px clamp(20px,4vw,56px) 44px;display:grid;grid-template-columns:minmax(0,1fr) minmax(0,2fr);gap:40px;animation:tgccFade 280ms ease">
       <div style="display:flex;flex-direction:column;gap:10px">
         <span style="font-size:11px;font-weight:500;letter-spacing:.12em;text-transform:uppercase;color:#DBBC88">{{ menu.label }}</span>
         <p style="margin:0;font-family:var(--font-serif);font-size:24px;line-height:1.25;color:#FBF3E1;max-width:480px;text-wrap:balance">{{ menu.blurb }}</p>
@@ -60,11 +60,11 @@ a{color:inherit;text-decoration:none}a:hover{color:inherit;opacity:.86}@media (m
   </sc-if>
 </header>
 
-<section id="top" data-screen-label="01 Hero" style="position:relative;height:100vh;min-height:680px;overflow:hidden;background:#394622">
+<section id="top" data-screen-label="01 Hero" style="position:relative;height:100vh;min-height:680px;overflow:hidden;background:#793C23">
   <img src="assets/hero-exterior.jpg" alt="The TGCC distillery in Ponda" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover">
   <video src="assets/hero/hero-desktop.mp4" poster="assets/hero/hero-desktop-poster.jpg" autoplay muted loop playsinline preload="auto" aria-hidden="true" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover"></video>
-  <div style="position:absolute;inset:0;pointer-events:none;background:linear-gradient(180deg,rgba(28,28,20,.72) 0%,rgba(28,28,20,.52) 28%,rgba(28,28,20,.62) 55%,rgba(28,28,20,.94) 100%)"></div>
-  <div style="position:absolute;left:0;bottom:0;width:min(1100px,85%);height:62%;pointer-events:none;background:radial-gradient(ellipse 75% 70% at 22% 62%,rgba(28,28,20,.58) 0%,rgba(28,28,20,.34) 45%,rgba(28,28,20,0) 100%)"></div>
+  <div style="position:absolute;inset:0;pointer-events:none;background:linear-gradient(180deg,rgba(42,19,10,.72) 0%,rgba(42,19,10,.52) 28%,rgba(42,19,10,.62) 55%,rgba(42,19,10,.94) 100%)"></div>
+  <div style="position:absolute;left:0;bottom:0;width:min(1100px,85%);height:62%;pointer-events:none;background:radial-gradient(ellipse 75% 70% at 22% 62%,rgba(42,19,10,.58) 0%,rgba(42,19,10,.34) 45%,rgba(42,19,10,0) 100%)"></div>
   <div style="position:absolute;left:clamp(20px,4vw,56px);right:clamp(20px,4vw,56px);bottom:128px;display:flex;align-items:flex-end;justify-content:space-between;gap:32px">
     <div style="display:flex;flex-direction:column;gap:18px;max-width:880px;min-width:0;flex:1 1 auto">
       <h1 data-reveal="left" data-reveal-delay="340" style="margin:0;color:#FBF3E1;font-weight:500;font-size:clamp(40px,4.8vw,72px);line-height:1.04;letter-spacing:-.01em;max-width:760px"><span style="font-family:var(--font-serif);font-weight:400">Discover the Indian spirit, up close</span></h1>
@@ -85,7 +85,7 @@ a{color:inherit;text-decoration:none}a:hover{color:inherit;opacity:.86}@media (m
   </span>
 </section>
 
-<section ref="{{ slideRef }}" data-screen-label="03b Experiences slideshow" onMouseEnter="{{ pause }}" onMouseLeave="{{ resume }}" style="background:#2C3719;color:#FBF3E1">
+<section ref="{{ slideRef }}" data-screen-label="03b Experiences slideshow" onMouseEnter="{{ pause }}" onMouseLeave="{{ resume }}" style="background:#55291A;color:#FBF3E1">
   <div data-stage="1" style="background-color:{{ tone }};position:relative;overflow:hidden;height:calc(100vh - 280px);min-height:540px;display:grid;grid-template-columns:minmax(0,58fr) minmax(0,42fr)">
     <div data-panel="1" style="position:absolute;inset:0;overflow:hidden;z-index:0;isolation:isolate">
       <sc-for list="{{ exps }}" as="e" hint-placeholder-count="1">
@@ -117,9 +117,9 @@ a{color:inherit;text-decoration:none}a:hover{color:inherit;opacity:.86}@media (m
         <span style="font-size:11px;font-weight:500;letter-spacing:.12em;text-transform:uppercase;color:#DBBC88">Up next</span>
         <div style="position:relative;width:clamp(116px,8.4vw,150px);aspect-ratio:4/5">
           <sc-for list="{{ cards }}" as="c" hint-placeholder-count="3">
-            <button onClick="{{ c.go }}" data-card="{{ c.i }}" style-hover="scale:1.04" style="position:absolute;inset:0;padding:0;border:0;cursor:pointer;overflow:hidden;background:#394622;text-align:left;transform-origin:50% 100%;transform:translateX(calc({{ c.slot }} * (100% + 14px)));opacity:{{ c.op }};transition:{{ c.tr }}">
+            <button onClick="{{ c.go }}" data-card="{{ c.i }}" style-hover="scale:1.04" style="position:absolute;inset:0;padding:0;border:0;cursor:pointer;overflow:hidden;background:#793C23;text-align:left;transform-origin:50% 100%;transform:translateX(calc({{ c.slot }} * (100% + 14px)));opacity:{{ c.op }};transition:{{ c.tr }}">
               <img src="{{ c.img }}" alt="" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover">
-              <span style="position:absolute;inset:0;background:linear-gradient(180deg,rgba(28,28,20,.55) 0%,rgba(28,28,20,.2) 40%,rgba(28,28,20,.85) 100%)"></span>
+              <span style="position:absolute;inset:0;background:linear-gradient(180deg,rgba(42,19,10,.55) 0%,rgba(42,19,10,.2) 40%,rgba(42,19,10,.85) 100%)"></span>
               <span data-cnum="1" style="position:absolute;left:12px;top:12px;display:block;font-family:var(--font-serif);font-size:22px;line-height:1;color:#FBF3E1">{{ c.num }}</span>
               <span style="position:absolute;left:12px;right:12px;bottom:12px;font-size:12px;font-weight:500;letter-spacing:.08em;line-height:1.25;text-transform:uppercase;color:#FBF3E1">{{ c.title }}</span>
             </button>
@@ -141,16 +141,16 @@ a{color:inherit;text-decoration:none}a:hover{color:inherit;opacity:.86}@media (m
   </div>
 </section>
 
-<section id="visit" data-screen-label="04 Visit" style="overflow:hidden;border-bottom:1.5px solid #364622;display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,460px),1fr));background:#FBF3E1">
-  <div data-reveal="expand" style="position:relative;background:#364622;padding:24px 32px;min-height:0;box-sizing:border-box;overflow:hidden;display:flex;flex-direction:column;align-items:stretch;gap:12px">
+<section id="visit" data-screen-label="04 Visit" style="overflow:hidden;border-bottom:1.5px solid #55291A;display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,460px),1fr));background:#FBF3E1">
+  <div data-reveal="expand" style="position:relative;background:#55291A;padding:24px 32px;min-height:0;box-sizing:border-box;overflow:hidden;display:flex;flex-direction:column;align-items:stretch;gap:12px">
     <span style="font-size:11px;font-weight:500;letter-spacing:.12em;text-transform:uppercase;color:#DBBC88">Tap a place to see the distance</span>
     <div style="position:relative;flex:none;margin:auto 0;align-self:center;height:440px;max-width:calc(100% - 120px);aspect-ratio:740/980;left:44px">
       <svg viewBox="0 0 740 980" style="position:absolute;inset:0;width:100%;height:100%;overflow:visible">
-        <polygon points="80,40 230,40 310,90 480,160 610,190 660,290 640,440 690,560 660,690 560,790 540,890 460,940 380,920 340,820 310,740 280,670 260,590 240,540 200,480 140,440 180,410 190,370 160,340 120,310 90,260 70,210 50,140" fill="none" stroke="#8E9A68" stroke-width="22" stroke-linejoin="round" opacity=".16"></polygon>
-        <polygon points="80,40 230,40 310,90 480,160 610,190 660,290 640,440 690,560 660,690 560,790 540,890 460,940 380,920 340,820 310,740 280,670 260,590 240,540 200,480 140,440 180,410 190,370 160,340 120,310 90,260 70,210 50,140" fill="#74895A" stroke="#C4CC9A" stroke-width="2.5" stroke-linejoin="round"></polygon>
-        <polygon points="300,300 480,160 610,190 660,290 640,440 520,470 400,470" fill="#8CA06F" opacity=".55"></polygon>
-        <polygon points="260,590 320,500 520,470 640,440 690,560 660,690 560,790 420,760 310,740" fill="#5B7044" opacity=".55"></polygon>
-        <path d="{{ routeD }}" fill="none" stroke="#1F2A12" stroke-opacity=".45" stroke-width="9" stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="{{ routeLen }}" stroke-dashoffset="{{ routeOff }}"></path>
+        <polygon points="80,40 230,40 310,90 480,160 610,190 660,290 640,440 690,560 660,690 560,790 540,890 460,940 380,920 340,820 310,740 280,670 260,590 240,540 200,480 140,440 180,410 190,370 160,340 120,310 90,260 70,210 50,140" fill="none" stroke="#DBBC88" stroke-width="22" stroke-linejoin="round" opacity=".16"></polygon>
+        <polygon points="80,40 230,40 310,90 480,160 610,190 660,290 640,440 690,560 660,690 560,790 540,890 460,940 380,920 340,820 310,740 280,670 260,590 240,540 200,480 140,440 180,410 190,370 160,340 120,310 90,260 70,210 50,140" fill="#B56C59" stroke="#DBBC88" stroke-width="2.5" stroke-linejoin="round"></polygon>
+        <polygon points="300,300 480,160 610,190 660,290 640,440 520,470 400,470" fill="#C98672" opacity=".55"></polygon>
+        <polygon points="260,590 320,500 520,470 640,440 690,560 660,690 560,790 420,760 310,740" fill="#9A5240" opacity=".55"></polygon>
+        <path d="{{ routeD }}" fill="none" stroke="#3A1B10" stroke-opacity=".45" stroke-width="9" stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="{{ routeLen }}" stroke-dashoffset="{{ routeOff }}"></path>
         <path d="{{ routeD }}" fill="none" stroke="#FBF3E1" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="{{ routeLen }}" stroke-dashoffset="{{ routeOff }}"></path>
       </svg>
       <sc-for list="{{ places }}" as="pl" hint-placeholder-count="10">
@@ -172,8 +172,8 @@ a{color:inherit;text-decoration:none}a:hover{color:inherit;opacity:.86}@media (m
       <span style="font-family:var(--font-serif);font-weight:400;font-size:26px;line-height:1.05">{{ sel.name }}</span>
     </div>
     <div style="display:flex;gap:32px;color:#FBF3E1;text-align:right">
-      <div style="display:flex;flex-direction:column;gap:2px"><span style="font-family:var(--font-serif);font-size:26px;line-height:1.05">{{ sel.km }}</span><span style="font-size:10px;color:#B0B885">by road, approx.</span></div>
-      <div style="display:flex;flex-direction:column;gap:2px"><span style="font-family:var(--font-serif);font-size:26px;line-height:1.05">{{ sel.time }}</span><span style="font-size:10px;color:#B0B885">drive time</span></div>
+      <div style="display:flex;flex-direction:column;gap:2px"><span style="font-family:var(--font-serif);font-size:26px;line-height:1.05">{{ sel.km }}</span><span style="font-size:10px;color:#DBBC88">by road, approx.</span></div>
+      <div style="display:flex;flex-direction:column;gap:2px"><span style="font-family:var(--font-serif);font-size:26px;line-height:1.05">{{ sel.time }}</span><span style="font-size:10px;color:#DBBC88">drive time</span></div>
     </div>
     </div>
     <a href="https://www.google.com/maps/dir/?api=1&destination=The+Good+Craft+Co.+Ponda+Goa" target="_blank" rel="noopener" onMouseEnter="{{ hv.directions }}" onMouseLeave="{{ ctaOff }}" style="align-self:flex-start;display:inline-flex;align-items:center;gap:10px;padding:10px 20px;background:#DBBC88;color:#4D4D3C;font-size:11px;font-weight:600;letter-spacing:.12em;text-transform:uppercase;text-decoration:none">Get directions{{ ar.directions }}</a>
@@ -199,7 +199,7 @@ a{color:inherit;text-decoration:none}a:hover{color:inherit;opacity:.86}@media (m
     <img src="assets/illus-distillery.png" alt="The distillery among palms and hibiscus" style="position:absolute;right:0;bottom:0;display:block;width:clamp(300px,60%,440px);aspect-ratio:948/603;pointer-events:none">
   </div>
 </section>
-<div data-screen-label="02 Awards" style="position:relative;height:80px;box-sizing:border-box;background:#1C1C14;border-top:1px solid rgba(251,243,225,.16);overflow:hidden;display:flex;align-items:center">
+<div data-screen-label="02 Awards" style="position:relative;height:80px;box-sizing:border-box;background:#2A130A;border-top:1px solid rgba(251,243,225,.16);overflow:hidden;display:flex;align-items:center">
     <div style="display:flex;width:max-content;animation:tgccMarquee 36s linear infinite">
       <sc-for list="{{ awardsLoop }}" as="a" hint-placeholder-count="6">
         <div style="flex:none;width:33.3333vw;box-sizing:border-box;display:flex;align-items:center;justify-content:center;gap:20px;padding:0 16px">
@@ -221,10 +221,10 @@ a{color:inherit;text-decoration:none}a:hover{color:inherit;opacity:.86}@media (m
 
 <section data-screen-label="05b Goa + Bangalore" style="overflow:hidden;display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,480px),1fr))">
   <sc-for list="{{ cities }}" as="t" hint-placeholder-count="2">
-    <a href="#" data-reveal="{{ t.reveal }}" onMouseEnter="{{ t.enter }}" onMouseLeave="{{ tileLeave }}" style="position:relative;display:block;height:clamp(420px,62vh,600px);overflow:hidden;background:#394622">
+    <a href="#" data-reveal="{{ t.reveal }}" onMouseEnter="{{ t.enter }}" onMouseLeave="{{ tileLeave }}" style="position:relative;display:block;height:clamp(420px,62vh,600px);overflow:hidden;background:#793C23">
       <img src="{{ t.img }}" alt="{{ t.title }}" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;transition:transform 900ms cubic-bezier(.2,.7,.2,1);transform:scale({{ t.scale }})">
-      <span style="position:absolute;inset:0;transition:background 500ms ease;background:rgba(28,28,20,{{ t.dim }})"></span>
-      <span style="position:absolute;inset:0;background:linear-gradient(180deg,rgba(28,28,20,0) 45%,rgba(28,28,20,.6) 100%)"></span>
+      <span style="position:absolute;inset:0;transition:background 500ms ease;background:rgba(42,19,10,{{ t.dim }})"></span>
+      <span style="position:absolute;inset:0;background:linear-gradient(180deg,rgba(42,19,10,0) 45%,rgba(42,19,10,.6) 100%)"></span>
       <span style="position:absolute;left:36px;right:36px;bottom:36px;display:flex;flex-direction:column;gap:16px;color:#FBF3E1">
         <span style="font-family:var(--font-serif);font-weight:400;font-size:clamp(36px,3.4vw,52px);line-height:1.02;letter-spacing:-.01em">{{ t.title }}</span>
         <span style="display:flex;flex-direction:column;gap:16px;overflow:hidden;transition:max-height 600ms cubic-bezier(.2,.7,.2,1), opacity 400ms ease;max-height:{{ t.maxH }};opacity:{{ t.op }}">
@@ -254,17 +254,17 @@ a{color:inherit;text-decoration:none}a:hover{color:inherit;opacity:.86}@media (m
   </div>
   <div style="display:flex;gap:3px;height:clamp(560px,76vh,760px);background:#FBF3E1">
     <sc-for list="{{ dots }}" as="d" hint-placeholder-count="4">
-      <div data-reveal="up" data-reveal-delay="{{ d.delay }}" onMouseEnter="{{ d.enter }}" onMouseLeave="{{ dotLeave }}" style="position:relative;min-width:0;overflow:hidden;cursor:pointer;background:#394622;transition:flex 800ms cubic-bezier(.2,.7,.2,1);flex:{{ d.flex }}">
+      <div data-reveal="up" data-reveal-delay="{{ d.delay }}" onMouseEnter="{{ d.enter }}" onMouseLeave="{{ dotLeave }}" style="position:relative;min-width:0;overflow:hidden;cursor:pointer;background:#793C23;transition:flex 800ms cubic-bezier(.2,.7,.2,1);flex:{{ d.flex }}">
         <img src="{{ d.img }}" alt="{{ d.n }}" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:{{ d.pos }};transform-origin:{{ d.pos }};transition:transform 1200ms ease;transform:scale({{ d.scale }})">
-        <div style="position:absolute;inset:0;transition:background 500ms ease;background:rgba(28,28,20,{{ d.dim }})"></div>
-        <div style="position:absolute;inset:0;background:linear-gradient(180deg,rgba(28,28,20,0) 50%,rgba(28,28,20,.7) 100%)"></div>
+        <div style="position:absolute;inset:0;transition:background 500ms ease;background:rgba(42,19,10,{{ d.dim }})"></div>
+        <div style="position:absolute;inset:0;background:linear-gradient(180deg,rgba(42,19,10,0) 50%,rgba(42,19,10,.7) 100%)"></div>
         <div style="position:absolute;left:50%;top:42%;transform:translate(-50%,-50%);width:300px;height:300px;display:grid;place-items:center">
           <sc-if value="{{ d.on }}" hint-placeholder-val="{{ false }}">
             <div style="position:absolute;inset:0;animation:tgccSpin 60s linear infinite">
               <x-import component-from-global-scope="TheGoodCraftCoDesignSystem_6c692a.CircularText" text="{{ d.ring }}" size="{{ ringSize }}" font-size="{{ d.ringFont }}" color="#FBF3E1" weight="{{ ringWeight }}" hint-size="300px,300px"></x-import>
             </div>
           </sc-if>
-          <img src="{{ d.icon }}" alt="" style="position:relative;display:block;width:36px;height:36px;border-radius:50%;box-shadow:0 0 0 5px rgba(251,243,225,.1);filter:drop-shadow(0 2px 6px rgba(28,28,20,.5));transition:transform 500ms cubic-bezier(.2,.7,.2,1);transform:scale({{ d.dotScale }})">
+          <img src="{{ d.icon }}" alt="" style="position:relative;display:block;width:36px;height:36px;border-radius:50%;box-shadow:0 0 0 5px rgba(251,243,225,.1);filter:drop-shadow(0 2px 6px rgba(42,19,10,.5));transition:transform 500ms cubic-bezier(.2,.7,.2,1);transform:scale({{ d.dotScale }})">
         </div>
         <div style="position:absolute;left:20px;bottom:32px;width:340px;max-width:calc(100% - 32px);display:flex;flex-direction:column-reverse;gap:12px;color:#FBF3E1">
           <span style="font-family:var(--font-serif);font-weight:400;font-size:clamp(11px,calc((100vw / 5.6 - 36px) / 10.8),28px);line-height:1.05;letter-spacing:-.01em;color:#FBF3E1;white-space:nowrap">{{ d.n }}</span>
@@ -282,10 +282,10 @@ a{color:inherit;text-decoration:none}a:hover{color:inherit;opacity:.86}@media (m
 
 <section data-screen-label="07 Dining + Shop" style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,480px),1fr))">
   <sc-for list="{{ ds }}" as="t" hint-placeholder-count="2">
-    <a href="#" data-reveal="up" data-reveal-delay="{{ t.delay }}" onMouseEnter="{{ t.enter }}" onMouseLeave="{{ tileLeave }}" style="position:relative;display:block;height:clamp(420px,62vh,600px);overflow:hidden;background:#394622">
+    <a href="#" data-reveal="up" data-reveal-delay="{{ t.delay }}" onMouseEnter="{{ t.enter }}" onMouseLeave="{{ tileLeave }}" style="position:relative;display:block;height:clamp(420px,62vh,600px);overflow:hidden;background:#793C23">
       <img src="{{ t.img }}" alt="{{ t.title }}" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;transition:transform 900ms cubic-bezier(.2,.7,.2,1);transform:scale({{ t.scale }})">
-      <span style="position:absolute;inset:0;transition:background 500ms ease;background:rgba(28,28,20,{{ t.dim }})"></span>
-      <span style="position:absolute;inset:0;background:linear-gradient(180deg,rgba(28,28,20,0) 45%,rgba(28,28,20,.6) 100%)"></span>
+      <span style="position:absolute;inset:0;transition:background 500ms ease;background:rgba(42,19,10,{{ t.dim }})"></span>
+      <span style="position:absolute;inset:0;background:linear-gradient(180deg,rgba(42,19,10,0) 45%,rgba(42,19,10,.6) 100%)"></span>
       <span style="position:absolute;left:36px;right:36px;bottom:36px;display:flex;flex-direction:column;gap:16px;color:#FBF3E1">
         <span style="font-family:var(--font-serif);font-weight:400;font-size:clamp(36px,3.4vw,52px);line-height:1.02;letter-spacing:-.01em">{{ t.title }}</span>
         <span style="display:flex;flex-direction:column;gap:16px;overflow:hidden;transition:max-height 600ms cubic-bezier(.2,.7,.2,1), opacity 400ms ease;max-height:{{ t.maxH }};opacity:{{ t.op }}">
@@ -331,8 +331,8 @@ a{color:inherit;text-decoration:none}a:hover{color:inherit;opacity:.86}@media (m
 <script type="text/x-dc" data-dc-script data-props="{&quot;autoplaySeconds&quot;:{&quot;editor&quot;:&quot;int&quot;,&quot;default&quot;:6,&quot;min&quot;:3,&quot;max&quot;:15,&quot;unit&quot;:&quot;s&quot;,&quot;tsType&quot;:&quot;number&quot;}}">
 const EXPS = [
   { title: 'The Signature Tour', meta: 'Daily · 90 min [TBC]', img: 'assets/exp-tour-v2.jpg', tone: '#4A3424', desc: 'Walk the distillery floor, from grain to cask.' },
-  { title: 'The Tasting Room', meta: 'Daily · 45 min [TBC]', img: 'assets/exp-tasting-v2.jpg', tone: '#364622', desc: 'Taste our Indian spirits neat and side by side.' },
-  { title: 'Blend Your Own', meta: '[TBC]', img: 'assets/exp-blend-v2.jpg', tone: '#4B5A4A', desc: 'Blend alongside our team and leave with your own bottle.' },
+  { title: 'The Tasting Room', meta: 'Daily · 45 min [TBC]', img: 'assets/exp-tasting-v2.jpg', tone: '#55291A', desc: 'Taste our Indian spirits neat and side by side.' },
+  { title: 'Blend Your Own', meta: '[TBC]', img: 'assets/exp-blend-v2.jpg', tone: '#6A4630', desc: 'Blend alongside our team and leave with your own bottle.' },
   { title: 'Private and Custom', meta: 'By request [TBC]', img: 'assets/exp-custom-v2.jpg', tone: '#793C23', desc: 'Walk, taste and blend in private, with the day tailored to you.' },
 ];
 const NAV = [
@@ -489,7 +489,7 @@ class Component extends DCLogic {
       slideRef: this.slideRef,
       btnFull: { style: { width: '100%', justifyContent: 'center', boxSizing: 'border-box' } },
       ar, hv, ctaOff: () => this.setState({ cta: null }),
-      navBg: s.scrolled || menu ? 'rgba(44,55,25,.94)' : 'transparent',
+      navBg: s.scrolled || menu ? 'rgba(85,41,26,.94)' : 'transparent',
       logoSize: s.scrolled ? 75 : 88,
       nav: NAV.map(n => ({ ...n, enter: () => this.setState({ nav: n.key }), line: s.nav === n.key ? '100%' : '0%' })),
       visitEnter: () => this.setState({ nav: 'visit' }), visitLine: s.nav === 'visit' ? '100%' : '0%',
