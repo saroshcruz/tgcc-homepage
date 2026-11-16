@@ -47,6 +47,7 @@ document.addEventListener('DOMContentLoaded', async function() {
         e.target.tagName, String(e.target.src || e.target.href || ''));
       return;
     }
+    if (!/[?&]debug\b/.test(location.search)) { console.error('[bundle]', e.message || e.type, e.filename || '', e.lineno || ''); return; }
     var p = document.body || document.documentElement;
     var d = document.getElementById('__bundler_err') || p.appendChild(document.createElement('div'));
     d.id = '__bundler_err';
