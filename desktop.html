@@ -272,8 +272,8 @@ a{color:inherit;text-decoration:none}a:hover{color:inherit;opacity:.86}@media (m
           </sc-if>
           <img src="{{ d.icon }}" alt="" style="position:relative;display:block;width:36px;height:36px;border-radius:50%;box-shadow:0 0 0 5px rgba(251,243,225,.1);filter:drop-shadow(0 2px 6px rgba(28,28,20,.5));transition:transform 500ms cubic-bezier(.2,.7,.2,1);transform:scale({{ d.dotScale }})">
         </div>
-        <div style="position:absolute;left:28px;bottom:32px;width:340px;max-width:calc(100% - 56px);display:flex;flex-direction:column-reverse;gap:12px;color:#FBF3E1">
-          <span style="font-family:var(--font-serif);font-weight:400;font-size:clamp(24px,2.2vw,32px);line-height:1.05;letter-spacing:-.01em;color:#FBF3E1">{{ d.n }}</span>
+        <div style="position:absolute;left:20px;bottom:32px;width:340px;max-width:calc(100% - 32px);display:flex;flex-direction:column-reverse;gap:12px;color:#FBF3E1">
+          <span style="font-family:var(--font-serif);font-weight:400;font-size:clamp(13px,1.45vw,28px);line-height:1.05;letter-spacing:-.01em;color:#FBF3E1;white-space:nowrap">{{ d.n }}</span>
           <p style="margin:0;font-family:var(--font-serif);font-size:20px;line-height:1.35;color:#FBF3E1;transition:opacity 500ms ease;opacity:{{ d.bodyOp }}">{{ d.body }}</p>
         </div>
       </div>
@@ -376,7 +376,7 @@ const DOTS = [
   { id: 'land', n: 'The land', img: 'assets/story-land.png', icon: 'assets/story-icon-land.png', ring: 'Grown by farmers we know by name Our farmers, our friends · ', body: 'Grown by farmers we know by name.' },
   { id: 'hands', n: 'The hands', img: 'assets/story-hands.png', icon: 'assets/story-icon-hands.png', ring: 'Small batches Made by hand From the land of the still · ', body: 'Every harvest passes through many hands before it reaches the still. We honour each of them.' },
   { id: 'forgotten', n: 'Forgotten ingredients', img: 'assets/story-market.png', icon: 'assets/story-icon-forgotten.png', ring: 'Ingredients India almost forgot, found again · ', body: 'We are rediscovering the beauty of India\'s forgotten ingredients, one market at a time.' },
-  { id: 'lightly', n: 'With Care', pos: '50% 0%', img: 'assets/story-bustard.png', icon: 'assets/story-icon-care.png', ring: 'Less waste, same spirit Nothing is wasted, down to the last drop · ', body: 'We share this land with others. A small step, every day, is all it takes.' },
+  { id: 'lightly', n: 'With care', pos: '50% 0%', img: 'assets/story-bustard.png', icon: 'assets/story-icon-care.png', ring: 'Less waste, same spirit Nothing is wasted, down to the last drop · ', body: 'We share this land with others. A small step, every day, is all it takes.' },
 ];
 const AWARDS = [
   { t: "India's Best", s: 'Award body · Year [TBC]' },
