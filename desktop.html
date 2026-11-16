@@ -520,7 +520,7 @@ class Component extends DCLogic {
       routeOff: (() => { const e = (t) => t < .5 ? 4 * t * t * t : 1 - Math.pow(-2 * t + 2, 3) / 2; const k = e(Math.min(1, (s.lineN ?? 999) / 48)); return ROUTES[sel.id].len * (1 - k); })(),
       sel, placeLeave: () => this.setState({ hoverPlace: null }),
       visitInfo: [
-        { k: 'Opening times', lines: ['Tue – Sun · 11:00 – 19:00 [TBC]', 'Tours on the hour'] },
+        { k: 'Opening times', lines: ['Tue – Sun · 11:00 – 19:00', 'Tours on the hour'] },
         { k: 'Accessibility', lines: ['Step-free access throughout', 'Wheelchairs on request'] },
         { k: 'Minimum age', lines: ['Guests must be 18+', 'Photo ID required'] },
         { k: 'On site', lines: ['Free parking', 'Cloakroom'] },
