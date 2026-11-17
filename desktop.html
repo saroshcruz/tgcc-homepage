@@ -216,16 +216,6 @@ span[data-lite="1"] button{background:#DBBC88!important;border-color:#DBBC88!imp
   <div style="padding:56px 32px 28px;display:flex;flex-direction:column;align-items:flex-start;gap:10px">
     <h2 data-reveal="left" style="margin:0;font-size:clamp(30px,3vw,44px);line-height:1.05;font-weight:500;letter-spacing:-.01em;color:#4D4D3C">Our Story</h2>
     <p data-reveal="left" data-reveal-delay="120" style="margin:0;font-family:var(--font-serif);font-weight:400;font-size:clamp(18px,1.52vw,22.5px);line-height:1.3;color:#7D7D63">Four ideas behind every bottle.</p>
-    <div data-reveal="left" data-reveal-delay="200" style="display:flex;flex-direction:column;margin-top:12px">
-      <div style="display:flex;gap:12px;flex-wrap:wrap">
-        <span onMouseEnter="{{ hv.story }}" onMouseLeave="{{ ctaOff }}" style="display:inline-flex">
-          <x-import component-from-global-scope="TheGoodCraftCoDesignSystem_6c692a.Button" variant="primary" size="md" icon-right="{{ ar.story }}" hint-size="190px,42px">Discover Our Story</x-import>
-        </span>
-        <span onMouseEnter="{{ hv.blog }}" onMouseLeave="{{ ctaOff }}" style="display:inline-flex">
-          <x-import component-from-global-scope="TheGoodCraftCoDesignSystem_6c692a.Button" variant="secondary" size="md" icon-right="{{ ar.blog }}" hint-size="160px,42px">Read Our Blog</x-import>
-        </span>
-      </div>
-    </div>
   </div>
   <div style="display:flex;gap:3px;height:clamp(560px,76vh,760px);background:#FBF3E1">
     <sc-for list="{{ dots }}" as="d" hint-placeholder-count="4">
