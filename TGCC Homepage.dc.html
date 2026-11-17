@@ -113,7 +113,7 @@ span[data-lite="1"] button{background:#DBBC88!important;border-color:#DBBC88!imp
       </div>
       <div style="margin-top:auto;display:flex;flex-direction:column;gap:12px">
         <span style="font-size:11px;font-weight:500;letter-spacing:.12em;text-transform:uppercase;color:{{ cur.ink }}">Up next</span>
-        <div style="position:relative;width:clamp(116px,8.4vw,150px);aspect-ratio:4/5">
+        <div style="position:relative;width:clamp(124px,8.99vw,160px);aspect-ratio:4/5">
           <sc-for list="{{ cards }}" as="c" hint-placeholder-count="3">
             <button onClick="{{ c.go }}" data-card="{{ c.i }}" style-hover="scale:1.04" style="position:absolute;inset:0;padding:0;border:0;cursor:pointer;overflow:hidden;background:#793C23;text-align:left;transform-origin:50% 100%;transform:translateX(calc({{ c.slot }} * (100% + 14px)));opacity:{{ c.op }};transition:{{ c.tr }}">
               <img src="{{ c.img }}" alt="" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover">
@@ -307,7 +307,6 @@ span[data-lite="1"] button{background:#DBBC88!important;border-color:#DBBC88!imp
 const EXPS = [
   { title: 'The Signature Tour', ink: '#FBF3E1', lite: '1', meta: 'Daily · 90 min [TBC]', img: 'assets/exp-tour-v3.jpg', tone: '#364622', desc: 'Walk the distillery floor, from grain to cask.' },
   { title: 'The Tasting Room', ink: '#2E2E22', lite: '0', meta: 'Daily · 45 min [TBC]', img: 'assets/exp-tasting-v2.jpg', tone: '#7D8F69', desc: 'Taste our Indian spirits neat and side by side.' },
-  { title: 'Blend Your Own', ink: '#2E2E22', lite: '0', meta: '[TBC]', img: 'assets/exp-blend-v2.jpg', tone: '#D1B286', desc: 'Blend alongside our team and leave with your own bottle.' },
   { title: 'Private and Custom', ink: '#2E2E22', lite: '0', meta: 'By request [TBC]', img: 'assets/exp-custom-v2.jpg', tone: '#C2B186', desc: 'Walk, taste and blend in private, with the day tailored to you.' },
 ];
 const NAV = [
