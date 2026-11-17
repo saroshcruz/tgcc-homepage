@@ -230,9 +230,9 @@ span[data-lite="1"] button{background:#DBBC88!important;border-color:#DBBC88!imp
           </sc-if>
           <img src="{{ d.icon }}" alt="" style="position:relative;display:block;width:36px;height:36px;border-radius:50%;box-shadow:0 0 0 5px rgba(251,243,225,.1);filter:drop-shadow(0 2px 6px rgba(42,19,10,.5));transition:transform 500ms cubic-bezier(.2,.7,.2,1);transform:scale({{ d.dotScale }})">
         </div>
-        <div style="position:absolute;left:20px;bottom:32px;width:340px;max-width:calc(100% - 32px);display:flex;flex-direction:column-reverse;gap:12px;color:#FBF3E1">
+        <div style="position:absolute;left:20px;bottom:32px;width:340px;max-width:calc(100% - 32px);display:flex;flex-direction:column;gap:0;color:#FBF3E1">
           <span style="font-family:var(--font-serif);font-weight:400;font-size:clamp(11px,calc((100vw / 5.6 - 36px) / 10.8),28px);line-height:1.05;letter-spacing:-.01em;color:#FBF3E1;white-space:nowrap">{{ d.n }}</span>
-          <p style="margin:0;font-family:inherit;font-weight:400;font-size:20px;line-height:1.35;color:#FBF3E1;transition:opacity 500ms ease;opacity:{{ d.bodyOp }}">{{ d.body }}</p>
+          <p style="margin:0;overflow:hidden;font-family:inherit;font-weight:400;font-size:20px;line-height:1.35;color:#FBF3E1;transition:opacity 500ms ease, max-height 600ms cubic-bezier(.2,.7,.2,1), margin-top 600ms cubic-bezier(.2,.7,.2,1);opacity:{{ d.bodyOp }};max-height:{{ d.bodyH }};margin-top:{{ d.bodyM }}">{{ d.body }}</p>
         </div>
       </div>
     </sc-for>
@@ -490,7 +490,7 @@ class Component extends DCLogic {
         tileFor('blr', { reveal: 'right', title: 'Bangalore', img: 'assets/bangalore.png', eyebrow: 'R&D · Whitefield, Bangalore', body: 'Our innovation centre in Whitefield, where we experiment with new Indian ingredients and methods. Small, hands-on sessions with the team behind our next spirits.', points: ['R&D', 'Whitefield, Bangalore'], cta: 'Enquire now' }),
       ],
       tileLeave: () => this.setState({ tile: null }),
-      dots: DOTS.map((d, i) => { const on = s.dot === d.id; const n = d.ring.length; return { ...d, ringFont: Math.min(15, Math.round(10 * 0.9 * 2 * Math.PI * 150 / (0.86 * n + 0.9 * 2 * Math.PI)) / 10), delay: 200 + i * 260, idx: pad(i + 1), on, enter: () => this.setState({ dot: d.id }), flex: on ? 2.6 : 1, scale: on ? 1.04 : 1.12, dim: on ? .5 : (s.dot ? .62 : .4), bodyOp: on ? 1 : 0, dotScale: on ? 1.68 : 1, pos: d.pos || '50% 50%' }; }),
+      dots: DOTS.map((d, i) => { const on = s.dot === d.id; const n = d.ring.length; return { ...d, ringFont: Math.min(15, Math.round(10 * 0.9 * 2 * Math.PI * 150 / (0.86 * n + 0.9 * 2 * Math.PI)) / 10), delay: 200 + i * 260, idx: pad(i + 1), on, enter: () => this.setState({ dot: d.id }), flex: on ? 2.6 : 1, scale: on ? 1.04 : 1.12, dim: on ? .5 : (s.dot ? .62 : .4), bodyOp: on ? 1 : 0, bodyH: on ? '190px' : '0px', bodyM: on ? '14px' : '0px', dotScale: on ? 1.68 : 1, pos: d.pos || '50% 50%' }; }),
       dotLeave: () => this.setState({ dot: null }),
       ringSize: 300, ringWeight: 600,
       ds: [
