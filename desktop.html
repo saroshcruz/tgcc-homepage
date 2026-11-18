@@ -266,7 +266,7 @@ span[data-lite="1"] button{background:#DBBC88!important;border-color:#DBBC88!imp
     <div style="padding-right:40px;border-right:1px solid rgba(77,77,60,.4)">
       <x-import component-from-global-scope="TheGoodCraftCoDesignSystem_6c692a.Logo" color="olive" size="{{ footLogo }}" hint-size="84px,84px"></x-import>
     </div>
-    <div style="display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:24px">
+    <div style="display:flex;justify-content:space-between;align-items:flex-start;gap:24px;padding-right:clamp(0px,2vw,32px)">
       <sc-for list="{{ footCols }}" as="fc" hint-placeholder-count="4">
         <div style="display:flex;flex-direction:column;gap:8px;min-width:0">
           <span style="font-size:12px;font-weight:600;letter-spacing:.12em;text-transform:uppercase;margin-bottom:2px">{{ fc.h }}</span>
