@@ -262,11 +262,11 @@ span[data-lite="1"] button{background:#DBBC88!important;border-color:#DBBC88!imp
 
 <footer data-screen-label="08 Footer" style="background:#FBF3E1;color:#4D4D3C;position:relative;overflow:hidden">
   <div data-screen-label="08b Footer illustration" style="position:relative;width:100%;display:flex;flex-direction:column">
-  <div data-reveal="up" style="padding:32px clamp(20px,4vw,56px) 0;display:grid;grid-template-columns:auto minmax(0,1fr);gap:40px;align-items:start">
+  <div data-reveal="up" style="padding:32px clamp(20px,4vw,56px) 0;display:grid;grid-template-columns:auto minmax(0,1fr) clamp(260px,25vw,380px);gap:40px;align-items:start">
     <div style="padding-right:40px;border-right:1px solid rgba(77,77,60,.4)">
       <x-import component-from-global-scope="TheGoodCraftCoDesignSystem_6c692a.Logo" color="olive" size="{{ footLogo }}" hint-size="84px,84px"></x-import>
     </div>
-    <div style="display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:24px">
+    <div style="display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:24px">
       <sc-for list="{{ footCols }}" as="fc" hint-placeholder-count="4">
         <div style="display:flex;flex-direction:column;gap:8px;min-width:0">
           <span style="font-size:12px;font-weight:600;letter-spacing:.12em;text-transform:uppercase;margin-bottom:2px">{{ fc.h }}</span>
@@ -283,11 +283,27 @@ span[data-lite="1"] button{background:#DBBC88!important;border-color:#DBBC88!imp
         </sc-for>
       </div>
     </div>
+    <div style="min-width:0;display:flex;flex-direction:column;gap:6px">
+      <style>#tgcc-nl-email::placeholder{color:#B56C59;opacity:1}#tgcc-nl-form:focus-within{border-bottom-color:#793C23}</style>
+      <span style="font-size:12px;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:#793C23;margin-bottom:2px">Newsletter</span>
+      <span style="font-size:14px;line-height:1.4;color:#4D4D3C">Sign up for news and updates from the distillery.</span>
+      <sc-if value="{{ nlOpen }}" hint-placeholder-val="{{ true }}">
+        <form id="tgcc-nl-form" onSubmit="{{ nlSubmit }}" novalidate style="display:flex;align-items:center;gap:12px;margin-top:10px;border-bottom:1px solid rgba(121,60,35,.55);transition:border-color 200ms ease">
+          <input id="tgcc-nl-email" type="email" placeholder="Email" autocomplete="email" aria-label="Email address" style="flex:1;min-width:0;background:transparent;border:0;outline:0;border-radius:0;padding:4px 0 10px;font-family:var(--font-serif);font-size:clamp(24px,2vw,30px);line-height:1.1;color:#4D4D3C">
+          <button type="submit" aria-label="Subscribe" style="flex:none;background:transparent;border:0;cursor:pointer;color:#793C23;font-size:26px;line-height:1;padding:0 2px 10px">→</button>
+        </form>
+      </sc-if>
+      <sc-if value="{{ nlDone }}" hint-placeholder-val="{{ false }}">
+        <span style="margin-top:10px;font-family:var(--font-serif);font-size:clamp(20px,1.6vw,24px);line-height:1.2;color:#793C23">Thank you. You are on the list.</span>
+      </sc-if>
+      <span style="min-height:16px;font-size:12px;color:#793C23" role="status" aria-live="polite">{{ nlMsg }}</span>
+    </div>
   </div>
     <div style="margin-top:20px;aspect-ratio:2172/306;width:100%;flex:none;background-image:url(assets/footer-illustration.png);background-repeat:no-repeat;background-size:100% auto;background-position:0 72%"></div>
   </div>
-  <div style="margin:0 clamp(20px,4vw,56px);padding:14px 0 16px;border-top:1px solid #4D4D3C;display:flex;flex-wrap:wrap;justify-content:space-between;gap:12px;font-family:var(--font-serif);font-size:14px">
+  <div style="margin:0 clamp(20px,4vw,56px);padding:14px 0 16px;border-top:1px solid #4D4D3C;display:flex;flex-wrap:wrap;justify-content:space-between;align-items:center;gap:12px;font-family:var(--font-serif);font-size:14px">
     <span>© The Good Craft Co.</span>
+    <span style="display:flex;gap:clamp(24px,4vw,64px)"><a href="#">Terms of Service</a><a href="#">Privacy Policy</a><a href="#">Cookie Policy</a></span>
     <span style="display:flex;gap:16px"><span>Ponda, Goa</span><span>·</span><span>Whitefield, Bangalore</span></span>
   </div>
 </footer>
@@ -353,7 +369,7 @@ const CTA_KEYS = ['hdr', 'heroBook', 'heroExp', 'viewAll', 'slBook', 'slDetails'
 const pad = n => String(n).padStart(2, '0');
 
 class Component extends DCLogic {
-  state = { nav: null, scrolled: false, exp: 0, bg: 0, txt: 0, numI: 0, numOp: 1, txtOp: 1, paused: false, place: 'dabolim', dot: null, tile: null, cta: null };
+  state = { nav: null, scrolled: false, exp: 0, bg: 0, txt: 0, numI: 0, numOp: 1, txtOp: 1, paused: false, nlDone: false, nlMsg: '', place: 'dabolim', dot: null, tile: null, cta: null };
   slideRef = React.createRef();
   componentDidMount() {
     setTimeout(() => this.setupReveal(), 60);
@@ -497,11 +513,12 @@ class Component extends DCLogic {
         tileFor('shop', { delay: 180, title: 'Shop', img: 'assets/shop.png', body: 'Take a bottle, a glass or a piece of the distillery home. Available in store.', points: [], cta: 'See What’s in Store' }),
       ],
       footLogo: 84,
+      nlOpen: !s.nlDone, nlDone: !!s.nlDone, nlMsg: s.nlMsg || '',
+      nlSubmit: (e) => { if (e && e.preventDefault) e.preventDefault(); const el = document.getElementById('tgcc-nl-email'); const v = ((el && el.value) || '').trim(); if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(v)) { this.setState({ nlMsg: 'Please enter a valid email.' }); return; } this.setState({ nlDone: true, nlMsg: '' }); },
       footCols: [
         { h: 'Visit', links: ['Plan Your Visit', 'Book Tickets'] },
         { h: 'Explore', links: ['Experiences', 'Dining & Bar', 'Shop', 'Private Experiences'] },
         { h: 'About', links: ['Our Story', 'Innovation', 'Press', 'Careers', 'Blog'] },
-        { h: 'Legal', links: ['Terms of Service', 'Privacy Policy', 'Cookie Policy'] },
       ],
       socials: Object.entries(ICONS).map(([n, d]) => ({ n, d, h: ({ Instagram: '@thegoodcraftco', LinkedIn: 'The Good Craft Co.', YouTube: '@thegoodcraftco', Spotify: 'The Good Craft Co.' })[n] || n })),
     };
