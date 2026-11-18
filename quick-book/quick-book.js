@@ -162,7 +162,7 @@
     ticking = false;
     var secs = document.querySelectorAll(CFG.SECTION_SELECTOR);
     var last = secs[Math.min(CFG.SECTIONS, secs.length) - 1];
-    var shown = last ? last.getBoundingClientRect().bottom > 80 : true;
+    var shown = last ? last.getBoundingClientRect().bottom > innerHeight - 100 : true; // hide as soon as the hero's bottom edge rises above the bar
     if (shown === st.shown) return;
     if (!shown && st.pop) { st.pop = ''; render(); }
     st.shown = shown;
