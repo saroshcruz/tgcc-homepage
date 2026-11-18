@@ -13,7 +13,6 @@
   };
   var EX = [
     { id: 'signature-tour', title: 'The Signature Tour', meta: '90 min' },
-    { id: 'tasting-room', title: 'The Tasting Room', meta: '45 min' },
     { id: 'blend-your-own', title: 'Blend Your Own', meta: '2 hr' },
     { id: 'private-custom', title: 'Private and Custom', meta: 'By request' }
   ];
