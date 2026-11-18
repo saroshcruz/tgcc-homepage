@@ -1,13 +1,13 @@
 /* TGCC quick book — drop-in. Include with: <script src="quick-book/quick-book.js" defer></script>
    Desktop (>=768px): docked bar with Experience / Date / Guests popovers + Book Tickets.
    Mobile (<768px): one-line summary bar + Book; tapping the summary opens a bottom sheet.
-   Only visible while the first two sections are on screen; hides once you scroll past them, returns if you scroll back up.
+   Only visible while the hero (first section) is on screen; hides once you scroll past it, returns if you scroll back up.
    On mobile it also hides the page's existing fixed "Plan Your Visit / Book Tickets" bar. */
 (function () {
   var CFG = {
     BOOK_URL: '#book',            // [TBC] booking page; experience/date/guests are appended as query params
-    SECTION_SELECTOR: 'section',  // the bar hides once the bottom of the 2nd match scrolls above the viewport
-    SECTIONS: 2,
+    SECTION_SELECTOR: 'section',  // the bar hides once the bottom of the 1st match (the hero) scrolls above the viewport
+    SECTIONS: 1,
     HIDE_OLD_MOBILE_BAR: true,
     MAX_GUESTS: 12
   };
