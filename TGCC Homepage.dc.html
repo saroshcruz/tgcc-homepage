@@ -79,7 +79,7 @@ span[data-lite="1"] button{background:#DBBC88!important;border-color:#DBBC88!imp
 </section>
 
 <section ref="{{ slideRef }}" data-screen-label="03b Experiences slideshow" onMouseEnter="{{ pause }}" onMouseLeave="{{ resume }}" style="background:#55291A;color:#FBF3E1">
-  <div data-stage="1" style="background-color:{{ tone }};position:relative;overflow:hidden;height:calc(100vh - 280px);min-height:540px;display:grid;grid-template-columns:minmax(0,58fr) minmax(0,42fr)">
+  <div data-stage="1" style="background-color:{{ tone }};position:relative;overflow:hidden;min-height:max(540px,calc(100vh - 280px));display:grid;grid-template-columns:minmax(0,58fr) minmax(0,42fr)">
     <div data-panel="1" style="position:absolute;inset:0;overflow:hidden;z-index:0;isolation:isolate">
       <sc-for list="{{ exps }}" as="e" hint-placeholder-count="1">
         <div data-layer="{{ e.i }}" style="position:absolute;inset:0;transition:opacity 900ms ease;opacity:{{ e.op }}">
