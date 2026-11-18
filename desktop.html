@@ -255,11 +255,11 @@ span[data-lite="1"] button{background:#DBBC88!important;border-color:#DBBC88!imp
 
 <footer data-screen-label="08 Footer" style="background:#FBF3E1;color:#4D4D3C;position:relative;overflow:hidden">
   <div data-screen-label="08b Footer illustration" style="position:relative;width:100%;display:flex;flex-direction:column">
-  <div data-reveal="up" style="padding:32px clamp(20px,4vw,56px) 0;display:grid;grid-template-columns:auto minmax(0,1fr) clamp(260px,25vw,380px);gap:40px;align-items:start">
+  <div data-reveal="up" style="padding:32px clamp(20px,4vw,56px) 0;display:grid;grid-template-columns:auto minmax(0,1fr);gap:40px;align-items:start">
     <div style="padding-right:40px;border-right:1px solid rgba(77,77,60,.4)">
       <x-import component-from-global-scope="TheGoodCraftCoDesignSystem_6c692a.Logo" color="olive" size="{{ footLogo }}" hint-size="84px,84px"></x-import>
     </div>
-    <div style="display:flex;justify-content:space-between;align-items:flex-start;gap:24px;padding-right:clamp(0px,2vw,32px)">
+    <div style="display:flex;justify-content:space-between;align-items:flex-start;gap:24px">
       <sc-for list="{{ footCols }}" as="fc" hint-placeholder-count="4">
         <div style="display:flex;flex-direction:column;gap:8px;min-width:0">
           <span style="font-size:12px;font-weight:600;letter-spacing:.12em;text-transform:uppercase;margin-bottom:2px">{{ fc.h }}</span>
@@ -275,21 +275,21 @@ span[data-lite="1"] button{background:#DBBC88!important;border-color:#DBBC88!imp
           </a>
         </sc-for>
       </div>
-    </div>
-    <div style="min-width:0;display:flex;flex-direction:column;gap:6px">
-      <style>#tgcc-nl-email::placeholder{color:#B56C59;opacity:1}#tgcc-nl-form:focus-within{border-bottom-color:#793C23}</style>
-      <span style="font-size:12px;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:#793C23;margin-bottom:2px">Newsletter</span>
-      <span style="font-size:14px;line-height:1.4;color:#4D4D3C">Sign up for news and updates from the distillery.</span>
-      <sc-if value="{{ nlOpen }}" hint-placeholder-val="{{ true }}">
-        <form id="tgcc-nl-form" onSubmit="{{ nlSubmit }}" novalidate style="display:flex;align-items:center;gap:12px;margin-top:10px;border-bottom:1px solid rgba(121,60,35,.55);transition:border-color 200ms ease">
-          <input id="tgcc-nl-email" type="email" placeholder="Email" autocomplete="email" aria-label="Email address" style="flex:1;min-width:0;background:transparent;border:0;outline:0;border-radius:0;padding:4px 0 9px;font-family:var(--font-serif);font-size:clamp(21.6px,1.8vw,27px);line-height:1.1;color:#4D4D3C">
-          <button type="submit" aria-label="Subscribe" style="flex:none;background:transparent;border:0;cursor:pointer;color:#793C23;font-size:23.4px;line-height:1;padding:0 2px 9px">→</button>
-        </form>
-      </sc-if>
-      <sc-if value="{{ nlDone }}" hint-placeholder-val="{{ false }}">
-        <span style="margin-top:10px;font-family:var(--font-serif);font-size:clamp(20px,1.6vw,24px);line-height:1.2;color:#793C23">Thank you. You are on the list.</span>
-      </sc-if>
-      <span style="min-height:16px;font-size:12px;color:#793C23" role="status" aria-live="polite">{{ nlMsg }}</span>
+      <div style="flex:0 0 clamp(240px,22vw,340px);min-width:0;display:flex;flex-direction:column;gap:6px">
+        <style>#tgcc-nl-email::placeholder{color:#B56C59;opacity:1}#tgcc-nl-form:focus-within{border-bottom-color:#793C23}</style>
+        <span style="font-size:12px;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:#793C23;margin-bottom:2px">Newsletter</span>
+        <span style="font-size:14px;line-height:1.4;color:#4D4D3C">Sign up for news and updates from the distillery.</span>
+        <sc-if value="{{ nlOpen }}" hint-placeholder-val="{{ true }}">
+          <form id="tgcc-nl-form" onSubmit="{{ nlSubmit }}" novalidate style="display:flex;align-items:center;gap:12px;margin-top:10px;border-bottom:1px solid rgba(121,60,35,.55);transition:border-color 200ms ease">
+            <input id="tgcc-nl-email" type="email" placeholder="Email" autocomplete="email" aria-label="Email address" style="flex:1;min-width:0;background:transparent;border:0;outline:0;border-radius:0;padding:4px 0 9px;font-family:var(--font-serif);font-size:clamp(20.5px,1.71vw,25.65px);line-height:1.1;color:#4D4D3C">
+            <button type="submit" aria-label="Subscribe" style="flex:none;background:transparent;border:0;cursor:pointer;color:#793C23;font-size:22.2px;line-height:1;padding:0 2px 9px">→</button>
+          </form>
+        </sc-if>
+        <sc-if value="{{ nlDone }}" hint-placeholder-val="{{ false }}">
+          <span style="margin-top:10px;font-family:var(--font-serif);font-size:clamp(20px,1.6vw,24px);line-height:1.2;color:#793C23">Thank you. You are on the list.</span>
+        </sc-if>
+        <span style="min-height:16px;font-size:12px;color:#793C23" role="status" aria-live="polite">{{ nlMsg }}</span>
+      </div>
     </div>
   </div>
     <div style="margin-top:20px;aspect-ratio:2172/306;width:100%;flex:none;background-image:url(assets/footer-illustration.png);background-repeat:no-repeat;background-size:100% auto;background-position:0 72%"></div>
