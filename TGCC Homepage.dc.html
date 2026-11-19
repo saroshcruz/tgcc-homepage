@@ -79,7 +79,7 @@ span[data-lite="1"] button{background:#DBBC88!important;border-color:#DBBC88!imp
 </section>
 
 <section ref="{{ slideRef }}" data-screen-label="03b Experiences slideshow" onMouseEnter="{{ pause }}" onMouseLeave="{{ resume }}" style="background:#55291A;color:#FBF3E1">
-  <div data-stage="1" style="background-color:{{ tone }};position:relative;overflow:hidden;min-height:max(540px,calc(100vh - 280px));display:grid;grid-template-columns:minmax(0,58fr) minmax(0,42fr)">
+  <div data-stage="1" style="background-color:{{ tone }};position:relative;overflow:hidden;min-height:max(500px,calc(100vh - 340px));display:grid;grid-template-columns:minmax(0,58fr) minmax(0,42fr)">
     <div data-panel="1" style="position:absolute;inset:0;overflow:hidden;z-index:0;isolation:isolate">
       <sc-for list="{{ exps }}" as="e" hint-placeholder-count="1">
         <div data-layer="{{ e.i }}" style="position:absolute;inset:0;transition:opacity 900ms ease;opacity:{{ e.op }}">
@@ -100,20 +100,15 @@ span[data-lite="1"] button{background:#DBBC88!important;border-color:#DBBC88!imp
         <h3 style="margin:0;font-family:var(--font-serif);font-weight:400;font-size:clamp(36px,3.4vw,52px);line-height:1.02;letter-spacing:-.01em;color:{{ cur.ink }}">{{ cur.title }}</h3>
         <p style="margin:0;max-width:440px;min-height:7.75em;font-size:16px;line-height:1.55;color:{{ cur.ink }};text-wrap:pretty">{{ cur.desc }}</p>
       </div>
-      <div style="margin-left:clamp(24px,2.8vw,44px);margin-top:10px;display:flex;flex-direction:column;gap:12px">
-        <span style="font-size:11px;font-weight:500;letter-spacing:.12em;text-transform:uppercase;color:{{ cur.ink }}">Up next</span>
-        <div style="position:relative;width:clamp(130px,9.44vw,168px);aspect-ratio:4/5">
-          <sc-for list="{{ cards }}" as="c" hint-placeholder-count="3">
-            <button onClick="{{ c.go }}" data-card="{{ c.i }}" style-hover="scale:1.04" style="position:absolute;inset:0;padding:0;border:0;cursor:pointer;overflow:hidden;background:#793C23;text-align:left;transform-origin:50% 100%;transform:translateX(calc({{ c.slot }} * (100% + 14px)));opacity:{{ c.op }};transition:{{ c.tr }}">
-              <img src="{{ c.img }}" alt="" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover">
-              <span style="position:absolute;inset:0;background:none"></span>
-              <span data-cnum="1" style="position:absolute;left:12px;top:12px;display:block;font-family:var(--font-serif);font-size:22px;line-height:1;color:#FBF3E1">{{ c.num }}</span>
-              <span style="position:absolute;left:12px;right:12px;bottom:12px;font-size:12px;font-weight:500;letter-spacing:.08em;line-height:1.25;text-transform:uppercase;color:#FBF3E1">{{ c.title }}</span>
-            </button>
-          </sc-for>
-        </div>
+      <div style="margin-left:clamp(24px,2.8vw,44px);margin-top:auto;display:flex;gap:clamp(24px,3vw,48px);border-bottom:1px solid {{ cur.line }}">
+        <sc-for list="{{ tabs }}" as="tb" hint-placeholder-count="2">
+          <button onClick="{{ tb.go }}" data-card="{{ tb.i }}" aria-label="{{ tb.title }}" style-hover="opacity:1" style="display:flex;align-items:baseline;gap:10px;margin:0 0 -1px;padding:0 0 12px;background:transparent;border:0;border-bottom:2px solid {{ tb.bc }};cursor:pointer;color:{{ cur.ink }};opacity:{{ tb.op }};transition:opacity 250ms ease, border-color 250ms ease">
+            <span data-cnum="1" style="font-family:var(--font-serif);font-size:22px;line-height:1">{{ tb.num }}</span>
+            <span style="font-size:12px;font-weight:600;letter-spacing:.12em;text-transform:uppercase;white-space:nowrap">{{ tb.title }}</span>
+          </button>
+        </sc-for>
       </div>
-      <div style="margin-left:clamp(24px,2.8vw,44px);margin-top:auto;display:flex;gap:12px;align-items:center;flex-wrap:wrap;transition:opacity 420ms ease;opacity:{{ txtOp }}">
+      <div style="margin-left:clamp(24px,2.8vw,44px);margin-top:4px;display:flex;gap:12px;align-items:center;flex-wrap:wrap;transition:opacity 420ms ease;opacity:{{ txtOp }}">
           <span data-lite="{{ cur.lite }}" onMouseEnter="{{ hv.slBook }}" onMouseLeave="{{ ctaOff }}" style="display:inline-flex">
             <x-import component-from-global-scope="TheGoodCraftCoDesignSystem_6c692a.Button" variant="primary" size="md" icon-right="{{ ar.slBook }}" hint-size="150px,42px">{{ cur.btn }}</x-import>
           </span>
@@ -473,8 +468,9 @@ class Component extends DCLogic {
       awardsLoop: [...AWARDS, ...AWARDS],
       exps: EXPS.map((e, i) => ({ ...e, i, grad: gradFor(e.tone), op: i === s.bg ? 1 : 0, scale: i === s.bg ? 1.06 : 1 })),
       tone: EXPS[s.exp].tone,
-      cur: EXPS[s.txt], txtOp: s.txtOp, txtY: s.txtY || '0px',
+      cur: { ...EXPS[s.txt], line: EXPS[s.txt].lite === '1' ? 'rgba(251,243,225,.3)' : 'rgba(46,46,34,.25)' }, txtOp: s.txtOp, txtY: s.txtY || '0px',
       num: pad(s.numI + 1), numOp: s.numOp,
+      tabs: EXPS.map((e, i) => ({ i, title: e.title, num: pad(i + 1), go: () => this.go(i), op: i === s.exp ? 1 : .55, bc: i === s.exp ? EXPS[s.exp].ink : 'transparent' })),
       cards: EXPS.map((e, i) => {
         const slotOf = (a) => ((i - a - 1 + N) % N) - (i === a ? N : 0);
         const slot = slotOf(s.exp), was = slotOf(s.prevExp ?? s.exp);
