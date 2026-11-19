@@ -102,9 +102,12 @@ span[data-lite="1"] button{background:#DBBC88!important;border-color:#DBBC88!imp
       </div>
       <div style="margin-left:clamp(24px,2.8vw,44px);margin-top:auto;display:flex;gap:clamp(24px,3vw,48px);border-bottom:1px solid {{ cur.line }}">
         <sc-for list="{{ tabs }}" as="tb" hint-placeholder-count="2">
-          <button onClick="{{ tb.go }}" data-card="{{ tb.i }}" aria-label="{{ tb.title }}" style-hover="opacity:1" style="display:flex;align-items:baseline;gap:10px;margin:0 0 -1px;padding:0 0 12px;background:transparent;border:0;border-bottom:2px solid {{ tb.bc }};cursor:pointer;color:{{ cur.ink }};opacity:{{ tb.op }};transition:opacity 250ms ease, border-color 250ms ease">
-            <span data-cnum="1" style="font-family:var(--font-serif);font-size:22px;line-height:1">{{ tb.num }}</span>
-            <span style="font-size:12px;font-weight:600;letter-spacing:.12em;text-transform:uppercase;white-space:nowrap">{{ tb.title }}</span>
+          <button onClick="{{ tb.go }}" data-card="{{ tb.i }}" aria-label="{{ tb.title }}" style-hover="opacity:1" style="display:flex;flex-direction:column;align-items:stretch;gap:12px;margin:0 0 -1px;padding:0 0 12px;background:transparent;border:0;border-bottom:2px solid {{ tb.bc }};cursor:pointer;color:{{ cur.ink }};opacity:{{ tb.op }};text-align:left;transition:opacity 250ms ease, border-color 250ms ease">
+            <img src="{{ tb.img }}" alt="" style="display:block;width:100%;height:clamp(64px,6.4vw,92px);object-fit:cover;object-position:50% 35%">
+            <span style="display:flex;align-items:baseline;gap:10px">
+              <span data-cnum="1" style="font-family:var(--font-serif);font-size:22px;line-height:1">{{ tb.num }}</span>
+              <span style="font-size:12px;font-weight:600;letter-spacing:.12em;text-transform:uppercase;white-space:nowrap">{{ tb.title }}</span>
+            </span>
           </button>
         </sc-for>
       </div>
@@ -468,7 +471,7 @@ class Component extends DCLogic {
       tone: EXPS[s.exp].tone,
       cur: { ...EXPS[s.txt], line: EXPS[s.txt].lite === '1' ? 'rgba(251,243,225,.3)' : 'rgba(46,46,34,.25)' }, txtOp: s.txtOp, txtY: s.txtY || '0px',
       num: pad(s.numI + 1), numOp: s.numOp,
-      tabs: EXPS.map((e, i) => ({ i, title: e.title, num: pad(i + 1), go: () => this.go(i), op: i === s.exp ? 1 : .55, bc: i === s.exp ? EXPS[s.exp].ink : 'transparent' })),
+      tabs: EXPS.map((e, i) => ({ i, img: e.img, title: e.title, num: pad(i + 1), go: () => this.go(i), op: i === s.exp ? 1 : .55, bc: i === s.exp ? EXPS[s.exp].ink : 'transparent' })),
       cards: EXPS.map((e, i) => {
         const slotOf = (a) => ((i - a - 1 + N) % N) - (i === a ? N : 0);
         const slot = slotOf(s.exp), was = slotOf(s.prevExp ?? s.exp);
