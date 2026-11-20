@@ -256,18 +256,19 @@ span[data-lite="1"] button{background:#DBBC88!important;border-color:#DBBC88!imp
 
 <footer data-screen-label="08 Footer" style="background:#FBF3E1;color:#4D4D3C;position:relative;overflow:hidden">
   <div data-screen-label="08b Footer illustration" style="position:relative;width:100%;display:flex;flex-direction:column">
-  <div data-reveal="up" style="padding:32px clamp(20px,4vw,56px) 0;display:grid;grid-template-columns:auto minmax(0,1fr);gap:40px;align-items:start">
+  <div data-reveal="up" style="padding:32px clamp(20px,4vw,56px) 0;display:flex;justify-content:space-between;align-items:flex-start;gap:24px">
     <div style="padding-right:40px;border-right:1px solid rgba(77,77,60,.4)">
       <x-import component-from-global-scope="TheGoodCraftCoDesignSystem_6c692a.Logo" color="olive" size="{{ footLogo }}" hint-size="84px,84px"></x-import>
     </div>
-    <div style="display:flex;justify-content:space-between;align-items:flex-start;gap:24px">
+    <div style="display:contents">
       <sc-for list="{{ footCols }}" as="fc" hint-placeholder-count="4">
         <div style="display:flex;flex-direction:column;gap:8px;min-width:0">
           <span style="font-size:12px;font-weight:600;letter-spacing:.12em;text-transform:uppercase;margin-bottom:2px">{{ fc.h }}</span>
           <sc-for list="{{ fc.links }}" as="fl" hint-placeholder-count="4"><a href="#" style="font-family:var(--font-serif);font-size:15px;color:#4D4D3C">{{ fl }}</a></sc-for>
         </div>
       </sc-for>
-      <div style="display:flex;flex-direction:column;align-items:center;gap:8px;min-width:0">
+      <div style="flex:0 0 clamp(221px,20.24vw,313px);min-width:0;display:flex;flex-direction:column;gap:30px">
+      <div style="display:flex;flex-direction:column;align-items:center;width:fit-content;gap:8px;min-width:0">
         <span style="font-size:12px;font-weight:600;letter-spacing:.12em;text-transform:uppercase;margin-bottom:2px">Socials</span>
         <div style="display:flex;align-items:center;justify-content:center;gap:16px">
           <sc-for list="{{ socials }}" as="so" hint-placeholder-count="4">
@@ -277,20 +278,21 @@ span[data-lite="1"] button{background:#DBBC88!important;border-color:#DBBC88!imp
           </sc-for>
         </div>
       </div>
-      <div style="flex:0 0 clamp(240px,22vw,340px);min-width:0;display:flex;flex-direction:column;gap:6px">
+      <div style="min-width:0;display:flex;flex-direction:column;gap:6px">
         <style>#tgcc-nl-email::placeholder{color:#B56C59;opacity:1}#tgcc-nl-form:focus-within{border-bottom-color:#793C23}</style>
         <span style="font-size:12px;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:#793C23;margin-bottom:2px">Newsletter</span>
         <sc-if value="{{ nlOpen }}" hint-placeholder-val="{{ true }}">
           <form id="tgcc-nl-form" onSubmit="{{ nlSubmit }}" novalidate style="display:flex;align-items:center;gap:12px;margin-top:4px;border-bottom:1px solid rgba(121,60,35,.55);transition:border-color 200ms ease">
-            <input id="tgcc-nl-email" type="email" placeholder="Email" autocomplete="email" aria-label="Email address" style="flex:1;min-width:0;background:transparent;border:0;outline:0;border-radius:0;padding:4px 0 9px;font-family:var(--font-serif);font-size:clamp(20.5px,1.71vw,25.65px);line-height:1.1;color:#4D4D3C">
-            <button type="submit" aria-label="Subscribe" style="flex:none;background:transparent;border:0;cursor:pointer;color:#793C23;font-size:22.2px;line-height:1;padding:0 2px 9px">→</button>
+            <input id="tgcc-nl-email" type="email" placeholder="Email" autocomplete="email" aria-label="Email address" style="flex:1;min-width:0;background:transparent;border:0;outline:0;border-radius:0;padding:4px 0 9px;font-family:var(--font-serif);font-size:clamp(18.9px,1.57vw,23.6px);line-height:1.1;color:#4D4D3C">
+            <button type="submit" aria-label="Subscribe" style="flex:none;background:transparent;border:0;cursor:pointer;color:#793C23;font-size:20.4px;line-height:1;padding:0 2px 9px">→</button>
           </form>
         </sc-if>
         <sc-if value="{{ nlDone }}" hint-placeholder-val="{{ false }}">
           <span style="margin-top:10px;font-family:var(--font-serif);font-size:clamp(20px,1.6vw,24px);line-height:1.2;color:#793C23">Thank you. You are on the list.</span>
         </sc-if>
-        <span style="margin-top:2px;font-size:clamp(10px,.82vw,12px);line-height:1.4;white-space:nowrap;color:#4D4D3C">Sign up for news and updates from TGCC.</span>
+        <span style="margin-top:2px;font-size:clamp(9.2px,.754vw,11px);line-height:1.4;white-space:nowrap;color:#4D4D3C">Sign up for news and updates from TGCC.</span>
         <span style="min-height:16px;font-size:12px;color:#793C23" role="status" aria-live="polite">{{ nlMsg }}</span>
+      </div>
       </div>
     </div>
   </div>
