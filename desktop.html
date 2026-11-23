@@ -177,11 +177,11 @@ span[data-ghost="1"] button,span[data-ghost="1"] button:hover{background:transpa
   </div>
   <div data-reveal="left" data-reveal-delay="450" style="padding:56px clamp(24px,4vw,56px) 186px;display:flex;flex-direction:column;gap:18px;justify-content:flex-start;min-height:0">
     <div style="display:flex;flex-direction:column;gap:10px"><h2 style="margin:0;font-size:clamp(24px,2.4vw,35.2px);line-height:1.05;font-weight:400;letter-spacing:-.01em;color:#4D4D3C"><span style="display:block;font-family:var(--font-sans);font-weight:300">Find us in</span><span style="display:block;font-family:var(--font-serif);font-weight:400">Ponda, Goa</span></h2></div>
-    <div style="display:grid;grid-template-columns:repeat(2,minmax(0,1fr));column-gap:28px;row-gap:22px;max-width:560px;margin-top:22px">
+    <div style="display:grid;grid-template-columns:repeat(2,minmax(0,1fr));column-gap:28px;row-gap:22px;max-width:600px;margin-top:22px">
       <sc-for list="{{ visitInfo }}" as="v" hint-placeholder-count="4">
         <div style="grid-column:{{ v.col }};display:flex;flex-direction:column;gap:3px;padding:12px 0;border-top:1px solid rgba(77,77,60,.25)">
-          <span style="display:{{ v.kd }};font-size:11px;letter-spacing:.12em;text-transform:uppercase;font-weight:500;color:#4D4D3C">{{ v.k }}</span>
-          <sc-for list="{{ v.lines }}" as="ln" hint-placeholder-count="2"><span style="font-size:14px;line-height:1.45;color:#4D4D3C">{{ ln }}</span></sc-for>
+          <span style="display:{{ v.kd }};font-size:12.32px;letter-spacing:.12em;text-transform:uppercase;font-weight:500;color:#4D4D3C">{{ v.k }}</span>
+          <sc-for list="{{ v.lines }}" as="ln" hint-placeholder-count="2"><span style="font-size:15.68px;line-height:1.45;color:#4D4D3C">{{ ln }}</span></sc-for>
         </div>
       </sc-for>
     </div>
