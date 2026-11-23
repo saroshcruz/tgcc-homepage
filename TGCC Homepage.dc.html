@@ -280,11 +280,11 @@ span[data-ghost="1"] button,span[data-ghost="1"] button:hover{background:transpa
       </div>
       <div style="min-width:0;display:flex;flex-direction:column;gap:6px">
         <style>#tgcc-nl-email::placeholder{color:#B56C59;opacity:1}#tgcc-nl-form:focus-within{border-bottom-color:#793C23}</style>
-        <span style="font-size:12px;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:#793C23;margin-bottom:2px">Newsletter</span>
+        <span style="font-size:11px;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:#793C23;margin-bottom:2px">Newsletter</span>
         <sc-if value="{{ nlOpen }}" hint-placeholder-val="{{ true }}">
           <form id="tgcc-nl-form" onSubmit="{{ nlSubmit }}" novalidate="" style="display:flex;align-items:center;gap:12px;margin-top:4px;border-bottom:1px solid rgba(121,60,35,.55);transition:border-color 200ms ease">
-            <input id="tgcc-nl-email" type="email" placeholder="Email" autocomplete="email" aria-label="Email address" style="flex:1;min-width:0;background:transparent;border:0;outline:0;border-radius:0;padding:4px 0 9px;font-family:var(--font-serif);font-size:clamp(18.9px,1.57vw,23.6px);line-height:1.1;color:#4D4D3C">
-            <button type="submit" aria-label="Subscribe" style="flex:none;background:transparent;border:0;cursor:pointer;color:#793C23;font-size:20.4px;line-height:1;padding:0 2px 9px">→</button>
+            <input id="tgcc-nl-email" type="email" placeholder="Email" autocomplete="email" aria-label="Email address" style="flex:1;min-width:0;background:transparent;border:0;outline:0;border-radius:0;padding:4px 0 9px;font-family:var(--font-serif);font-size:clamp(16.5px,1.38vw,20.7px);line-height:1.1;color:#4D4D3C">
+            <button type="submit" aria-label="Subscribe" style="flex:none;background:transparent;border:0;cursor:pointer;color:#793C23;font-size:18px;line-height:1;padding:0 2px 9px">→</button>
           </form>
         </sc-if>
         <sc-if value="{{ nlDone }}" hint-placeholder-val="{{ false }}">
