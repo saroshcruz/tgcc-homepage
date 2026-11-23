@@ -515,9 +515,9 @@ class Component extends DCLogic {
       nlOpen: !s.nlDone, nlDone: !!s.nlDone, nlMsg: s.nlMsg || '',
       nlSubmit: (e) => { if (e && e.preventDefault) e.preventDefault(); const el = document.getElementById('tgcc-nl-email'); const v = ((el && el.value) || '').trim(); if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(v)) { this.setState({ nlMsg: 'Please enter a valid email.' }); return; } this.setState({ nlDone: true, nlMsg: '' }); },
       footCols: [
-        { h: 'Visit', links: ['Plan Your Visit', 'Book Tickets'] },
-        { h: 'Explore', links: ['Experiences', 'Dining & Bar', 'Shop', 'Private Experiences'] },
         { h: 'About', links: ['Our Story', 'Innovation', 'Press', 'Careers', 'Blog'] },
+        { h: 'Explore', links: ['Experiences', 'Dining & Bar', 'Shop', 'Private Experiences'] },
+        { h: 'Visit', links: ['Plan Your Visit', 'Book Tickets'] },
       ],
       socials: Object.entries(ICONS).map(([n, d]) => ({ n, d, h: ({ Instagram: '@thegoodcraftco', LinkedIn: 'The Good Craft Co.', YouTube: '@thegoodcraftco', Spotify: 'The Good Craft Co.' })[n] || n })),
     };
