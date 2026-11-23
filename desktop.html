@@ -1,12 +1,23 @@
 <!DOCTYPE html>
 <html>
 <head>
-<script src="age-gate/age-gate.js" defer></script>
-<script src="quick-book/quick-book.js" defer></script>
-<script src="assets/hero/hero-video.js" defer></script>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<script src="./support.js"></script>
+<script src="support.js"></script>
+<script src="age-gate/age-gate.js" defer></script>
+<meta name="ext-resource-dependency" content="assets/dining.webp">
+<meta name="ext-resource-dependency" content="assets/shop.webp">
+<meta name="ext-resource-dependency" content="assets/signature-tour.png">
+<meta name="ext-resource-dependency" content="assets/story-craft.jpg">
+<meta name="ext-resource-dependency" content="assets/private-custom.png">
+<meta name="ext-resource-dependency" content="assets/story-land.jpg">
+<meta name="ext-resource-dependency" content="assets/story-land-icon.webp">
+<meta name="ext-resource-dependency" content="assets/story-roots.jpg">
+<meta name="ext-resource-dependency" content="assets/story-roots-icon.webp">
+<meta name="ext-resource-dependency" content="assets/story-hands.jpg">
+<meta name="ext-resource-dependency" content="assets/story-hands-icon.webp">
+<meta name="ext-resource-dependency" content="assets/story-craft-icon.png">
+<template id="__bundler_thumbnail"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><rect width="100" height="100" fill="#4D4D3C"/><circle cx="50" cy="50" r="20" fill="none" stroke="#FBF3E1" stroke-width="2"/><text x="50" y="55" text-anchor="middle" font-family="Georgia,serif" font-size="13" fill="#FBF3E1">TGCC</text></svg></template>
 </head>
 <body>
 <x-dc>
@@ -20,7 +31,10 @@
 <script src="_ds/the-good-craft-co-design-system-6c692aae-ea5f-4e10-8127-8cdcf2234f3c/_ds_bundle.js"></script>
 <style>
 body{margin:0;background:#FBF3E1;color:#4D4D3C;font-family:var(--font-sans)}
-span[data-lite="1"] button{background:#DBBC88!important;border-color:#DBBC88!important;color:#2E2E22!important}span[data-lite="1"] button *{color:#2E2E22!important}a{color:inherit;text-decoration:none}a:hover{color:inherit;opacity:.86}@media (max-width:1000px){#experiences>img{display:none}}@media (prefers-reduced-motion:reduce){#top>video{display:none}}button[style*='background: var(--olive)']{background:#793C23!important;border-color:#793C23!important}button[style*='background: var(--olive)']:hover{background:#55291A!important;border-color:#55291A!important}button[style*='background: transparent'][style*='color: var(--olive)']{color:#793C23!important;border-color:#793C23!important}
+span[data-lite="1"] button{background:transparent!important;border:1px solid #FBF3E1!important;color:#FBF3E1!important}span[data-lite="1"] button *{color:#FBF3E1!important}span[data-lite="1"] button:hover,span[data-outline="1"] button:hover{background:rgba(251,243,225,.12)!important;border-color:#FBF3E1!important;color:#FBF3E1!important}a{color:inherit;text-decoration:none}a:hover{color:inherit;opacity:.86}button[style*='background: var(--olive)']{background:#793C23!important;border-color:#793C23!important}button[style*='background: var(--olive)']:hover{background:#55291A!important;border-color:#55291A!important}button[style*='background: transparent'][style*='color: var(--olive)']{color:#793C23!important;border-color:#793C23!important}
+.tgcc-h95ec15ff{-webkit-mask:url(assets/vogue.svg) center/contain no-repeat;mask:url(assets/vogue.svg) center/contain no-repeat}.tgcc-hfecfacc1{-webkit-mask:url(assets/gq.svg) center/contain no-repeat;mask:url(assets/gq.svg) center/contain no-repeat}.tgcc-h61b098a8{-webkit-mask:url(assets/the-hindu.svg) center/contain no-repeat;mask:url(assets/the-hindu.svg) center/contain no-repeat}.tgcc-h18b036e9{background-image:url(assets/footer-illustration.webp)}
+span[data-outline="1"] button{background:transparent!important;border:1px solid #FBF3E1!important;color:#FBF3E1!important}span[data-outline="1"] button *{color:#FBF3E1!important}
+span[data-ghost="1"] button,span[data-ghost="1"] button:hover{background:transparent!important;border:1px solid #793C23!important;color:#793C23!important}span[data-ghost="1"] button *{color:#793C23!important}
 @keyframes tgccMarquee{from{transform:translateX(0)}to{transform:translateX(-50%)}}
 @keyframes tgccSpin{from{transform:rotate(0)}to{transform:rotate(360deg)}}
 @keyframes tgccPulse{0%{transform:scale(1);opacity:.6}100%{transform:scale(2.6);opacity:0}}
@@ -28,6 +42,7 @@ span[data-lite="1"] button{background:#DBBC88!important;border-color:#DBBC88!imp
 </style>
 </helmet>
 
+<div aria-hidden="true" style="position:absolute;width:1px;height:1px;overflow:hidden;opacity:0;pointer-events:none"><img src="assets/signature-tour.png" alt=""><img src="assets/story-craft.jpg" alt=""><img src="assets/private-custom.png" alt=""><img src="assets/story-land.jpg" alt=""><img src="assets/story-land-icon.webp" alt=""><img src="assets/story-roots.jpg" alt=""><img src="assets/story-roots-icon.webp" alt=""><img src="assets/story-hands.jpg" alt=""><img src="assets/story-hands-icon.webp" alt=""><img src="assets/story-craft-icon.png" alt=""><img src="assets/dining.webp" alt=""><img src="assets/shop.webp" alt=""></div>
 <header onMouseLeave="{{ navLeave }}" style="position:fixed;top:0;left:0;right:0;z-index:50;transition:background 400ms ease;background:{{ navBg }}">
   <div style="display:flex;align-items:center;gap:40px;padding:14px clamp(20px,4vw,56px)">
     <a href="#top" style="display:flex">
@@ -43,7 +58,7 @@ span[data-lite="1"] button{background:#DBBC88!important;border-color:#DBBC88!imp
     </nav>
     <div style="display:flex;align-items:center;gap:28px">
       <a href="#visit" onMouseEnter="{{ visitEnter }}" style="position:relative;padding:10px 0;font-size:13px;font-weight:500;letter-spacing:.12em;text-transform:uppercase;color:#FBF3E1">Plan Your Visit<span style="position:absolute;left:0;bottom:4px;height:1px;background:#FBF3E1;transition:width 320ms cubic-bezier(.2,.7,.2,1);width:{{ visitLine }}"></span></a>
-      <span onMouseEnter="{{ hv.hdr }}" onMouseLeave="{{ ctaOff }}" style="display:inline-flex">
+      <span data-outline="1" onMouseEnter="{{ hv.hdr }}" onMouseLeave="{{ ctaOff }}" style="display:inline-flex">
         <x-import component-from-global-scope="TheGoodCraftCoDesignSystem_6c692a.Button" variant="tan" size="md" icon-right="{{ ar.hdr }}" hint-size="150px,42px">Book Tickets</x-import>
       </span>
     </div>
@@ -62,86 +77,74 @@ span[data-lite="1"] button{background:#DBBC88!important;border-color:#DBBC88!imp
   </sc-if>
 </header>
 
-<section id="top" data-screen-label="01 Hero" style="position:relative;height:100vh;min-height:680px;overflow:hidden;background:#793C23">
-  <img src="assets/hero-exterior.jpg" alt="The TGCC distillery in Ponda" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover">
-  <video src="assets/hero/hero-desktop.mp4" poster="assets/hero/hero-desktop-poster.jpg" autoplay muted loop playsinline preload="auto" aria-hidden="true" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover"></video>
-  <div style="position:absolute;inset:0;pointer-events:none;background:linear-gradient(180deg,rgba(0,0,0,.61) 0%,rgba(0,0,0,.44) 28%,rgba(0,0,0,.53) 55%,rgba(0,0,0,.8) 100%)"></div>
-  <div style="position:absolute;left:0;bottom:0;width:min(1100px,85%);height:62%;pointer-events:none;background:radial-gradient(ellipse 75% 70% at 22% 62%,rgba(0,0,0,.49) 0%,rgba(0,0,0,.29) 45%,rgba(0,0,0,0) 100%)"></div>
-  <div style="position:absolute;left:clamp(20px,4vw,56px);right:clamp(20px,4vw,56px);bottom:calc(128px + 7%);display:flex;align-items:flex-end;justify-content:space-between;gap:32px">
-    <div style="display:flex;flex-direction:column;gap:18px;max-width:1240px;min-width:0;flex:1 1 auto">
-      <h1 data-reveal="left" data-reveal-delay="340" style="margin:0;color:#FBF3E1;font-weight:500;font-size:clamp(34px,4vw,58px);line-height:1.1;letter-spacing:-.01em;max-width:1240px"><span style="display:block;font-family:var(--font-serif);font-weight:400;filter:url(#tgcc-thin)">Discover the craft<br>inside every Indian spirit,</span><span style="display:block;font-family:var(--font-serif);font-weight:400;-webkit-text-stroke:1.3px currentColor">down to every detail.</span></h1><svg width="0" height="0" style="position:absolute" aria-hidden="true"><filter id="tgcc-thin" x="-2%" y="-5%" width="104%" height="110%"><feMorphology operator="erode" radius=".42"></feMorphology></filter></svg>
-    </div>
+<section id="top" data-screen-label="01 Hero" style="position:relative;height:100vh;min-height:680px;overflow:hidden;background:#2A130A">
+  <img src="assets/hero.jpg" alt="A woman pounding grain in a shaft of light" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:62% 40%">
+  <div style="position:absolute;inset:0;pointer-events:none;background:linear-gradient(180deg,rgba(20,10,5,.55) 0%,rgba(20,10,5,0) 22%,rgba(20,10,5,0) 70%,rgba(20,10,5,.45) 100%)"></div>
+  <div style="position:absolute;inset:0;pointer-events:none;background:linear-gradient(90deg,rgba(20,10,5,.62) 0%,rgba(20,10,5,.38) 38%,rgba(20,10,5,0) 62%)"><div aria-hidden="true" style="position: absolute; width: 23vw; min-width: 250px; aspect-ratio: 1; border-radius: 50%; pointer-events: none; left: 1096px; top: 664px; background-color: var(--moss-300)"><img src="assets/hero-plant.png" alt="" aria-hidden="true" style="position: absolute; height: 202px; width: auto; display: block; pointer-events: none; left: 52px; top: 29px"></div><div aria-hidden="true" style="position: absolute; left: -142px; top: 443px; width: 377px; aspect-ratio: 1; border-radius: 50%; transform: translateY(-52%); background: #A26B3E; opacity: .78; pointer-events: none; height: 388px"></div></div>
+  
+  
+  
+  <svg aria-hidden="true" viewBox="0 0 400 400" style="position:absolute;right:-9vw;top:6%;width:17vw;min-width:160px;pointer-events:none;animation:tgccSpin 120s linear infinite"><circle cx="200" cy="200" r="70" fill="none" stroke="#FBF3E1" stroke-width="1.6" stroke-dasharray="7 6" opacity="0.85"></circle><circle cx="200" cy="200" r="88" fill="none" stroke="#FBF3E1" stroke-width="1.6" stroke-dasharray="7 6" opacity="0.81"></circle><circle cx="200" cy="200" r="106" fill="none" stroke="#FBF3E1" stroke-width="1.6" stroke-dasharray="7 6" opacity="0.77"></circle><circle cx="200" cy="200" r="124" fill="none" stroke="#FBF3E1" stroke-width="1.6" stroke-dasharray="7 6" opacity="0.73"></circle><circle cx="200" cy="200" r="142" fill="none" stroke="#FBF3E1" stroke-width="1.6" stroke-dasharray="7 6" opacity="0.69"></circle><circle cx="200" cy="200" r="160" fill="none" stroke="#FBF3E1" stroke-width="1.6" stroke-dasharray="7 6" opacity="0.65"></circle><circle cx="200" cy="200" r="178" fill="none" stroke="#FBF3E1" stroke-width="1.6" stroke-dasharray="7 6" opacity="0.61"></circle></svg>
+  <div style="position:absolute;left:clamp(24px,6.5vw,120px);right:clamp(20px,4vw,56px);top:50%;transform:translateY(-44%);display:flex;flex-direction:column;gap:18px;max-width:1000px">
+    <h1 data-reveal="left" data-reveal-delay="340" style="margin:0;color:#FBF3E1;font-family:var(--font-serif);font-weight:400;font-size:clamp(31px,3.8vw,64px);line-height:1.04;letter-spacing:-.015em;text-wrap:balance"><span style="display:block;font-family:var(--font-sans);font-weight:300;letter-spacing:-.02em">Discover the craft<br>inside every Indian spirit,</span><span style="display:block">down to every detail.</span></h1><svg width="0" height="0" style="position:absolute" aria-hidden="true"><filter id="tgcc-thin" x="-2%" y="-5%" width="104%" height="110%"><feMorphology operator="erode" radius=".42"></feMorphology></filter></svg>
   </div>
-
 </section>
 
 <section id="experiences" data-screen-label="03 Experiences intro" style="position:relative;overflow:hidden;background:#FBF3E1;padding:36px clamp(20px,4vw,56px);box-sizing:border-box;display:flex;flex-direction:column;align-items:flex-start;gap:22px;scroll-margin-top:104px">
   <div data-reveal="left" style="position:relative;z-index:1;display:flex;flex-direction:column;gap:10px">
-    <h2 style="margin:0;font-family:var(--font-serif);font-size:clamp(24px,2.4vw,35.2px);line-height:1.05;font-weight:400;letter-spacing:-.01em;color:#4D4D3C">Come and explore how the good craft is made, <span style="font-family:Uniform,'Avenir Next',system-ui,sans-serif;opacity:.55">one step at a time.</span></h2>
+    <h2 style="margin:0;font-size:clamp(24px,2.4vw,35.2px);line-height:1.05;font-weight:400;letter-spacing:-.01em;color:#4D4D3C"><span style="display:block;font-family:var(--font-sans);font-weight:300">Come and explore how the good craft is made,</span><span style="display:block;font-family:var(--font-serif);font-weight:400">one step at a time.</span></h2>
   </div>
 </section>
 
-<section ref="{{ slideRef }}" data-screen-label="03b Experiences slideshow" onMouseEnter="{{ pause }}" onMouseLeave="{{ resume }}" style="background:#55291A;color:#FBF3E1">
-  <div data-stage="1" style="background-color:{{ tone }};position:relative;overflow:hidden;min-height:max(500px,calc(100vh - 340px));display:grid;grid-template-columns:minmax(0,58fr) minmax(0,42fr)">
-    <div data-panel="1" style="position:absolute;inset:0;overflow:hidden;z-index:0;isolation:isolate">
+<section ref="{{ slideRef }}" data-screen-label="03b Experiences" onMouseLeave="{{ resume }}" style="background:#2A130A;color:#FBF3E1">
+  <div style="position:relative;display:grid;grid-template-columns:minmax(0,68fr) minmax(0,32fr);min-height:max(520px,calc(100vh - 300px))">
+    <div style="position:relative;overflow:hidden;background:#2A130A">
       <sc-for list="{{ exps }}" as="e" hint-placeholder-count="1">
-        <div data-layer="{{ e.i }}" style="position:absolute;inset:0;transition:opacity 900ms ease;opacity:{{ e.op }}">
-          <img src="{{ e.img }}" alt="{{ e.title }}" style="position:absolute;left:0;top:0;width:68%;height:100%;object-fit:cover;transform-origin:30% 50%;transition:transform 7s ease;transform:scale({{ e.scale }})">
-          <div style="position:absolute;inset:0;background:{{ e.grad }}"></div>
+        <div style="position:absolute;inset:0;transition:opacity 700ms ease;opacity:{{ e.op }};pointer-events:{{ e.pe }}">
+          <img src="{{ e.img }}" alt="{{ e.title }}" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;transition:transform 6s ease;transform:scale({{ e.scale }})">
+          <div style="position:absolute;inset:0;background:linear-gradient(180deg,rgba(20,10,5,0) 40%,rgba(20,10,5,.78) 100%)"></div>
+          <div style="position:absolute;left:clamp(24px,3.4vw,56px);bottom:clamp(28px,3.4vw,52px);right:clamp(24px,3.4vw,56px);display:flex;flex-direction:column;gap:16px;max-width:460px;transition:opacity 500ms ease 150ms, transform 700ms cubic-bezier(.2,.7,.2,1) 150ms;opacity:{{ e.op }};transform:translateY({{ e.ty }})">
+            <span style="font-size:11px;font-weight:500;letter-spacing:.12em;text-transform:uppercase;color:#DBBC88">{{ e.meta }}</span>
+            <p style="margin:0;font-size:16px;line-height:1.55;color:#FBF3E1;text-wrap:pretty">{{ e.desc }}</p>
+            <div style="display:flex;gap:24px;align-items:center;flex-wrap:wrap">
+              <span data-lite="1" style="display:inline-flex">
+                <x-import component-from-global-scope="TheGoodCraftCoDesignSystem_6c692a.Button" variant="primary" size="md" hint-size="150px,42px">{{ e.btn }}</x-import>
+              </span>
+              <a href="#" style="display:inline-flex;align-items:center;padding:0 0 6px;border-bottom:1px solid #FBF3E1;color:#FBF3E1;font-size:12px;font-weight:600;letter-spacing:.12em;text-transform:uppercase">Details</a>
+            </div>
+          </div>
         </div>
       </sc-for>
     </div>
-    <div style="grid-column:2;position:relative;z-index:10;padding:32px clamp(24px,3.4vw,56px) 32px clamp(16px,2vw,32px);display:flex;flex-direction:column;gap:16px;min-width:0">
-      <div style="display:flex;align-items:center;justify-content:space-between;gap:16px">
-        <span data-bignum="1" style="display:block;margin-left:clamp(24px,2.8vw,44px);font-family:var(--font-serif);font-size:56px;line-height:1;color:{{ cur.ink }};transition:opacity 160ms ease;opacity:{{ numOp }}">{{ num }}</span>
-        <div style="display:flex;gap:10px">
-          <button onClick="{{ prev }}" aria-label="Previous" style="width:40px;height:40px;border-radius:50%;border:1px solid {{ cur.ink }};background:transparent;color:{{ cur.ink }};font-size:16px;line-height:1;cursor:pointer;transition:background 200ms ease" style-hover="background:rgba(46,46,34,.1)">‹</button>
-          <button onClick="{{ next }}" aria-label="Next" style="width:40px;height:40px;border-radius:50%;border:1px solid {{ cur.ink }};background:transparent;color:{{ cur.ink }};font-size:16px;line-height:1;cursor:pointer;transition:background 200ms ease" style-hover="background:rgba(46,46,34,.1)">›</button>
-        </div>
-      </div>
-      <div style="margin-left:clamp(24px,2.8vw,44px);display:flex;flex-direction:column;gap:14px;transition:opacity 420ms ease, transform 700ms cubic-bezier(.2,.7,.2,1);opacity:{{ txtOp }};transform:translateY({{ txtY }})">
-        <h3 style="margin:0;font-family:var(--font-serif);font-weight:400;font-size:clamp(36px,3.4vw,52px);line-height:1.02;letter-spacing:-.01em;color:{{ cur.ink }}">{{ cur.title }}</h3>
-        <p style="margin:0;max-width:440px;min-height:7.75em;font-size:16px;line-height:1.55;color:{{ cur.ink }};text-wrap:pretty">{{ cur.desc }}</p>
-      </div>
-      <div style="margin-left:clamp(24px,2.8vw,44px);margin-top:auto;display:flex;gap:clamp(24px,3vw,48px);border-bottom:1px solid {{ cur.line }}">
-        <sc-for list="{{ tabs }}" as="tb" hint-placeholder-count="2">
-          <button onClick="{{ tb.go }}" data-card="{{ tb.i }}" aria-label="{{ tb.title }}" style-hover="opacity:1" style="display:flex;flex-direction:column;align-items:stretch;gap:12px;margin:0 0 -1px;padding:0 0 12px;background:transparent;border:0;font-family:inherit;border-bottom:2px solid {{ tb.bc }};cursor:pointer;color:{{ cur.ink }};opacity:{{ tb.op }};text-align:left;transition:opacity 250ms ease, border-color 250ms ease">
-            <img src="{{ tb.img }}" alt="" style="display:block;width:100%;height:clamp(64px,6.4vw,92px);object-fit:cover;object-position:50% 35%">
-            <span style="display:flex;align-items:baseline;gap:10px">
-              <span data-cnum="1" style="font-family:var(--font-serif);font-size:22px;line-height:1">{{ tb.num }}</span>
-              <span style="font-size:12px;font-weight:600;letter-spacing:.12em;text-transform:uppercase;white-space:nowrap">{{ tb.title }}</span>
-            </span>
-          </button>
+    <div style="position:relative;background:{{ tone }};transition:background 700ms ease;padding:clamp(28px,3vw,48px) clamp(24px,3vw,48px);display:flex;flex-direction:column;justify-content:center;gap:22px">
+      <span style="font-size:11px;font-weight:500;letter-spacing:.12em;text-transform:uppercase;color:#DBBC88">Experiences we offer</span>
+      <div style="display:flex;flex-direction:column;gap:6px">
+        <sc-for list="{{ tabs }}" as="tb" hint-placeholder-count="3">
+          <button onMouseEnter="{{ tb.go }}" onFocus="{{ tb.go }}" onClick="{{ tb.go }}" style="display:flex;align-items:center;gap:10px;padding:4px 0;margin:0;background:transparent;border:0;cursor:pointer;text-align:left;font-family:var(--font-serif);font-weight:400;font-size:clamp(28px,2.6vw,44px);line-height:1.1;letter-spacing:-.01em;color:#FBF3E1;transition:opacity 350ms ease;opacity:{{ tb.op }}">{{ tb.ar }}<span>{{ tb.title }}</span></button>
         </sc-for>
       </div>
-      <div style="margin-left:clamp(24px,2.8vw,44px);margin-top:4px;display:flex;gap:12px;align-items:center;flex-wrap:wrap;transition:opacity 420ms ease;opacity:{{ txtOp }}">
-          <span data-lite="{{ cur.lite }}" onMouseEnter="{{ hv.slBook }}" onMouseLeave="{{ ctaOff }}" style="display:inline-flex">
-            <x-import component-from-global-scope="TheGoodCraftCoDesignSystem_6c692a.Button" variant="primary" size="md" icon-right="{{ ar.slBook }}" hint-size="150px,42px">{{ cur.btn }}</x-import>
-          </span>
-          <a href="#" onMouseEnter="{{ hv.slDetails }}" onMouseLeave="{{ ctaOff }}" style="display:inline-flex;align-items:center;gap:10px;padding:12px 24px;border:1px solid {{ cur.ink }};color:{{ cur.ink }};font-size:12px;font-weight:600;letter-spacing:.12em;text-transform:uppercase">Details{{ ar.slDetails }}</a>
-        </div>
     </div>
   </div>
-  <div data-screen-label="03c As seen on" style="height:80px;box-sizing:border-box;padding:0 clamp(20px,4vw,56px);background:#FFFFFF;border-top:1px solid rgba(77,77,60,.16);display:flex;align-items:center;gap:48px;color:#4D4D3C">
+  <div data-screen-label="03c As seen on" style="height: 56px; box-sizing: border-box; padding: 0 clamp(20px,4vw,56px); border-top: 1px solid rgba(77,77,60,.16); display: flex; align-items: center; gap: 48px; color: #4D4D3C; background-color: #FFFFFF">
     <span style="flex:none;font-size:11px;font-weight:500;letter-spacing:.12em;text-transform:uppercase;color:#7D7D63">As seen on</span>
     <div style="flex:1;display:flex;flex-wrap:wrap;justify-content:space-between;align-items:center;gap:12px 40px">
         <a href="#" title="Read the article" style="font-family:var(--font-serif);font-size:20px;color:#4D4D3C">Conde Nast Traveller</a>
-        <a href="#" title="Read the article" aria-label="Vogue" style="display:block;width:94px;height:24px;background:#4D4D3C;-webkit-mask:url(assets/press/vogue.svg) center/contain no-repeat;mask:url(assets/press/vogue.svg) center/contain no-repeat"></a>
-        <a href="#" title="Read the article" aria-label="GQ" style="display:block;width:57px;height:30px;background:#4D4D3C;-webkit-mask:url(assets/press/gq.svg) center/contain no-repeat;mask:url(assets/press/gq.svg) center/contain no-repeat"></a>
+        <a class="tgcc-h95ec15ff" href="#" title="Read the article" aria-label="Vogue" style="display:block;width:94px;height:24px;background:#4D4D3C"></a>
+        <a class="tgcc-hfecfacc1" href="#" title="Read the article" aria-label="GQ" style="display:block;width:57px;height:30px;background:#4D4D3C"></a>
         <a href="#" title="Read the article" style="font-family:var(--font-serif);font-size:20px;color:#4D4D3C">Mint Lounge</a>
-        <a href="#" title="Read the article" aria-label="The Hindu" style="display:block;width:124px;height:15px;background:#4D4D3C;-webkit-mask:url(assets/press/the-hindu.svg) center/contain no-repeat;mask:url(assets/press/the-hindu.svg) center/contain no-repeat"></a>
+        <a class="tgcc-h61b098a8" href="#" title="Read the article" aria-label="The Hindu" style="display:block;width:124px;height:15px;background:#4D4D3C"></a>
         <a href="#" title="Read the article" style="font-family:var(--font-serif);font-size:20px;color:#4D4D3C">AD India</a>
     </div>
   </div>
 </section>
 
-<section id="visit" data-screen-label="04 Visit" style="overflow:hidden;border-bottom:1.5px solid #364622;display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,460px),1fr));background:#FBF3E1">
-  <div data-reveal="expand" style="position:relative;background:#364622;padding:24px 32px;min-height:0;box-sizing:border-box;overflow:hidden;display:flex;flex-direction:column;align-items:stretch;gap:12px">
+<section id="visit" data-screen-label="04 Visit" style="overflow:hidden;display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,460px),1fr));background:#FBF3E1">
+  <div data-reveal="expand" style="position:relative;background:linear-gradient(rgba(28,16,8,.72),rgba(28,16,8,.72)),url(assets/map-bg-aerial.jpg) center/cover no-repeat #2A130A;padding:24px 32px;min-height:0;box-sizing:border-box;overflow:hidden;display:flex;flex-direction:column;align-items:stretch;gap:12px">
     <div style="display:flex;justify-content:space-between;align-items:center;gap:16px">
       <span style="font-size:11px;font-weight:500;letter-spacing:.12em;text-transform:uppercase;color:#DBBC88">Tap a place to see the distance</span>
-      <a href="https://www.google.com/maps/dir/?api=1&destination=The+Good+Craft+Co.+Ponda+Goa" target="_blank" rel="noopener" onMouseEnter="{{ hv.directions }}" onMouseLeave="{{ ctaOff }}" style="flex:none;display:inline-flex;align-items:center;gap:10px;padding:10px 20px;background:#DBBC88;color:#4D4D3C;font-size:11px;font-weight:600;letter-spacing:.12em;text-transform:uppercase;text-decoration:none">Get directions{{ ar.directions }}</a>
+      
     </div>
-    <div style="position:relative;flex:none;margin:auto 0;align-self:center;height:440px;max-width:calc(100% - 120px);aspect-ratio:740/980;left:44px">
+    <div style="position:relative;flex:none;margin:auto 0;align-self:center;height:360px;max-width:calc(100% - 120px);aspect-ratio:740/980;left:44px">
       <svg viewBox="0 0 740 980" style="position:absolute;inset:0;width:100%;height:100%;overflow:visible">
         <polygon points="80,40 230,40 310,90 480,160 610,190 660,290 640,440 690,560 660,690 560,790 540,890 460,940 380,920 340,820 310,740 280,670 260,590 240,540 200,480 140,440 180,410 190,370 160,340 120,310 90,260 70,210 50,140" fill="none" stroke="#8E9A68" stroke-width="22" stroke-linejoin="round" opacity=".16"></polygon>
         <polygon points="80,40 230,40 310,90 480,160 610,190 660,290 640,440 690,560 660,690 560,790 540,890 460,940 380,920 340,820 310,740 280,670 260,590 240,540 200,480 140,440 180,410 190,370 160,340 120,310 90,260 70,210 50,140" fill="#74895A" stroke="#C4CC9A" stroke-width="2.5" stroke-linejoin="round"></polygon>
@@ -163,19 +166,17 @@ span[data-lite="1"] button{background:#DBBC88!important;border-color:#DBBC88!imp
       </div></div>
       <span data-reveal="pop" data-reveal-delay="900" style="position:absolute;left:calc(50% + 26px);top:44.9%;translate:0 -50%;font-family:var(--font-serif);font-size:24px;line-height:1;letter-spacing:.04em;font-weight:700;color:#DBBC88;white-space:nowrap;pointer-events:none">TGCC</span>
     </div>
-    <div style="display:flex;justify-content:space-between;align-items:flex-end;gap:24px;flex-wrap:wrap;padding-top:14px;border-top:1px solid rgba(251,243,225,.2)">
-    <div style="display:flex;flex-direction:column;gap:4px;color:#FBF3E1">
-      <span style="font-size:10px;font-weight:500;letter-spacing:.12em;text-transform:uppercase;color:#DBBC88">From</span>
-      <span style="font-family:var(--font-serif);font-weight:400;font-size:26px;line-height:1.05">{{ sel.name }}</span>
+    <div style="display:flex;justify-content:space-between;align-items:flex-end;gap:16px 24px;flex-wrap:wrap;padding-top:14px;border-top:1px solid rgba(251,243,225,.2)">
+    <div style="display:flex;gap:clamp(16px,2.4vw,32px);align-items:flex-end;color:#FBF3E1;flex:0 0 auto">
+      <div style="display:flex;flex-direction:column;gap:4px"><span style="font-size:10px;font-weight:500;letter-spacing:.12em;text-transform:uppercase;color:#DBBC88">From</span><span style="font-family:var(--font-serif);font-weight:400;font-size:clamp(17px,1.8vw,26px);line-height:1.05;white-space:nowrap">{{ sel.name }}</span></div>
+      <div style="display:flex;flex-direction:column;gap:2px"><span style="font-family:var(--font-serif);font-size:clamp(17px,1.8vw,26px);line-height:1.05;white-space:nowrap">{{ sel.km }}</span><span style="font-size:10px;color:#B0B885;white-space:nowrap">by road, approx.</span></div>
+      <div style="display:flex;flex-direction:column;gap:2px"><span style="font-family:var(--font-serif);font-size:clamp(17px,1.8vw,26px);line-height:1.05;white-space:nowrap">{{ sel.time }}</span><span style="font-size:10px;color:#B0B885;white-space:nowrap">drive time</span></div>
     </div>
-    <div style="display:flex;gap:32px;color:#FBF3E1;text-align:right">
-      <div style="display:flex;flex-direction:column;gap:2px"><span style="font-family:var(--font-serif);font-size:26px;line-height:1.05">{{ sel.km }}</span><span style="font-size:10px;color:#B0B885">by road, approx.</span></div>
-      <div style="display:flex;flex-direction:column;gap:2px"><span style="font-family:var(--font-serif);font-size:26px;line-height:1.05">{{ sel.time }}</span><span style="font-size:10px;color:#B0B885">drive time</span></div>
-    </div>
+    <a href="https://www.google.com/maps/dir/?api=1&amp;destination=The+Good+Craft+Co.+Ponda+Goa" target="_blank" rel="noopener" onMouseEnter="{{ hv.directions }}" onMouseLeave="{{ ctaOff }}" style="flex:none;margin-left:auto;white-space:nowrap;display:inline-flex;align-items:center;gap:10px;padding:10px 20px;background:transparent;border:1px solid #FBF3E1;color:#FBF3E1;font-size:11px;font-weight:600;letter-spacing:.12em;text-transform:uppercase;text-decoration:none">Get directions{{ ar.directions }}</a>
     </div>
   </div>
-  <div data-reveal="left" data-reveal-delay="450" style="position:relative;padding:118px clamp(24px,4vw,56px) 180px;display:flex;flex-direction:column;gap:24px;justify-content:flex-start;min-height:0">
-    <div style="display:flex;flex-direction:column;gap:10px"><h2 style="margin:0;font-family:var(--font-serif);font-size:clamp(24px,2.4vw,35.2px);line-height:1.05;font-weight:400;letter-spacing:-.01em;color:#4D4D3C">Find Us. <span style="font-family:Uniform,'Avenir Next',system-ui,sans-serif;opacity:.55">Ponda, Goa.</span></h2></div>
+  <div data-reveal="left" data-reveal-delay="450" style="position:relative;padding:32px clamp(24px,4vw,56px) 210px;display:flex;flex-direction:column;gap:18px;justify-content:flex-start;min-height:0">
+    <div style="display:flex;flex-direction:column;gap:10px"><h2 style="margin:0;font-size:clamp(24px,2.4vw,35.2px);line-height:1.05;font-weight:400;letter-spacing:-.01em;color:#4D4D3C"><span style="display:block;font-family:var(--font-sans);font-weight:300">Find Us.</span><span style="display:block;font-family:var(--font-serif);font-weight:400">Ponda, Goa.</span></h2></div>
     <div style="display:grid;grid-template-columns:minmax(0,1fr);max-width:400px;gap:0">
       <sc-for list="{{ visitInfo }}" as="v" hint-placeholder-count="4">
         <div style="display:flex;flex-direction:column;gap:3px;padding:12px 0;border-top:1px solid rgba(77,77,60,.25)">
@@ -184,28 +185,28 @@ span[data-lite="1"] button{background:#DBBC88!important;border-color:#DBBC88!imp
         </div>
       </sc-for>
     </div>
-    <img src="assets/visit-illustration-still.webp" alt="A copper still, a barrel and leaves" style="position:absolute;right:0;bottom:0;display:block;width:clamp(340px,64%,560px);aspect-ratio:1400/601;pointer-events:none">
+    <img src="assets/visit-illustration.webp" alt="A copper still, a barrel and leaves" style="position: absolute; display: block; width: 522px; aspect-ratio: 1400/601; pointer-events: none; left: 158px; height: 244px; top: 310px">
   </div>
 </section>
-<div data-screen-label="02 Awards" style="position:relative;height:80px;box-sizing:border-box;background:#2A130A;border-top:1px solid rgba(251,243,225,.16);overflow:hidden;display:flex;align-items:center">
-    <div style="display:flex;width:max-content;animation:tgccMarquee 36s linear infinite">
-      <sc-for list="{{ awardsLoop }}" as="a" hint-placeholder-count="6">
-        <div style="flex:none;width:33.3333vw;box-sizing:border-box;display:flex;align-items:center;justify-content:center;gap:20px;padding:0 16px">
-          <div style="flex:none;width:60px;height:60px;border-radius:50%;border:1px dashed rgba(251,243,225,.5);display:grid;place-items:center;font-size:8px;letter-spacing:.12em;color:rgba(251,243,225,.7)">LOGO</div>
-          <div style="display:flex;flex-direction:column;gap:4px;white-space:nowrap">
-            <span style="font-family:var(--font-serif);font-size:26px;line-height:1.1;color:#FBF3E1">{{ a.t }}</span>
-            <span style="font-size:11px;font-weight:500;letter-spacing:.12em;text-transform:uppercase;color:#DBBC88">{{ a.s }}</span>
-          </div>
-        </div>
-      </sc-for>
-    </div>
-  </div>
 
+
+<div data-screen-label="02 Awards" style="position: relative; box-sizing: border-box; padding: 5px clamp(20px,4vw,56px); display: grid; grid-template-columns: repeat(auto-fit,minmax(220px,1fr)); align-items: center; gap: 10px 24px; background-color: var(--vl-turmeric)">
+  <sc-for list="{{ awards }}" as="a" hint-placeholder-count="4">
+    <div style="display:flex;align-items:center;justify-content:center;gap:14px;padding:3px 0">
+      <div style="flex:none;width:40px;height:40px;border-radius:50%;border:1px dashed rgba(251,243,225,.5);display:grid;place-items:center;font-size:7px;letter-spacing:.12em;color:rgba(251,243,225,.7)">LOGO</div>
+      <div style="display:flex;flex-direction:column;gap:2px;white-space:nowrap">
+        <span style="font-family:var(--font-serif);font-size:20px;line-height:1.1;color:#FBF3E1">{{ a.t }}</span>
+        <span style="font-size:10px;font-weight:500;letter-spacing:.12em;text-transform:uppercase;color:#DBBC88">{{ a.s }}</span>
+      </div>
+    </div>
+  </sc-for>
+</div>
 
 <section data-screen-label="06 Our story" style="overflow:hidden;background:#FBF3E1">
-  <div style="padding:56px 32px 28px;display:flex;flex-direction:column;align-items:flex-start;gap:10px">
-    <h2 data-reveal="left" style="margin:0;font-family:var(--font-serif);font-size:clamp(24px,2.4vw,35.2px);line-height:1.05;font-weight:400;letter-spacing:-.01em;color:#4D4D3C">Our Story, <span style="font-family:Uniform,'Avenir Next',system-ui,sans-serif;opacity:.55">in four parts</span></h2>
-    <span data-reveal="left" data-reveal-delay="240" onMouseEnter="{{ hv.story }}" onMouseLeave="{{ ctaOff }}" style="display:inline-flex;margin-top:10px">
+  <div style="position:relative;overflow:hidden;box-sizing:border-box;padding:40px 32px 32px;display:flex;flex-direction:column;justify-content:center;align-items:flex-start;gap:10px">
+    <svg aria-hidden="true" viewBox="0 0 1000 1000" style="position:absolute;right:-140px;top:50%;width:560px;height:560px;transform:translateY(-50%);pointer-events:none;overflow:visible"><path id="tgcc-st-r0" d="M 390,500 a 110,110 0 1,1 220,0 a 110,110 0 1,1 -220,0" fill="none"></path><text font-family="Uniform, sans-serif" font-size="11" font-weight="500" letter-spacing="2.2" fill="#4D4D3C" opacity="0.220"><textPath href="#tgcc-st-r0" textLength="685" lengthAdjust="spacing">IN PASSIONATE PURSUIT OF THE GOOD · IN EVERY WAY, EVERY DAY · IN PASSIONATE PURSUIT OF THE GOOD · IN EVERY WAY, EVERY DAY · </textPath></text><path id="tgcc-st-r1" d="M 350,500 a 150,150 0 1,1 300,0 a 150,150 0 1,1 -300,0" fill="none"></path><text font-family="Uniform, sans-serif" font-size="11" font-weight="500" letter-spacing="2.2" fill="#4D4D3C" opacity="0.202"><textPath href="#tgcc-st-r1" textLength="936" lengthAdjust="spacing">IN PASSIONATE PURSUIT OF THE GOOD · IN EVERY WAY, EVERY DAY · IN PASSIONATE PURSUIT OF THE GOOD · IN EVERY WAY, EVERY DAY · </textPath></text><path id="tgcc-st-r2" d="M 310,500 a 190,190 0 1,1 380,0 a 190,190 0 1,1 -380,0" fill="none"></path><text font-family="Uniform, sans-serif" font-size="11" font-weight="500" letter-spacing="2.2" fill="#4D4D3C" opacity="0.184"><textPath href="#tgcc-st-r2" textLength="1188" lengthAdjust="spacing">IN PASSIONATE PURSUIT OF THE GOOD · IN EVERY WAY, EVERY DAY · IN PASSIONATE PURSUIT OF THE GOOD · IN EVERY WAY, EVERY DAY · IN PASSIONATE PURSUIT OF THE GOOD · IN EVERY WAY, EVERY DAY · </textPath></text><path id="tgcc-st-r3" d="M 270,500 a 230,230 0 1,1 460,0 a 230,230 0 1,1 -460,0" fill="none"></path><text font-family="Uniform, sans-serif" font-size="11" font-weight="500" letter-spacing="2.2" fill="#4D4D3C" opacity="0.166"><textPath href="#tgcc-st-r3" textLength="1439" lengthAdjust="spacing">IN PASSIONATE PURSUIT OF THE GOOD · IN EVERY WAY, EVERY DAY · IN PASSIONATE PURSUIT OF THE GOOD · IN EVERY WAY, EVERY DAY · IN PASSIONATE PURSUIT OF THE GOOD · IN EVERY WAY, EVERY DAY · </textPath></text><path id="tgcc-st-r4" d="M 230,500 a 270,270 0 1,1 540,0 a 270,270 0 1,1 -540,0" fill="none"></path><text font-family="Uniform, sans-serif" font-size="11" font-weight="500" letter-spacing="2.2" fill="#4D4D3C" opacity="0.148"><textPath href="#tgcc-st-r4" textLength="1690" lengthAdjust="spacing">IN PASSIONATE PURSUIT OF THE GOOD · IN EVERY WAY, EVERY DAY · IN PASSIONATE PURSUIT OF THE GOOD · IN EVERY WAY, EVERY DAY · IN PASSIONATE PURSUIT OF THE GOOD · IN EVERY WAY, EVERY DAY · IN PASSIONATE PURSUIT OF THE GOOD · IN EVERY WAY, EVERY DAY · </textPath></text><path id="tgcc-st-r5" d="M 190,500 a 310,310 0 1,1 620,0 a 310,310 0 1,1 -620,0" fill="none"></path><text font-family="Uniform, sans-serif" font-size="11" font-weight="500" letter-spacing="2.2" fill="#4D4D3C" opacity="0.130"><textPath href="#tgcc-st-r5" textLength="1942" lengthAdjust="spacing">IN PASSIONATE PURSUIT OF THE GOOD · IN EVERY WAY, EVERY DAY · IN PASSIONATE PURSUIT OF THE GOOD · IN EVERY WAY, EVERY DAY · IN PASSIONATE PURSUIT OF THE GOOD · IN EVERY WAY, EVERY DAY · IN PASSIONATE PURSUIT OF THE GOOD · IN EVERY WAY, EVERY DAY · </textPath></text><path id="tgcc-st-r6" d="M 150,500 a 350,350 0 1,1 700,0 a 350,350 0 1,1 -700,0" fill="none"></path><text font-family="Uniform, sans-serif" font-size="11" font-weight="500" letter-spacing="2.2" fill="#4D4D3C" opacity="0.112"><textPath href="#tgcc-st-r6" textLength="2193" lengthAdjust="spacing">IN PASSIONATE PURSUIT OF THE GOOD · IN EVERY WAY, EVERY DAY · IN PASSIONATE PURSUIT OF THE GOOD · IN EVERY WAY, EVERY DAY · IN PASSIONATE PURSUIT OF THE GOOD · IN EVERY WAY, EVERY DAY · IN PASSIONATE PURSUIT OF THE GOOD · IN EVERY WAY, EVERY DAY · IN PASSIONATE PURSUIT OF THE GOOD · IN EVERY WAY, EVERY DAY · </textPath></text><g opacity=".85"><circle cx="300" cy="330" r="16" fill="none" stroke="#4D4D3C" stroke-width="2.4" stroke-dasharray="9 6"></circle><circle cx="300" cy="330" r="32" fill="none" stroke="#4D4D3C" stroke-width="2.4" stroke-dasharray="9 6"></circle><circle cx="300" cy="330" r="48" fill="none" stroke="#4D4D3C" stroke-width="2.4" stroke-dasharray="9 6"></circle><circle cx="300" cy="330" r="64" fill="none" stroke="#4D4D3C" stroke-width="2.4" stroke-dasharray="9 6"></circle><circle cx="300" cy="330" r="80" fill="none" stroke="#4D4D3C" stroke-width="2.4" stroke-dasharray="9 6"></circle><circle cx="300" cy="330" r="4" fill="#4D4D3C"></circle><circle cx="860" cy="180" r="18" fill="none" stroke="#4D4D3C" stroke-width="2.6" stroke-dasharray="9 6"></circle><circle cx="860" cy="180" r="36" fill="none" stroke="#4D4D3C" stroke-width="2.6" stroke-dasharray="9 6"></circle><circle cx="860" cy="180" r="54" fill="none" stroke="#4D4D3C" stroke-width="2.6" stroke-dasharray="9 6"></circle><circle cx="860" cy="180" r="72" fill="none" stroke="#4D4D3C" stroke-width="2.6" stroke-dasharray="9 6"></circle><circle cx="860" cy="180" r="90" fill="none" stroke="#4D4D3C" stroke-width="2.6" stroke-dasharray="9 6"></circle><circle cx="860" cy="180" r="108" fill="none" stroke="#4D4D3C" stroke-width="2.6" stroke-dasharray="9 6"></circle><circle cx="860" cy="180" r="126" fill="none" stroke="#4D4D3C" stroke-width="2.6" stroke-dasharray="9 6"></circle><circle cx="860" cy="180" r="144" fill="none" stroke="#4D4D3C" stroke-width="2.6" stroke-dasharray="9 6"></circle><circle cx="860" cy="180" r="4" fill="#4D4D3C"></circle><circle cx="820" cy="820" r="17" fill="none" stroke="#4D4D3C" stroke-width="2.4" stroke-dasharray="9 6"></circle><circle cx="820" cy="820" r="34" fill="none" stroke="#4D4D3C" stroke-width="2.4" stroke-dasharray="9 6"></circle><circle cx="820" cy="820" r="51" fill="none" stroke="#4D4D3C" stroke-width="2.4" stroke-dasharray="9 6"></circle><circle cx="820" cy="820" r="68" fill="none" stroke="#4D4D3C" stroke-width="2.4" stroke-dasharray="9 6"></circle><circle cx="820" cy="820" r="85" fill="none" stroke="#4D4D3C" stroke-width="2.4" stroke-dasharray="9 6"></circle><circle cx="820" cy="820" r="102" fill="none" stroke="#4D4D3C" stroke-width="2.4" stroke-dasharray="9 6"></circle><circle cx="820" cy="820" r="4" fill="#4D4D3C"></circle></g></svg>
+    <h2 data-reveal="left" style="position:relative;z-index:1;margin:0;font-size:clamp(24px,2.4vw,35.2px);line-height:1.05;font-weight:400;letter-spacing:-.01em;color:#4D4D3C"><span style="display:block;font-family:var(--font-sans);font-weight:300">Our Story,</span><span style="display:block;font-family:var(--font-serif);font-weight:400">in four parts</span></h2>
+    <span data-reveal="left" data-reveal-delay="240" onMouseEnter="{{ hv.story }}" onMouseLeave="{{ ctaOff }}" data-ghost="1" style="position:relative;z-index:1;display:inline-flex;margin-top:10px">
       <x-import component-from-global-scope="TheGoodCraftCoDesignSystem_6c692a.Button" variant="primary" size="md" icon-right="{{ ar.story }}" hint-size="190px,42px">Discover Our Story</x-import>
     </span>
   </div>
@@ -233,7 +234,7 @@ span[data-lite="1"] button{background:#DBBC88!important;border-color:#DBBC88!imp
 </section>
 
 <section data-screen-label="06b Explore more" style="overflow:hidden;background:#FBF3E1;padding:56px 32px 24px;display:flex;flex-direction:column;gap:10px">
-  <h2 data-reveal="left" style="margin:0;font-family:var(--font-serif);font-size:clamp(24px,2.4vw,35.2px);line-height:1.05;font-weight:400;letter-spacing:-.01em;color:#4D4D3C;">Explore More, <span style="font-family:Uniform,'Avenir Next',system-ui,sans-serif;opacity:.55">in flavour &amp; finish</span></h2>
+  <h2 data-reveal="left" style="margin:0;font-size:clamp(24px,2.4vw,35.2px);line-height:1.05;font-weight:400;letter-spacing:-.01em;color:#4D4D3C;"><span style="display:block;font-family:var(--font-sans);font-weight:300">Explore More,</span><span style="display:block;font-family:var(--font-serif);font-weight:400">in flavour &amp; finish</span></h2>
 </section>
 
 <section data-screen-label="07 Dining + Shop" style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,480px),1fr))">
@@ -282,7 +283,7 @@ span[data-lite="1"] button{background:#DBBC88!important;border-color:#DBBC88!imp
         <style>#tgcc-nl-email::placeholder{color:#B56C59;opacity:1}#tgcc-nl-form:focus-within{border-bottom-color:#793C23}</style>
         <span style="font-size:12px;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:#793C23;margin-bottom:2px">Newsletter</span>
         <sc-if value="{{ nlOpen }}" hint-placeholder-val="{{ true }}">
-          <form id="tgcc-nl-form" onSubmit="{{ nlSubmit }}" novalidate style="display:flex;align-items:center;gap:12px;margin-top:4px;border-bottom:1px solid rgba(121,60,35,.55);transition:border-color 200ms ease">
+          <form id="tgcc-nl-form" onSubmit="{{ nlSubmit }}" novalidate="" style="display:flex;align-items:center;gap:12px;margin-top:4px;border-bottom:1px solid rgba(121,60,35,.55);transition:border-color 200ms ease">
             <input id="tgcc-nl-email" type="email" placeholder="Email" autocomplete="email" aria-label="Email address" style="flex:1;min-width:0;background:transparent;border:0;outline:0;border-radius:0;padding:4px 0 9px;font-family:var(--font-serif);font-size:clamp(18.9px,1.57vw,23.6px);line-height:1.1;color:#4D4D3C">
             <button type="submit" aria-label="Subscribe" style="flex:none;background:transparent;border:0;cursor:pointer;color:#793C23;font-size:20.4px;line-height:1;padding:0 2px 9px">→</button>
           </form>
@@ -296,7 +297,7 @@ span[data-lite="1"] button{background:#DBBC88!important;border-color:#DBBC88!imp
       </div>
     </div>
   </div>
-    <div style="margin-top:20px;aspect-ratio:2172/306;width:100%;flex:none;background-image:url(assets/footer-illustration.png);background-repeat:no-repeat;background-size:100% auto;background-position:0 72%"></div>
+    <div class="tgcc-h18b036e9" style="margin-top:20px;aspect-ratio:2172/306;width:100%;flex:none;background-repeat:no-repeat;background-size:100% auto;background-position:0 72%"></div>
   </div>
   <div style="margin:0 clamp(20px,4vw,56px);padding:14px 0 16px;border-top:1px solid #4D4D3C;display:flex;flex-wrap:wrap;justify-content:space-between;align-items:center;gap:12px;font-family:var(--font-serif);font-size:14px">
     <span>© The Good Craft Co.</span>
@@ -307,8 +308,9 @@ span[data-lite="1"] button{background:#DBBC88!important;border-color:#DBBC88!imp
 </x-dc>
 <script type="text/x-dc" data-dc-script data-props="{&quot;autoplaySeconds&quot;:{&quot;editor&quot;:&quot;int&quot;,&quot;default&quot;:6,&quot;min&quot;:3,&quot;max&quot;:15,&quot;unit&quot;:&quot;s&quot;,&quot;tsType&quot;:&quot;number&quot;}}">
 const EXPS = [
-  { title: 'The Signature Tour', ink: '#FBF3E1', lite: '1', meta: 'Daily · 90 min [TBC]', img: 'assets/exp-tour-v3.jpg', tone: '#705F45', btn: 'Book Now', desc: 'Come walk the craft floor with us. Each stop shows how an ingredient or a step shapes a spirit’s flavour and you finish with a pour of what we make.' },
-  { title: 'Private and Custom', ink: '#FBF3E1', lite: '1', meta: 'By request [TBC]', img: 'assets/exp-custom-bottles.jpg', tone: '#4D4D3C', btn: 'Plan Yours Now', desc: 'Walk and taste in private, with the visit tailored to your group, your pace and your occasion. Tell us what you\'re curious about and we\'ll shape each stop and each pour around it.' },
+  { title: 'The Signature Tour', ink: '#FBF3E1', lite: '1', meta: 'Daily · 90 min [TBC]', img: 'assets/signature-tour.png', tone: '#6E2A1C', btn: 'Book Now', desc: 'Come walk the craft floor with us. Each stop shows how an ingredient or a step shapes a spirit’s flavour and you finish with a pour of what we make.' },
+  { title: 'The Tasting Room', ink: '#FBF3E1', lite: '1', meta: 'Daily · 45 min [TBC]', img: 'assets/story-craft.jpg', tone: '#3A2A18', btn: 'Book Now', desc: '[TBC] Sit down with our team and taste through what we make, one pour at a time, with the story of each spirit told as you go.' },
+  { title: 'Private and Custom', ink: '#FBF3E1', lite: '1', meta: 'By request [TBC]', img: 'assets/private-custom.png', tone: '#16202E', btn: 'Plan Yours Now', desc: 'Walk and taste in private, with the visit tailored to your group, your pace and your occasion. Tell us what you\'re curious about and we\'ll shape each stop and each pour around it.' },
 ];
 const NAV = [
   { key: 'exp', label: 'Our Experiences', blurb: 'Tours and bespoke sessions, crafted for the curious.', links: ['The Signature Tour', 'Private & Custom'] },
@@ -344,10 +346,10 @@ const ROUTES = {
   palolem: { d: 'M400.0,840.0C399.8,839.5 398.4,837.1 399.0,837.1C399.6,837.1 401.3,839.8 403.6,840.0C405.9,840.3 412.0,840.5 412.9,838.6C413.9,836.8 410.1,832.6 409.4,829.0C408.7,825.5 410.1,821.2 408.7,817.5C407.3,813.9 402.3,809.9 401.0,807.2C399.7,804.6 401.7,803.3 400.8,801.6C400.0,800.0 395.5,800.4 396.0,797.3C396.5,794.2 403.0,786.6 403.8,783.1C404.6,779.5 400.4,778.1 400.6,775.9C400.8,773.7 404.8,771.5 405.1,770.0C405.5,768.5 402.8,768.1 402.6,767.0C402.5,765.9 404.5,765.9 404.2,763.2C403.9,760.5 400.7,753.7 400.6,750.9C400.5,748.1 403.2,748.1 403.4,746.3C403.6,744.5 401.3,742.0 401.9,740.1C402.5,738.2 406.7,738.5 407.0,734.9C407.4,731.4 405.5,723.7 403.8,719.0C402.2,714.2 400.9,711.5 397.0,706.5C393.1,701.6 383.6,693.6 380.5,689.1C377.4,684.6 380.7,682.9 378.3,679.6C375.9,676.3 368.8,674.9 366.1,669.3C363.4,663.6 363.6,650.8 362.1,645.7C360.6,640.6 360.0,641.3 357.0,638.6C354.0,635.9 346.9,634.4 344.2,629.4C341.4,624.4 343.0,614.9 340.6,608.5C338.2,602.0 329.8,595.1 329.9,590.9C330.0,586.7 339.2,586.9 341.4,583.3C343.6,579.8 343.1,573.0 343.1,569.6C343.2,566.2 343.4,566.4 341.7,562.9C340.0,559.5 333.3,553.1 332.8,548.9C332.3,544.8 336.8,540.6 338.7,538.0C340.5,535.4 343.5,535.2 344.1,533.5C344.7,531.7 341.5,529.4 342.3,527.3C343.1,525.3 347.7,523.6 349.0,521.3C350.3,519.0 348.5,516.0 350.2,513.5C351.9,511.1 357.3,510.3 359.2,506.6C361.2,503.0 362.3,496.0 361.9,491.5C361.5,487.0 356.2,482.3 356.8,479.6C357.4,476.9 363.7,476.8 365.5,475.3C367.2,473.8 368.1,473.3 367.2,470.4C366.2,467.5 361.2,462.1 359.6,458.0C358.1,453.8 357.3,448.6 357.8,445.6C358.3,442.7 360.6,441.3 362.7,440.4C364.7,439.4 368.8,440.1 370.0,440.0', len: 536 }
 };
 const DOTS = [
-  { id: 'land', n: 'Our Land', img: 'assets/story-land-v2.jpg', icon: 'assets/story-icon-land.png', ring: 'A place for the conservation and conversation of Indian craft spirits. Good craft starts well before the first pour. · ', body: 'What\'s grown and made in our soil leaves its mark on how it tastes. A spirit from one region will never taste quite like another and that difference is our essence.' },
-  { id: 'forgotten', n: 'Our Roots', img: 'assets/story-ingredients-v2.jpg', icon: 'assets/story-icon-forgotten.png', ring: 'A place for the conservation and conversation of Indian craft spirits. Good craft starts well before the first pour. · ', body: 'We start with what the land gives us and let it lead. Grown across India and chosen for the flavour they bring.' },
-  { id: 'hands', n: 'Our Hands', pos: '75% 40%', img: 'assets/story-hands-beans.jpg', icon: 'assets/story-icon-hands.png', ring: 'A place for the conservation and conversation of Indian craft spirits. Good craft starts well before the first pour. · ', body: 'Every bottle carries the taste of their decisions made along the way, from the field to the still, by people who learned the work by doing it.' },
-  { id: 'lightly', n: 'Our Craft', pos: '50% 45%', img: 'assets/story-craft-stills.jpg', icon: 'assets/story-icon-craft.png', ring: 'A place for the conservation and conversation of Indian craft spirits. Good craft starts well before the first pour. · ', body: 'Every stage changes the flavour of what reaches the glass. Each one is tested against taste, not by the clock.' },
+  { id: 'land', n: 'Our Land', img: 'assets/story-land.jpg', icon: 'assets/story-land-icon.webp', ring: 'A place for the conservation and conversation of Indian craft spirits. Good craft starts well before the first pour. · ', body: 'What\'s grown and made in our soil leaves its mark on how it tastes. A spirit from one region will never taste quite like another and that difference is our essence.' },
+  { id: 'forgotten', n: 'Our Roots', img: 'assets/story-roots.jpg', icon: 'assets/story-roots-icon.webp', ring: 'A place for the conservation and conversation of Indian craft spirits. Good craft starts well before the first pour. · ', body: 'We start with what the land gives us and let it lead. Grown across India and chosen for the flavour they bring.' },
+  { id: 'hands', n: 'Our Hands', pos: '75% 40%', img: 'assets/story-hands.jpg', icon: 'assets/story-hands-icon.webp', ring: 'A place for the conservation and conversation of Indian craft spirits. Good craft starts well before the first pour. · ', body: 'Every bottle carries the taste of their decisions made along the way, from the field to the still, by people who learned the work by doing it.' },
+  { id: 'lightly', n: 'Our Craft', pos: '50% 45%', img: 'assets/story-craft.jpg', icon: 'assets/story-craft-icon.png', ring: 'A place for the conservation and conversation of Indian craft spirits. Good craft starts well before the first pour. · ', body: 'Every stage changes the flavour of what reaches the glass. Each one is tested against taste, not by the clock.' },
 ];
 const AWARDS = [
   { t: "India's Best", s: 'Award body · Year [TBC]' },
@@ -408,7 +410,8 @@ class Component extends DCLogic {
     }), 30);
   }
   secs() { return Math.max(3, this.props.autoplaySeconds ?? 6); }
-  start() { clearInterval(this.t); this.t = setInterval(() => { if (!this.state.paused) this.go(this.state.exp + 1); }, this.secs() * 1000); }
+  start() { clearInterval(this.t); this.t = setInterval(() => { if (!this.state.paused) this.pick(this.state.exp + 1); }, this.secs() * 1000); }
+  pick(i, hold) { const N = EXPS.length; i = (i + N) % N; this.setState({ exp: i, bg: i, txt: i, paused: !!hold }); }
   go(i) {
     const N = EXPS.length; i = (i + N) % N;
     if (this.busy || i === this.state.exp) return;
@@ -471,12 +474,12 @@ class Component extends DCLogic {
       menuOpen: !!menu, menu: menu || NAV[0],
       menuLinks: (menu || NAV[0]).links.map(l => ({ label: l, enter: () => this.setState({ sub: l }), line: s.sub === l ? '100%' : '0%', ar: arrow(s.sub === l) })),
       subLeave: () => this.setState({ sub: null }),
-      awardsLoop: [...AWARDS, ...AWARDS],
-      exps: EXPS.map((e, i) => ({ ...e, i, grad: gradFor(e.tone), op: i === s.bg ? 1 : 0, scale: i === s.bg ? 1.06 : 1 })),
+      awardsLoop: [...AWARDS, ...AWARDS], awards: AWARDS.slice(0, 3),
+      exps: EXPS.map((e, i) => ({ ...e, i, op: i === s.exp ? 1 : 0, pe: i === s.exp ? 'auto' : 'none', ty: i === s.exp ? '0px' : '14px', scale: i === s.exp ? 1.04 : 1 })),
       tone: EXPS[s.exp].tone,
       cur: { ...EXPS[s.txt], line: EXPS[s.txt].lite === '1' ? 'rgba(251,243,225,.3)' : 'rgba(46,46,34,.25)' }, txtOp: s.txtOp, txtY: s.txtY || '0px',
       num: pad(s.numI + 1), numOp: s.numOp,
-      tabs: EXPS.map((e, i) => ({ i, img: e.img, title: e.title, num: pad(i + 1), go: () => this.go(i), op: i === s.exp ? 1 : .55, bc: i === s.exp ? EXPS[s.exp].ink : 'transparent' })),
+      tabs: EXPS.map((e, i) => ({ i, title: e.title, go: () => this.pick(i, true), op: i === s.exp ? 1 : .35, ar: arrow(i === s.exp) })),
       cards: EXPS.map((e, i) => {
         const slotOf = (a) => ((i - a - 1 + N) % N) - (i === a ? N : 0);
         const slot = slotOf(s.exp), was = slotOf(s.prevExp ?? s.exp);
@@ -497,16 +500,16 @@ class Component extends DCLogic {
         { k: '', kd: 'none', lines: ['Ponda, Goa', 'Whitefield, Bengaluru'] },
       ],
       cities: [
-        tileFor('goa', { reveal: 'left', title: 'Goa', img: 'assets/goa.png', eyebrow: 'The distillery · Ponda', body: 'Our home and working distillery, set among the spice farms of Ponda. Visit for a tour and tasting, or join an upcoming event on the grounds.', points: ['The distillery', 'Ponda, Goa'], cta: 'Upcoming events' }),
-        tileFor('blr', { reveal: 'right', title: 'Bangalore', img: 'assets/bangalore.png', eyebrow: 'R&D · Whitefield, Bangalore', body: 'Our innovation centre in Whitefield, where we experiment with new Indian ingredients and methods. Small, hands-on sessions with the team behind our next spirits.', points: ['R&D', 'Whitefield, Bangalore'], cta: 'Enquire now' }),
+        tileFor('goa', { reveal: 'left', title: 'Goa', img: '', eyebrow: 'The distillery · Ponda', body: 'Our home and working distillery, set among the spice farms of Ponda. Visit for a tour and tasting, or join an upcoming event on the grounds.', points: ['The distillery', 'Ponda, Goa'], cta: 'Upcoming events' }),
+        tileFor('blr', { reveal: 'right', title: 'Bangalore', img: '', eyebrow: 'R&D · Whitefield, Bangalore', body: 'Our innovation centre in Whitefield, where we experiment with new Indian ingredients and methods. Small, hands-on sessions with the team behind our next spirits.', points: ['R&D', 'Whitefield, Bangalore'], cta: 'Enquire now' }),
       ],
       tileLeave: () => this.setState({ tile: null }),
       dots: DOTS.map((d, i) => { const on = s.dot === d.id; const n = d.ring.length; return { ...d, ringFont: 12, ringSz: Math.round(2 * (12 * 91.24 / (2 * Math.PI) + 12)), delay: 200 + i * 260, idx: pad(i + 1), on, enter: () => this.setState({ dot: d.id }), flex: on ? 2.6 : 1, scale: on ? 1.04 : 1.12, dim: on ? .5 : (s.dot ? .62 : .4), bodyOp: on ? 1 : 0, bodyH: on ? '190px' : '0px', bodyM: on ? '14px' : '0px', dotScale: on ? 1.68 : 1, pos: d.pos || '50% 50%' }; }),
       dotLeave: () => this.setState({ dot: null }),
       ringSize: 300, ringWeight: 600,
       ds: [
-        tileFor('dining', { delay: 0, title: 'Dining & Bar', img: 'assets/dining.png', body: 'Chef Madhav\'s 4- and 6-course menus, built around Goan produce, with our spirits poured at the bar.', points: [], cta: 'Reserve A Table' }),
-        tileFor('shop', { delay: 180, title: 'Shop', img: 'assets/shop.png', body: 'Take a bottle, a glass or a piece of the craft home.', points: ['Available in store.'], cta: 'Here’s a Glimpse' }),
+        tileFor('dining', { delay: 0, title: 'Dining & Bar', img: 'assets/dining.webp', body: 'Chef Madhav\'s 4- and 6-course menus, built around Goan produce, with our spirits poured at the bar.', points: [], cta: 'Reserve A Table' }),
+        tileFor('shop', { delay: 180, title: 'Shop', img: 'assets/shop.webp', body: 'Take a bottle, a glass or a piece of the craft home.', points: ['Available in store.'], cta: 'Here’s a Glimpse' }),
       ],
       footLogo: 84,
       nlOpen: !s.nlDone, nlDone: !!s.nlDone, nlMsg: s.nlMsg || '',
