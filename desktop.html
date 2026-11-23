@@ -177,16 +177,16 @@ span[data-ghost="1"] button,span[data-ghost="1"] button:hover{background:transpa
   </div>
   <div data-reveal="left" data-reveal-delay="450" style="padding:32px clamp(24px,4vw,56px) 210px;display:flex;flex-direction:column;gap:18px;justify-content:flex-start;min-height:0">
     <div style="display:flex;flex-direction:column;gap:10px"><h2 style="margin:0;font-size:clamp(24px,2.4vw,35.2px);line-height:1.05;font-weight:400;letter-spacing:-.01em;color:#4D4D3C"><span style="display:block;font-family:var(--font-sans);font-weight:300">Find us in</span><span style="display:block;font-family:var(--font-serif);font-weight:400">Ponda, Goa</span></h2></div>
-    <div style="display:grid;grid-template-columns:minmax(0,1fr);max-width:400px;gap:0">
+    <div style="display:grid;grid-template-columns:repeat(2,minmax(0,1fr));column-gap:28px;max-width:560px;margin-top:22px">
       <sc-for list="{{ visitInfo }}" as="v" hint-placeholder-count="4">
-        <div style="display:flex;flex-direction:column;gap:3px;padding:12px 0;border-top:1px solid rgba(77,77,60,.25)">
+        <div style="grid-column:{{ v.col }};display:flex;flex-direction:column;gap:3px;padding:12px 0;border-top:1px solid rgba(77,77,60,.25)">
           <span style="display:{{ v.kd }};font-size:11px;letter-spacing:.12em;text-transform:uppercase;font-weight:500;color:#4D4D3C">{{ v.k }}</span>
           <sc-for list="{{ v.lines }}" as="ln" hint-placeholder-count="2"><span style="font-size:14px;line-height:1.45;color:#4D4D3C">{{ ln }}</span></sc-for>
         </div>
       </sc-for>
     </div>
   </div>
-  <img src="assets/visit-illustration.webp" alt="A copper still, a barrel and leaves" style="position: absolute; display: block; width: 466px; aspect-ratio: 1400/601; pointer-events: none; right: 0; height: 200px; bottom: 0">
+  <img src="assets/visit-illustration.webp" alt="A copper still, a barrel and leaves" style="position: absolute; display: block; width: 489px; aspect-ratio: 1400/601; pointer-events: none; right: 0; height: 210px; bottom: 0">
 </section>
 
 
@@ -495,9 +495,9 @@ class Component extends DCLogic {
       routeOff: (() => { const e = (t) => t < .5 ? 4 * t * t * t : 1 - Math.pow(-2 * t + 2, 3) / 2; const k = e(Math.min(1, (s.lineN ?? 999) / 48)); return ROUTES[sel.id].len * (1 - k); })(),
       sel, placeLeave: () => this.setState({ hoverPlace: null }),
       visitInfo: [
-        { k: 'Opening hours', kd: 'block', lines: ['From Tuesday to Sunday,', '11:00 A.M. to 7:00 P.M.', 'Closed on Mondays.'] },
-        { k: 'Facilities', kd: 'block', lines: ['Step-free access throughout.', 'Wheelchairs on request.', 'Free parking is available.', 'Cloakroom on site.'] },
-        { k: '', kd: 'none', lines: ['Ponda, Goa', 'Whitefield, Bengaluru'] },
+        { k: 'Opening hours', kd: 'block', col: 'auto', lines: ['From Tuesday to Sunday,', '11:00 A.M. to 7:00 P.M.', 'Closed on Mondays.'] },
+        { k: 'Facilities', kd: 'block', col: 'auto', lines: ['Step-free access throughout.', 'Wheelchairs on request.', 'Free parking is available.'] },
+        { k: '', kd: 'none', col: '1 / -1', lines: ['Ponda, Goa', 'Whitefield, Bengaluru'] },
       ],
       cities: [
         tileFor('goa', { reveal: 'left', title: 'Goa', img: '', eyebrow: 'The distillery · Ponda', body: 'Our home and working distillery, set among the spice farms of Ponda. Visit for a tour and tasting, or join an upcoming event on the grounds.', points: ['The distillery', 'Ponda, Goa'], cta: 'Upcoming events' }),
@@ -509,7 +509,7 @@ class Component extends DCLogic {
       ringSize: 300, ringWeight: 600,
       ds: [
         tileFor('dining', { delay: 0, title: 'Dining & Bar', img: 'assets/dining.webp', body: 'Chef Madhav\'s 4- and 6-course menus, built around Goan produce, with our spirits poured at the bar.', points: [], cta: 'Reserve A Table' }),
-        tileFor('shop', { delay: 180, title: 'Shop', img: 'assets/shop.webp', body: 'Take a bottle, a glass or a piece of the craft home.', points: ['Available in store.'], cta: 'Here’s a Glimpse' }),
+        tileFor('shop', { delay: 180, title: 'Shop', img: 'assets/shop.webp', body: 'Take a bottle, a glass or a piece of the craft home.', points: [], cta: 'Here’s a Glimpse' }),
       ],
       footLogo: 84,
       nlOpen: !s.nlDone, nlDone: !!s.nlDone, nlMsg: s.nlMsg || '',
