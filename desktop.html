@@ -117,7 +117,6 @@ span[data-ghost="1"] button,span[data-ghost="1"] button:hover{background:transpa
       </sc-for>
     </div>
     <div style="position:relative;background:{{ tone }};transition:background 700ms ease;padding:clamp(28px,3vw,48px) clamp(24px,3vw,48px);display:flex;flex-direction:column;justify-content:center;gap:22px">
-      <span style="font-size:11px;font-weight:500;letter-spacing:.12em;text-transform:uppercase;color:#DBBC88">Experiences we offer</span>
       <div style="display:flex;flex-direction:column;gap:6px">
         <sc-for list="{{ tabs }}" as="tb" hint-placeholder-count="3">
           <button onMouseEnter="{{ tb.go }}" onFocus="{{ tb.go }}" onClick="{{ tb.go }}" style="display:flex;align-items:center;gap:10px;padding:4px 0;margin:0;background:transparent;border:0;cursor:pointer;text-align:left;font-family:var(--font-serif);font-weight:400;font-size:clamp(28px,2.6vw,44px);line-height:1.1;letter-spacing:-.01em;color:#FBF3E1;transition:opacity 350ms ease;opacity:{{ tb.op }}">{{ tb.ar }}<span>{{ tb.title }}</span></button>
@@ -308,9 +307,9 @@ span[data-ghost="1"] button,span[data-ghost="1"] button:hover{background:transpa
 </x-dc>
 <script type="text/x-dc" data-dc-script data-props="{&quot;autoplaySeconds&quot;:{&quot;editor&quot;:&quot;int&quot;,&quot;default&quot;:6,&quot;min&quot;:3,&quot;max&quot;:15,&quot;unit&quot;:&quot;s&quot;,&quot;tsType&quot;:&quot;number&quot;}}">
 const EXPS = [
-  { title: 'The Signature Tour', ink: '#FBF3E1', lite: '1', meta: 'Daily · 90 min [TBC]', img: 'assets/signature-tour.png', tone: '#6E2A1C', btn: 'Book Now', desc: 'Come walk the craft floor with us. Each stop shows how an ingredient or a step shapes a spirit’s flavour and you finish with a pour of what we make.' },
-  { title: 'The Tasting Room', ink: '#FBF3E1', lite: '1', meta: 'Daily · 45 min [TBC]', img: 'assets/story-craft.jpg', tone: '#3A2A18', btn: 'Book Now', desc: '[TBC] Sit down with our team and taste through what we make, one pour at a time, with the story of each spirit told as you go.' },
-  { title: 'Private and Custom', ink: '#FBF3E1', lite: '1', meta: 'By request [TBC]', img: 'assets/private-custom.png', tone: '#16202E', btn: 'Plan Yours Now', desc: 'Walk and taste in private, with the visit tailored to your group, your pace and your occasion. Tell us what you\'re curious about and we\'ll shape each stop and each pour around it.' },
+  { title: 'The Signature Tour', ink: '#FBF3E1', lite: '1', meta: 'Daily · 90 min', img: 'assets/signature-tour.png', tone: '#6E2A1C', btn: 'Book Now', desc: 'Come walk the craft floor with us. Each stop shows how an ingredient or a step shapes a spirit’s flavour and you finish with a pour of what we make.' },
+  { title: 'The Tasting Room', ink: '#FBF3E1', lite: '1', meta: 'Daily · 45 min', img: 'assets/story-craft.jpg', tone: '#3A2A18', btn: 'Book Now', desc: 'Sit down with our team and taste through what we make, one pour at a time, with the story of each spirit told as you go.' },
+  { title: 'Private and Custom', ink: '#FBF3E1', lite: '1', meta: 'By request', img: 'assets/private-custom.png', tone: '#16202E', btn: 'Plan Yours Now', desc: 'Walk and taste in private, with the visit tailored to your group, your pace and your occasion. Tell us what you\'re curious about and we\'ll shape each stop and each pour around it.' },
 ];
 const NAV = [
   { key: 'exp', label: 'Our Experiences', blurb: 'Tours and bespoke sessions, crafted for the curious.', links: ['The Signature Tour', 'Private & Custom'] },
@@ -352,10 +351,10 @@ const DOTS = [
   { id: 'lightly', n: 'Our Craft', pos: '50% 45%', img: 'assets/story-craft.jpg', icon: 'assets/story-craft-icon.png', ring: 'A place for the conservation and conversation of Indian craft spirits. Good craft starts well before the first pour. · ', body: 'Every stage changes the flavour of what reaches the glass. Each one is tested against taste, not by the clock.' },
 ];
 const AWARDS = [
-  { t: "India's Best", s: 'Award body · Year [TBC]' },
-  { t: "Goa's Best", s: 'Award body · Year [TBC]' },
-  { t: "Asia's First", s: 'Award body · Year [TBC]' },
-  { t: "India's First", s: 'Award body · Year [TBC]' },
+  { t: "India's Best", s: 'Award body · Year' },
+  { t: "Goa's Best", s: 'Award body · Year' },
+  { t: "Asia's First", s: 'Award body · Year' },
+  { t: "India's First", s: 'Award body · Year' },
 ];
 const ICONS = {
   Instagram: 'M7 2h10a5 5 0 0 1 5 5v10a5 5 0 0 1-5 5H7a5 5 0 0 1-5-5V7a5 5 0 0 1 5-5zM16 11.4A4 4 0 1 1 12.6 8 4 4 0 0 1 16 11.4zM17.5 6.5h.01',
