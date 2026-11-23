@@ -496,8 +496,8 @@ class Component extends DCLogic {
       routeOff: (() => { const e = (t) => t < .5 ? 4 * t * t * t : 1 - Math.pow(-2 * t + 2, 3) / 2; const k = e(Math.min(1, (s.lineN ?? 999) / 48)); return ROUTES[sel.id].len * (1 - k); })(),
       sel, placeLeave: () => this.setState({ hoverPlace: null }),
       visitInfo: [
-        { k: 'Opening Times', kd: 'block', lines: ['Tuesday to Sunday, 11:00 to 19:00'] },
-        { k: 'At the Centre', kd: 'block', lines: ['Step-free access throughout, with wheelchairs on request.', 'Free parking and a cloakroom are on site.'] },
+        { k: 'Opening hours', kd: 'block', lines: ['From Tuesday to Sunday,', '11:00 A.M. to 7:00 P.M.', 'Closed on Mondays.'] },
+        { k: 'Facilities', kd: 'block', lines: ['Step-free access throughout.', 'Wheelchairs on request.', 'Free parking is available.', 'Cloakroom on site.'] },
         { k: '', kd: 'none', lines: ['Ponda, Goa', 'Whitefield, Bengaluru'] },
       ],
       cities: [
