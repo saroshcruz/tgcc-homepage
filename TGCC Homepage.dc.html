@@ -81,8 +81,8 @@ a{color:inherit;text-decoration:none}a:hover{color:inherit;opacity:.86}
     
     <h1 data-reveal="up" data-reveal-delay="340" style="margin: 0; color: #FBF3E1; font-weight: 200; font-size: min(clamp(26px,3.5vw,54px), calc((100vw - 48px) / 22)); line-height: 1.08; letter-spacing: -.01em; font-family:'Newsreader',var(--font-serif);font-weight:250;font-style:normal"><span style="white-space:nowrap">Discover the craft behind every Indian spirit,</span><br><span style="font-weight:450">and the stories that shape it.</span></h1>
   </div>
-  <sc-if value="{{ calOpen }}" hint-placeholder-val="{{ false }}"><div onClick="{{ calClose }}" style="position:absolute;inset:0;z-index:1"></div></sc-if>
-  <div data-screen-label="01b Quick buy" style="position:absolute;z-index:2;left:50%;bottom:clamp(28px,6vh,64px);transform:translateX(-50%);width:min(760px,calc(100% - 40px));display:grid;grid-template-columns:{{ mb.qbCols }};border:1px solid #FFFFFF;color:#FFFFFF">
+  <sc-if value="{{ calOpen }}" hint-placeholder-val="{{ false }}"><div onClick="{{ calClose }}" style="position:fixed;inset:0;z-index:44"></div></sc-if>
+  <div data-screen-label="01b Quick buy" style="position:fixed;z-index:45;left:50%;bottom:clamp(28px,6vh,64px);transform:translateX(-50%);width:min(760px,calc(100% - 40px));display:grid;grid-template-columns:{{ mb.qbCols }};border:1px solid #FFFFFF;color:#FFFFFF">
     <span aria-hidden="true" style="position:absolute;inset:0;z-index:-1;background:rgba(77,77,60,.34);backdrop-filter:blur(16px) saturate(1.05);-webkit-backdrop-filter:blur(16px) saturate(1.05)"></span>
     <div style="position:relative;border-right:1px solid #FFFFFF">
       <button onClick="{{ calToggle }}" style="width:100%;display:flex;flex-direction:column;align-items:flex-start;gap:4px;padding:{{ mb.qbDatePad }};border:0;background:transparent;color:#FFFFFF;font:inherit;text-align:left;cursor:pointer">
@@ -150,7 +150,7 @@ a{color:inherit;text-decoration:none}a:hover{color:inherit;opacity:.86}
           <img src="{{ e.illo }}" alt="" style="position:absolute;inset:0;width:100%;height:100%;object-fit:contain;object-position:center;transition:transform 900ms cubic-bezier(.2,.7,.2,1);transform:scale({{ e.thumbScale }})">
         </div>
         <sc-if value="{{ e.hasFlip }}" hint-placeholder-val="{{ false }}">
-          <button onClick="{{ e.flip }}" aria-label="Next layout variation" style="opacity:0;position:absolute;top:clamp(28px,4vh,48px);right:clamp(24px,3vw,48px);width:40px;height:40px;padding:0;border:1px solid #4D4D3C;border-radius:50%;background:transparent;cursor:pointer;display:grid;place-items:center" ><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#4D4D3C" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M9 6l6 6-6 6"></path></svg></button>
+          <button onClick="{{ e.flip }}" aria-label="Next layout variation" style="opacity:0;position:absolute;top:clamp(28px,4vh,48px);right:clamp(24px,3vw,48px);width:40px;height:40px;padding:0;border:1px solid #4D4D3C;border-radius:50%;background:transparent;cursor:pointer;display:grid;place-items:center"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#4D4D3C" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M9 6l6 6-6 6"></path></svg></button>
         </sc-if>
       </div>
     </sc-for>
@@ -225,8 +225,7 @@ a{color:inherit;text-decoration:none}a:hover{color:inherit;opacity:.86}
         <div style="display:flex;flex-direction:column;gap:4px"><span style="font-size:10px;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:#FFFFFF">From</span><span style="font-family:var(--font-sans);font-size:16px;line-height:1.3;white-space:nowrap">{{ sel.name }}</span></div>
         <div style="display:flex;gap:28px">
         <div style="display:flex;flex-direction:column;gap:4px"><span style="font-size:10px;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:#FFFFFF">By road</span><span style="font-family:var(--font-sans);font-size:16px;line-height:1.3;white-space:nowrap">{{ sel.km }}</span></div>
-        <div style="display:flex;flex-direction:column;gap:4px"><span style="font-size:10px;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:#FFFFFF">Drive time</span><span style="font-family:var(--font-sans);font-size:16px;line-height:1.3;white-space:nowrap">{{ sel.time }}</span></div>
-        </div>
+                </div>
       </div>
     </div>
     <div style="position:absolute;top:{{ mb.stripTop }};left:{{ mb.stripL }};right:{{ mb.stripR }};bottom:{{ mb.stripBot }};z-index:3;width:{{ mb.stripW }};height:{{ mb.stripH }};box-sizing:border-box;transition:background-color 700ms ease;background:{{ loc.bg }};padding:{{ mb.stripPad }};display:flex;flex-direction:column;justify-content:flex-start;gap:clamp(16px,2.6vh,28px);color:#FFFFFF;isolation:isolate;transform:{{ vs.stripT }}">
@@ -267,8 +266,7 @@ a{color:inherit;text-decoration:none}a:hover{color:inherit;opacity:.86}
         <span style="font-size:10px;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:#FFFFFF">From {{ sel.name }}</span>
         <div style="display:flex;gap:18px">
           <div style="display:flex;flex-direction:column;gap:2px"><span style="font-family:var(--font-sans);font-size:16px;line-height:1.3">{{ sel.km }}</span><span style="font-size:11px;color:#FFFFFF">by road</span></div>
-          <div style="display:flex;flex-direction:column;gap:2px"><span style="font-family:var(--font-sans);font-size:16px;line-height:1.3">{{ sel.time }}</span><span style="font-size:11px;color:#FFFFFF">drive time</span></div>
-        </div>
+                  </div>
       </div>
       <a href="{{ loc.ctaHref }}" target="{{ loc.ctaTarget }}" rel="noopener" style="flex:none;display:inline-flex;align-items:center;gap:10px;padding:14px 22px;border-radius:999px;background:#FFFFFF;border:1px solid #FFFFFF;color:#4D4D3C;font-family:var(--font-sans);font-size:13px;font-weight:600;letter-spacing:.12em;text-transform:uppercase;white-space:nowrap">{{ loc.cta }}</a>
     </div>
@@ -311,9 +309,8 @@ a{color:inherit;text-decoration:none}a:hover{color:inherit;opacity:.86}
   <div style="position:relative;min-height:{{ mb.stImgH }};order:{{ mb.o2 }};background:{{ mb.stImgBg }}">
     <div data-reveal="fade" data-reveal-delay="400" style="position:absolute;inset:{{ mb.stColInset }}">
       <div style="position:absolute;left:0%;top:30%;width:17%;height:36%;background:#E7DEC8"><image-slot id="story-collage-1" shape="rect" radius="0" placeholder="Image 1" style="display:block;width:100%;height:100%"></image-slot></div>
-      <div style="position:absolute;left:17%;top:4%;width:17%;height:22%;background:#E7DEC8"><image-slot id="story-collage-2" shape="rect" radius="0" placeholder="Image 2" style="display:block;width:100%;height:100%"></image-slot></div>
-      <div style="position:absolute;left:17%;top:26%;width:17%;height:30%;background:#E7DEC8"><image-slot id="story-collage-3" shape="rect" radius="0" placeholder="Image 3" style="display:block;width:100%;height:100%"></image-slot></div>
-      <div style="position:absolute;left:17%;top:56%;width:17%;height:30%;background:#E7DEC8"><image-slot id="story-collage-8" shape="rect" radius="0" placeholder="Image 8" style="display:block;width:100%;height:100%"></image-slot></div>
+      <div style="position:absolute;left:17%;top:8%;width:17%;height:24%;background:#E7DEC8"><image-slot id="story-collage-2" shape="rect" radius="0" placeholder="Image 2" style="display:block;width:100%;height:100%"></image-slot></div>
+      <div style="position:absolute;left:17%;top:32%;width:17%;height:34%;background:#E7DEC8"><image-slot id="story-collage-3" shape="rect" radius="0" placeholder="Image 3" style="display:block;width:100%;height:100%"></image-slot></div>
       <div style="position:absolute;left:34%;top:18%;width:32%;height:56%;background:#E7DEC8"><image-slot id="story-collage-4" shape="rect" radius="0" placeholder="Image 4" style="display:block;width:100%;height:100%"></image-slot></div>
       <div style="position:absolute;left:66%;top:26%;width:17%;height:28%;background:#E7DEC8"><image-slot id="story-collage-5" shape="rect" radius="0" placeholder="Image 5" style="display:block;width:100%;height:100%"></image-slot></div>
       <div style="position:absolute;left:66%;top:54%;width:17%;height:36%;background:#E7DEC8"><image-slot id="story-collage-6" shape="rect" radius="0" placeholder="Image 6" style="display:block;width:100%;height:100%"></image-slot></div>
@@ -397,11 +394,10 @@ a{color:inherit;text-decoration:none}a:hover{color:inherit;opacity:.86}
     </div>
   </div>
   <div style="position:relative;margin:clamp(32px,3vw,44px) clamp(24px,6vw,96px) 0;padding:14px 0;border-top:1px solid rgba(251,243,225,.22);border-bottom:1px solid rgba(251,243,225,.22);display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:20px 40px">
-    <span style="flex:none;font-size:11px;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:#E7DEC8;text-align:left">Minimum drinking age is 21. Please drink responsibly.</span>
-    <div style="flex:1 1 0;min-width:0;display:flex;flex-wrap:wrap;justify-content:flex-end;align-items:center;gap:20px 28px">
+    <div style="flex:1 1 0;min-width:0;display:flex;flex-wrap:wrap;align-items:center;gap:20px 28px">
       <span style="font-size:13px;color:#E7DEC8">The Good Craft Co. · All rights reserved · ©2026</span>
       <a href="#" style="font-size:13px;color:#E7DEC8">Privacy policy</a>
-      <a href="#" style="font-size:13px;color:#E7DEC8">Terms & conditions</a>
+      <a href="#" style="font-size:13px;color:#E7DEC8">Terms &amp; conditions</a>
       <a href="#" style="font-size:13px;color:#E7DEC8">Cookie policy</a>
       <a href="#" style="font-size:13px;color:#E7DEC8">Complaints policy</a>
     </div>
